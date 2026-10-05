@@ -1,0 +1,53 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# Revit temp/backups
+*.0001.rvt
+*.0002.rvt
+*.0003.rvt
+*.slog
+
+# Proprietary CAD/BIM project data
+*.dwg
+*.rvt
+*.rfa
+*.nwc
+*.nwd
+
+# Private/local datasets
+datasets/private/
+datasets/raw/
+
+# OS
+Thumbs.db
+.DS_Store
