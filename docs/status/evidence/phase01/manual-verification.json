@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08 Asia/Seoul",
+  "launch": "PASS",
+  "newProject": "PASS - owner assisted native Save dialog",
+  "saveRestartRecentReopen": "PASS - actual DtoB.exe window and JSON metadata compared",
+  "projectId": "89c4a5d0-3d36-4907-b180-f538ed0c0cb0",
+  "createdAt": "2026-10-07T22:27:55.2517746+00:00",
+  "modifiedAt": "2026-10-07T22:30:19.0492676+00:00",
+  "dtoBVersion": "0.2.0",
+  "projectFile": "artifacts/phase01/manual/Project.dtob",
+  "settings": "PASS - Working Directory saved via Settings UI, application closed/relaunched and same value observed",
+  "recent": "PASS - newest project first, two entries retained, successful reopen keeps two without duplicate",
+  "corruptedProject": "PASS after fix - owner selected corrupted.dtob; DtoB error dialog observed; same project metadata retained; owner confirmed after OK",
+  "errorRegression": "Initially FATAL because InvalidDataException was omitted from expected-error filters. Shared LocalFileErrors policy fixes project and startup settings/recent handlers; actual retry logs ERROR Open failed, not FATAL.",
+  "fatalLog": "Actual pre-fix failure produced FATAL with exception stack; preserved as sanitized excerpt",
+  "uiToolLimitation": "Native file-dialog coordinate/accessibility input failed; owner assisted Save/Open selection. Main WPF UI and restart observed by agent."
+}

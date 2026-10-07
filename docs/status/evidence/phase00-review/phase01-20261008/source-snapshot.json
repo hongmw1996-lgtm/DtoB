@@ -1,0 +1,201 @@
+{
+  "sourceTreeSha256": "E5ACDC7DCE7EF374AF7DF66345C8448FDB08B12E242F7BF989AB5353D2DDDFF1",
+  "baseCommit": "4d7357f3ce070923138918c380b110537cf55a5a",
+  "workingTreeModified": true,
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "apps/DtoB.Desktop/App.xaml",
+      "sha256": "3E275D4B1102F11DB72C8D70069FB39A73AEDEB63F9EF40B68F967E2F15A1692"
+    },
+    {
+      "path": "apps/DtoB.Desktop/App.xaml.cs",
+      "sha256": "96EDBE5C260A571662292F90341C8A1D39F98394395E59458196D04D150E7131"
+    },
+    {
+      "path": "apps/DtoB.Desktop/ConnectionWindow.xaml",
+      "sha256": "CEB0EDB829C9EB0765CA35F13E27645070C08200886F0DDEE6A290C0FB5E4FBB"
+    },
+    {
+      "path": "apps/DtoB.Desktop/ConnectionWindow.xaml.cs",
+      "sha256": "E8D3F54D6A422418D01F01C02E5F1302A3D510A2180C5BCA154908E2A751B89E"
+    },
+    {
+      "path": "apps/DtoB.Desktop/DtoB.Desktop.csproj",
+      "sha256": "D986625118EFCB19E33E56D686363346A6BE77076639F0D3D5D611F6A74FB3F9"
+    },
+    {
+      "path": "apps/DtoB.Desktop/MainWindow.xaml",
+      "sha256": "A8A8B0CB6BE7C23675AD0BE004F9E5780AEA045A6DE1CBEE3068F27841DE7D49"
+    },
+    {
+      "path": "apps/DtoB.Desktop/MainWindow.xaml.cs",
+      "sha256": "18F881D24E353A7933CB173A55D61E2CDD0EF79581C59FF8EDC501122DC727DC"
+    },
+    {
+      "path": "apps/DtoB.Desktop/SettingsWindow.xaml",
+      "sha256": "DF6CDB7842B1460840F2FF322E55C33CE258A6212AC8C4A909D750276B789651"
+    },
+    {
+      "path": "apps/DtoB.Desktop/SettingsWindow.xaml.cs",
+      "sha256": "EC16F928296D4B0A1FBE9A93146044B067C24D7220C06AD331AFC233E2EC5DDA"
+    },
+    {
+      "path": "apps/DtoB.Desktop/ShellViewModel.cs",
+      "sha256": "A66723D6DACCD8D23FBEE1773F2538B0AEF4BC00972C0B2C3893DF125A5A8E5F"
+    },
+    {
+      "path": "datasets/controlled/phase00/bim.json",
+      "sha256": "AFCDAA95FE94136CD0602B40A6D5506D1D1879C6E9EF045214E245F17CE7D642"
+    },
+    {
+      "path": "datasets/controlled/phase00/cad.json",
+      "sha256": "3516217C803CBB37DA182CD61B3C37F0DDF12504A07CE7AD1B619C84273E5621"
+    },
+    {
+      "path": "datasets/controlled/phase00/nested-mirrored.json",
+      "sha256": "99101C660BC45FE0AD0430F25C3FAE9A911E8B86A3CE726297F589D9262F55AB"
+    },
+    {
+      "path": "Directory.Build.props",
+      "sha256": "674C5E705ACCE9CCFBF87CDF6B74A6EDC9088D90F11C467DF474CFFD51D210DB"
+    },
+    {
+      "path": "DtoB.sln",
+      "sha256": "752577F3036B7257F48C3EA5B5F66B7656BE45919B1C4C55799F8D21E2FFE303"
+    },
+    {
+      "path": "global.json",
+      "sha256": "642F6E00D5CAC9C3B12E345324AB9CF32461E0CFEF77FC46F062FB611F80E731"
+    },
+    {
+      "path": "packages/DtoB.Bim/BimContracts.cs",
+      "sha256": "32E3795A81E9E83134037D826482327995EFB9F90C283E8A2072706E55C3EC1B"
+    },
+    {
+      "path": "packages/DtoB.Bim/DtoB.Bim.csproj",
+      "sha256": "B5349CD188479FA503D83873F1707000BF5657115A8F74E008A588937D5C2B26"
+    },
+    {
+      "path": "packages/DtoB.Cad/CadContracts.cs",
+      "sha256": "D8B78BAC1FD26B8313F4B0C8E3A9EA85FCA3FBAE42FB089B2894565F4D16351A"
+    },
+    {
+      "path": "packages/DtoB.Cad/DtoB.Cad.csproj",
+      "sha256": "B5349CD188479FA503D83873F1707000BF5657115A8F74E008A588937D5C2B26"
+    },
+    {
+      "path": "packages/DtoB.Core/Contracts.cs",
+      "sha256": "FEA07C7E190F64FFDFF704F98F82D89D47FCD3B28A2D804C5EEE8B83E0026A7A"
+    },
+    {
+      "path": "packages/DtoB.Core/DtoB.Core.csproj",
+      "sha256": "9195AC8506107C73AB29639EA73C3C7211152718AC425FEBB1DB7812AE942062"
+    },
+    {
+      "path": "packages/DtoB.Geometry/DtoB.Geometry.csproj",
+      "sha256": "CDAE33E98272B6B1AC4A65858D601D149EBE13DE765B5C9283FC28CAB1EC1910"
+    },
+    {
+      "path": "packages/DtoB.Geometry/Geometry.cs",
+      "sha256": "CC2769D1E11144E362AEBFC3C95D85EA68D774BF8741A7D2286F6716A18933A4"
+    },
+    {
+      "path": "packages/DtoB.Ipc/DtoB.Ipc.csproj",
+      "sha256": "9195AC8506107C73AB29639EA73C3C7211152718AC425FEBB1DB7812AE942062"
+    },
+    {
+      "path": "packages/DtoB.Ipc/PipeProtocol.cs",
+      "sha256": "BC8753BE1530B1B3184D19A905DC943E5CBE6F709987D419F7997C683DF8B208"
+    },
+    {
+      "path": "packages/DtoB.Project/DesktopState.cs",
+      "sha256": "1C12B290D8100E75425E554205E9B4A20623070F4F8F8A935E9847C2E463B075"
+    },
+    {
+      "path": "packages/DtoB.Project/DtoB.Project.csproj",
+      "sha256": "E6FCB8E1E93A724D47A829CFFD19D47840A5EB088E9ACE43F3A34BBAF1524B07"
+    },
+    {
+      "path": "packages/DtoB.Project/LocalFileErrors.cs",
+      "sha256": "ABEFABE72EF17AB12BA393377194882EB608B5F75CABEF474A74A0BFCEFDE357"
+    },
+    {
+      "path": "packages/DtoB.Project/ProjectPersistence.cs",
+      "sha256": "DE2388FE23881E4C0B77F79630D6A2FBCE5489005DF19E8AEEB14088230894CD"
+    },
+    {
+      "path": "revit/DtoB.Revit.Core/DtoB.Revit.Core.csproj",
+      "sha256": "31F81C27914D2FB208D2B2071666D85E26BDA884A71AB180B680E2B4903FE6AB"
+    },
+    {
+      "path": "revit/DtoB.Revit.Core/RevitUnits.cs",
+      "sha256": "4315F60033283B1C156AFA3D02CCB314DFDCEAD1FDCA6AB5EFA31E9441F24B0E"
+    },
+    {
+      "path": "revit/DtoB.Revit2025/ConnectorApplication.cs",
+      "sha256": "E3F7C542E2BB67C75C8A69B9341C07C3C56A3C8992296A89AEB0DEEA0DC2F500"
+    },
+    {
+      "path": "revit/DtoB.Revit2025/DtoB.addin.template",
+      "sha256": "29E3E69EF36C9BBD436D2E1FB11709ED2F8FB39D801FD2E76453882D5D2B8504"
+    },
+    {
+      "path": "revit/DtoB.Revit2025/DtoB.Revit2025.csproj",
+      "sha256": "5FE164691CFC0783C87E9AAD50B9A808607D0CF4EB3F27470DB23C1DD36727F4"
+    },
+    {
+      "path": "scripts/Get-Phase00Snapshot.ps1",
+      "sha256": "89961FC17943C05C2B3B07720403A5615FBD8AAAF05E8CBE18A0CCA3DF30A55E"
+    },
+    {
+      "path": "scripts/Install-Phase00Connector.ps1",
+      "sha256": "8BD0E52338F6A52595C74FD5069F511EC6A705732DF3F7B682FF047EDBC2E518"
+    },
+    {
+      "path": "scripts/Verify-Phase00Foundation.ps1",
+      "sha256": "21F239ED64815EFC4D1CAB13DCF9380D21AE4385391FA6E633F9DC68FF1C0902"
+    },
+    {
+      "path": "scripts/Verify-Phase00Host.ps1",
+      "sha256": "35127A180ACE5154B7EDA61AAD9091FAA7398AFBB9271F85DDE4AD6770A138C6"
+    },
+    {
+      "path": "services/DtoB.Analysis/AnalysisBoundary.cs",
+      "sha256": "9A8D485C332C470DDE80AFEC34DA4B57AB3129ECEF5678DDE41A564EF4979B3E"
+    },
+    {
+      "path": "services/DtoB.Analysis/DtoB.Analysis.csproj",
+      "sha256": "5DF16326E7CB318F717BB2E9B804A8E5E5406AF77D3B96836CAB6F58B95FFBB4"
+    },
+    {
+      "path": "tests/DtoB.Tests/ContractTests.cs",
+      "sha256": "BDA9682F33C3B3ACF916E5C74217829C1BA1B245B17BD56536AE7B5A445DD883"
+    },
+    {
+      "path": "tests/DtoB.Tests/DtoB.Tests.csproj",
+      "sha256": "14377848002D6E053AAE8A869EE9ED16D8E8B8AEAF19BCF14C27F6F64575226F"
+    },
+    {
+      "path": "tests/DtoB.Tests/FoundationDocumentTests.cs",
+      "sha256": "2825D33D1BB364D9FA1A2D6D8C1AA48FAA7C512E77C5B9FE4CEB5E4BD5810C7E"
+    },
+    {
+      "path": "tests/DtoB.Tests/GeometryTests.cs",
+      "sha256": "75D23A212D21B993BABAC5D7A4397DC441530FBDAF7CF5AC4F50B117E37F356E"
+    },
+    {
+      "path": "tests/DtoB.Tests/IpcTests.cs",
+      "sha256": "38BE32850E38D8E704F150A4B0562EB774D7254A330F28E882EC56ABBA8127E0"
+    },
+    {
+      "path": "tests/DtoB.Tests/ProjectShellTests.cs",
+      "sha256": "D8236F60924430A1F93F0807557E7A8BCF61477F3B1EBB3B04E1643AF48D82EF"
+    },
+    {
+      "path": "tests/DtoB.Tests/ReviewRegressionTests.cs",
+      "sha256": "5202E6E78596466FB8F71BD9109EF1BFECA8D72FF8FD2E5785241F31123E8AEB"
+    }
+  ],
+  "utc": "2026-10-07T22:32:45.3669579+00:00"
+}
