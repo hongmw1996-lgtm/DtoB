@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <RevitInstallDir Condition="'$(RevitInstallDir)' == ''">C:\Program Files\Autodesk\Revit 2025</RevitInstallDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../packages/DtoB.Ipc/DtoB.Ipc.csproj" />
+    <Reference Include="RevitAPI"><HintPath>$(RevitInstallDir)\RevitAPI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="RevitAPIUI"><HintPath>$(RevitInstallDir)\RevitAPIUI.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckRevitInstallation" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(RevitInstallDir)\RevitAPI.dll') Or !Exists('$(RevitInstallDir)\RevitAPIUI.dll')" Text="Revit API DLLs missing. Set RevitInstallDir to the installed Revit 2025 folder. Proprietary DLLs are not distributed." />
+  </Target>
+</Project>

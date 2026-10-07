@@ -7,7 +7,7 @@ Codex와 Antigravity 모두 같은 Git Repository를 엽니다.
 예:
 
 ```text
-C:\Projects\BIMBraid
+C:\Projects\DtoB
 ```
 
 ## Codex 첫 지시
@@ -15,7 +15,7 @@ C:\Projects\BIMBraid
 ```text
 Read:
 START_HERE.md
-MASTER_PLAN.md
+DtoB_FINAL_MASTER_PLAN.md
 AGENTS.md
 ARCHITECTURE.md
 CODEX_INSTRUCTIONS.md
@@ -33,7 +33,7 @@ Codex가 PHASE 00을 끝낸 뒤:
 
 ```text
 Read:
-MASTER_PLAN.md
+DtoB_FINAL_MASTER_PLAN.md
 AGENTS.md
 ARCHITECTURE.md
 ANTIGRAVITY_INSTRUCTIONS.md

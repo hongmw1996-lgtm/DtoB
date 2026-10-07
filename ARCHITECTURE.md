@@ -1,102 +1,50 @@
-# BIMBraid Architecture
+# DtoB Architecture — PHASE 00
 
-## 1. High-Level Architecture
-
-```text
-┌─────────────────────────────┐
-│          Web UI             │
-│ Upload / Review / Mapping   │
-└─────────────┬───────────────┘
-              │
-              ▼
-┌─────────────────────────────┐
-│       Application API       │
-└───────┬───────────┬─────────┘
-        │           │
-        ▼           ▼
-┌──────────────┐  ┌──────────────┐
-│ Drawing Core │  │ Family Catalog│
-└──────┬───────┘  └───────┬──────┘
-       │                  │
-       └─────────┬────────┘
-                 ▼
-          ┌────────────┐
-          │   BIM IR   │
-          └─────┬──────┘
-                ▼
-        ┌────────────────┐
-        │ Revit Adapter  │
-        └───────┬────────┘
-                ▼
-              RVT
-```
-
-## 2. Layer Responsibilities
-
-### Input Adapter
-- DWG/DXF/PDF 등 입력별 구현
-- 원본 정보를 최대한 보존
-
-### CAD IR
-- LINE
-- POLYLINE
-- ARC
-- CIRCLE
-- TEXT
-- MTEXT
-- INSERT
-- ATTRIB
-- DIMENSION
-- LAYER
-- BLOCK
-
-등 CAD 의미를 표현
-
-### Semantic Engine
-CAD primitive를 건축 의미로 변환
+DtoB_FINAL_MASTER_PLAN.md is the authoritative V1 plan. See docs/adr/ADR-001 through ADR-010 for accepted decisions and docs/PHASE_00_BUILD.md for build/deployment instructions.
 
 ```text
-Parallel Lines → WallCandidate
-Swing Arc + Gap → DoorCandidate
-Closed Rectangle + Grid → ColumnCandidate
+DWG -> IDrawingReader -> CAD IR -> C# Analysis -> BIM IR
+                                                   |
+                               Desktop Review / Mapping (later)
+                                                   |
+                                      Revit Adapter -> Native BIM -> RVT (later)
 ```
 
-### BIM IR
-Revit과 독립적인 건축 객체 모델
+PHASE 00 implements contracts and technical connection verification only. DWG SDK selection is deferred. No actual reader, recognition algorithm, CAD/3D viewer, project management or BIM generation is present.
 
-### Revit Adapter
-BIM IR을 Revit API 호출로 변환
+## Product and project boundaries
 
-## 3. 내부 단위
+- apps/DtoB.Desktop: .NET 8 WPF verification window, explicitly selected Revit PID and PING status.
+- packages/DtoB.Core: source/provenance identity, diagnostics, prediction metadata and JSON policy.
+- packages/DtoB.Geometry: double-precision mm primitives, explicit affine transforms and caller-supplied tolerance.
+- packages/DtoB.Cad: versioned CAD IR and IDrawingReader. Raw/effective CAD metadata and unsupported entity diagnostics retained.
+- packages/DtoB.Bim: versioned BIM IR for Level/Grid/Wall/Column/Door/Window/Floor/Room; domain source of truth.
+- packages/DtoB.Ipc: current-user named-pipe protocol/client/server, no Autodesk dependency.
+- services/DtoB.Analysis: in-process C# library boundary; explicit not-implemented diagnostic.
+- revit/DtoB.Revit.Core: Revit-free boundary helpers (mm/feet conversion).
+- revit/DtoB.Revit2025: sole Autodesk API consumer. net8.0-windows x64; installed API references are never copied locally.
+- tests and datasets/controlled/phase00: xUnit regression tests and synthetic JSON contracts.
 
-Core geometry 기본 단위:
+The CAD parser never references Revit. No separate Python/web service or speculative runtime adapter is created. WebView2 evaluation belongs to future viewer requirements.
 
-```text
-millimeter
-```
+## Revit and IPC
 
-Revit internal unit으로의 변환은 Revit Adapter에서 수행합니다.
+Verified local Revit: 25.4.50.35, product build 20260410_1515(x64), .NET 8 runtime config, installed at D:\프로그램\Revit 2025. Re-check the installed runtime before retargeting.
 
-## 4. Identity
+IExternalApplication captures host metadata in valid Revit startup context and starts a background named-pipe server dtob-revit-PID. Only PING is accepted; all other commands return explicit errors. Frames are length-prefixed UTF-8 JSON (maximum 16 KiB), versioned and correlated. Reads/connects have deadlines; shutdown cancels outstanding work without depending on a UI synchronization context. Diagnostics are logged under %LOCALAPPDATA%\DtoB\logs.
 
-```text
-DWG Source Handle
-→ CAD IR ID
-→ BIM IR ID
-→ Revit UniqueId / ElementId
-```
+No IPC worker accesses a Revit Document. Future document commands require ExternalEvent or another valid API context, with feature-group Transactions. These later features are not implemented here.
 
-추적 가능성을 유지합니다.
+## Units, coordinates and identity
 
-## 5. Revit Version Isolation
+Core mm, right-handed XYZ, XY plan, Z up, radians and positive counterclockwise Z rotation. Transform placement is scale -> rotation -> translation; Then(next) applies next after the current transform. No implicit recentering, UCS inference or alignment. Unit conversion is explicit at adapter boundaries; exactly 304.8 mm per Revit internal foot. Tolerance values are validated and caller supplied, not hidden constants.
 
-Revit 세부 빌드별 .NET/API 차이를 Core에 노출하지 않습니다.
+Drawing UUID and revision UUID are separate. CAD IDs encode drawing, original handle and insertion path. BIM IDs are persisted UUIDs with mandatory provenance (source references or explicit manual origin). Every semantic prediction result carries finite confidence [0,1] and nonempty evidence via Prediction/SemanticPrediction. Manually confirmed or non-predicted objects need no artificial confidence; confirming a prediction does not strip its metadata.
 
-```text
-revit/
-  BIMBraid.Revit.Core/
-  BIMBraid.Revit2025.Net8/
-  BIMBraid.Revit2025_5.Net10/
-```
+## Schema and unsupported data
 
-실제 설치된 Revit 빌드에 맞춰 Adapter 프로젝트를 선택합니다.
+Initial schema major is 1; major changes need ADR. Contracts are Revit independent, with dedicated raw JSON property dictionaries. Unknown CAD types are represented by CadUnsupported plus source-linked diagnostics. Validate documents after JSON deserialization and before use. Geometry topology/recognition/generation validation belongs to later phases; these are minimum data contracts.
+
+## Build and test
+
+One DtoB.sln and .NET SDK 8.0.416 pin. Core-only build and synthetic tests need no proprietary DLLs. Full adapter build requires RevitInstallDir. Actual Desktop-to-loaded-Revit PING/PONG is a separate host verification gate; an isolated named-pipe test server does not satisfy it.

@@ -2,7 +2,7 @@
 
 ## 역할
 
-당신은 BIMBraid의 **Implementation Owner**입니다.
+당신은 DtoB의 **Implementation Owner**입니다.
 
 주 책임:
 
@@ -20,7 +20,7 @@
 
 항상 다음을 먼저 읽습니다.
 
-1. `MASTER_PLAN.md`
+1. `DtoB_FINAL_MASTER_PLAN.md`
 2. `AGENTS.md`
 3. `ARCHITECTURE.md`
 4. 현재 `tasks/PHASE_XX.md`

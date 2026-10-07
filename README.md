@@ -1,8 +1,8 @@
-# BIMBraid
+# DtoB
 
 ## DWG → Revit BIM Automation Platform
 
-BIMBraid는 2D DWG 도면의 선, 호, 폴리라인, 블록, 문자, 치수, 레이어, 평면/단면/입면 관계를 해석하여
+DtoB는 2D DWG 도면의 선, 호, 폴리라인, 블록, 문자, 치수, 레이어, 평면/단면/입면 관계를 해석하여
 검수 가능한 BIM 중간 데이터(BIM IR)를 생성하고, 이를 Revit Family/Type과 매칭하여 Native Revit 객체로 구축하는 프로젝트입니다.
 
 ## 최종 흐름
@@ -33,7 +33,7 @@ DWG Upload
 
 ## 시작 순서
 
-1. `MASTER_PLAN.md`
+1. `DtoB_FINAL_MASTER_PLAN.md`
 2. `AGENTS.md`
 3. `ARCHITECTURE.md`
 4. `CODEX_INSTRUCTIONS.md`
@@ -51,3 +51,7 @@ DWG Upload
 - 필수: Review UI, Family Mapping, Traceability, Failure Report
 
 처음부터 모든 도면 유형과 MEP/철골/배근까지 확장하지 않습니다.
+
+## PHASE 00 foundation
+
+DtoB Desktop + Revit Add-in technical verification only. DWG SDK selection is deferred; no parsing, recognition, viewer or BIM generation is implemented. See [build and host verification](docs/PHASE_00_BUILD.md) and [PHASE 00 report](docs/status/PHASE_00_REPORT.md).
