@@ -1,24 +1,27 @@
 # PHASE 00 Independent Review (Architecture / Adversarial)
 
-Reviewer: Antigravity · Branch: `phase/00-architecture` · Date: 2026-10-07
+Reviewer: Antigravity · Branch `phase/00-architecture` · Reviewed commit `2a5c85b` (== `origin/phase/00-architecture`) · 2026-10-07
 
-**Verdict: CHANGES_REQUIRED** (BLOCKER 0 / HIGH 3 / MEDIUM 9 / LOW 8)
+Counts: BLOCKER 0 / HIGH 2 / MEDIUM 7 / LOW 7. The final verdict is the last line of this file.
 
-## 0. Verification Method and Limits
+> This review **supersedes** the earlier `reviews/PHASE_00_REVIEW.md`, which was written against a pre-fix state (git history keeps it). Section 5 maps each earlier finding to its current status.
+
+## 0. What I Verified vs. What I Could Not
 
 | Codex claim | Independent result |
 |---|---|
-| Source read in full | Read all `*.cs`, `*.csproj`, `Directory.Build.props`, `global.json`, CI, install script, addin template, tests and report. ADRs were checked for Alternatives/Decision. |
-| 27 tests pass | **Partially verified.** The existing `artifacts/phase00/tests.log` shows 27/0/0, and the test count matches the source (IPC 11 plus Contract and Geometry). I could not re-run the tests. `dotnet` fails to start child processes in my review sandbox (`MSB3883 / access denied`). An unmodified rebuild was not possible. |
-| Core and full-solution builds, 2 warnings | **Not independently reproduced.** The build log is consistent with the claim. See M-01 for why the "TreatWarningsAsErrors" framing is misleading. |
-| Real Revit PING/PONG, shutdown, restart | **Evidence is internally consistent but not reproducible by me.** The add-in log timeline, request IDs and Desktop JSON agree (STARTED 04:40:19 → PONG → STOPPED 04:41:28; restart PID 16156). Neither `%LOCALAPPDATA%\DtoB\phase00\connector` nor the Revit2025 `bin` output exists in my environment, so the DLL-hash match claim could not be re-checked. |
-| 10 ADRs written before implementation | **Contradicted or unverifiable.** All ten ADR files have the same mtime, 13:42:49. Every source file is older (13:28–13:38). See M-02. |
-| 2 Revit warnings only | Consistent with the log. Acceptability is analyzed in section 3. |
-| No PHASE 01 work | No PHASE 01 features found. |
+| Core build succeeds | **Verified.** `dotnet build packages/DtoB.Core -c Release --no-incremental` gave 0 warnings and 0 errors. |
+| Full Solution build succeeds, **2 warnings** | **Build verified, count contradicted.** A clean clone of `2a5c85b` built with `-p:RevitInstallDir=D:\프로그램\Revit 2025`: 0 errors, **3 MSB3277 warnings** (`Microsoft.VisualBasic` 10.0 vs 10.1, `System.Drawing` 4.0 vs 8.0, `WindowsBase` 4.0 vs 8.0). The report and `verification-summary.json` say 2. `Verify-Phase00Foundation.ps1` already expects 3. The adapter output holds only `DtoB.Ipc.dll` and `DtoB.Revit2025.dll`, with no Autodesk DLL. |
+| **27 tests pass** | **Contradicted as stale.** The suite now has **44** tests. A clean clone of `2a5c85b` passes 44/44. The **working tree fails 1/44** (see M-07). |
+| CI | **Verified.** GitHub Actions run #1 on `2a5c85b` (workflow `PHASE 00 portable foundation`) concluded `success`. It builds only Core and Desktop and runs the tests. It does not build the Revit adapter. |
+| Real Revit PING/PONG, disconnect, restart | **Not reproduced.** I did not launch Revit or register an add-in in the user's profile. The committed evidence is **from an older code revision** (see H-02). I did not run a real-host test against HEAD. |
+| 10 ADRs | **Verified.** Each has an Alternatives table and a review amendment. ADR-005 records the owner's deferral quote. That quote cannot be verified independently. |
+| No PHASE 01 work | **Verified.** I found no PHASE 01 feature. |
+| Revit API isolation | **Verified.** Only `DtoB.Revit2025` references `RevitAPI`/`RevitAPIUI` (`Private=false`). The dependency-direction test covers all 9 production projects. |
 
-Revit API isolation was verified from the project graph. `DtoB.Core`, `Geometry`, `Cad`, `Bim`, `Ipc`, `Analysis`, `Revit.Core` and `Desktop` do not reference `Autodesk` or `RevitAPI`. Only `DtoB.Revit2025` does, with `Private=false`.
-
----
+Probes I ran, in a scratch project that I deleted afterwards:
+- 4 connect-then-drop clients against `PingServer`, then a PING (H-01).
+- 4 idle connected clients, then a PING (M-06).
 
 ## 1. Issues
 
@@ -26,263 +29,294 @@ Revit API isolation was verified from the project graph. `DtoB.Core`, `Geometry`
 
 **H-01**
 Severity: HIGH
-File: Repository state (`git status`, `git log`, `.github/workflows/foundation.yml`)
-Problem: The whole implementation is untracked. `git diff main` shows only the 43 staged specification files. Apps, packages, services, revit, tests, ADRs and docs/status are all `??`. The 4 governing docs (`ARCHITECTURE.md`, `README.md`, `START_HERE.md`, `CODEX_INSTRUCTIONS.md`) carry unstaged edits (+43/-91). `main` HEAD is a chain of "Delete …" commits. A stray junk file named `The string is missing the terminator…` sits in the repo root. The CI workflow has never run.
-Impact: The reviewed artifact is not an immutable, reproducible revision. "Git diff against main" cannot be a review basis. Nothing guarantees that what was reviewed is what gets merged. The Phase Gate needs a commit hash and none exists. The CI claim is unproven.
-Reproduction: `git status --short`; `git diff --stat main`; `git ls-files apps packages`.
-Recommended Fix: Delete the junk file after owner approval. Commit PHASE 00 on `phase/00-architecture` in logical commits, with spec/baseline changes separate from the implementation. Push, then confirm that `foundation.yml` runs green. Record the commit hash in the report. Justify the `ARCHITECTURE.md` rewrite, or revert it.
-Required Test: A fresh `git clone` of the branch followed by the documented commands (`dotnet build Core`, `dotnet test`) succeeds. The CI run is green and linked in the report.
+File: `packages/DtoB.Ipc/PipeProtocol.cs` `PingServer.RunAsync`, lines 103–105 and 119–120
+Problem: `pipe.WaitForConnectionAsync(...)` runs outside the inner `try`. A client that connects and disconnects before the server finishes accepting makes it throw `IOException: 파이프가 닫히는 중입니다` ("the pipe is being closed"). The exception reaches the outer `catch (Exception)`, which sets `faulted=1` and **ends that worker for good**. Only pipe *creation* has a bounded retry. Nothing restarts a dead worker.
+Impact: A single misbehaving or crashing same-user process, or a Desktop client that cancels at the wrong moment, kills all 4 workers. The Revit add-in then stays deaf until Revit is restarted. This breaks the "reconnect without restart" promise in ADR-004 and PHASE 12. `ListenerState.Faulted` is only visible in a log line. The add-in gives no signal to Desktop.
+Reproduction (executed): start `PingServer(host, log, 1s)` and open/close `NamedPipeClientStream` repeatedly. The connect timed out at iteration 4. `State == Faulted`, and the log shows `IPC listener FAULTED: System.IO.IOException ... WaitForConnectionCoreAsync` four times. A later `PingAsync` throws `TimeoutException`, even after 1.5 s.
+Recommended Fix:
+1. Put `WaitForConnectionAsync` in the same `try` as the request, treating `IOException` as a per-connection failure. Dispose the pipe, log it and continue.
+2. Add a bounded supervisor that restarts a worker that exits unexpectedly. Set `Faulted` only when recovery is exhausted.
+3. Surface `Faulted` to the add-in. For example, log it and show a one-time notice.
+Required Test: Open and drop at least 50 connections, then assert that PING returns PONG and `State == Running`. Add a test that forces the unrecoverable path and asserts `State == Faulted` and that `DisposeAsync` does not throw. `CreationFailureRecoversAndFaultedShutdownIsSafe` currently tests only recovery after one creation failure. The faulted path is untested, despite the test name.
 
 **H-02**
 Severity: HIGH
-File: `docs/adr/ADR-005-Drawing-Reader.md`, `tasks/PHASE_00.md` (00A/00B/00D/DWG Reader candidates), `DtoB_FINAL_MASTER_PLAN.md` Exit "CAD Reader … 확정"
-Problem: The task requires candidate comparison. It names Desktop framework (WPF/WebView2), Analysis (C# vs C#+Python), IPC (pipe/HTTP/gRPC) and DWG reader candidates. Each ADR has a one-line "Alternatives" list (for example "Named pipes, localhost HTTP, gRPC.") and no evaluation criteria, scoring, rejection reasons or risks. The DWG reader direction is "deferred". The master-plan Exit Criterion "CAD Reader 방향 확정" is therefore not met on the record. The "user approval" cited in the report is not recorded in any file.
-Impact: ADRs are decision statements, not decision records. Nobody can later tell why pipe was chosen over HTTP/gRPC, or why in-process C# was chosen over Python AI services. The DWG SDK choice is the largest technical and licensing risk in the project and is left open with no criteria.
-Reproduction: Open ADR-001 to ADR-005. The `## Alternatives` section is a single line. `## Context` and `## Migration Impact` are copy-pasted identical text in every ADR.
-Recommended Fix: Add to each ADR a short comparison table (criteria, per-option verdict, rejected-because). For ADR-005, evaluate at least ODA, RealDWG and AutoCAD-assisted reading against license, .NET 8 compatibility, Xref/block fidelity and handle preservation. Record who approved the deferral and the conditions to resolve it (target phase). Otherwise mark the criterion as an explicitly agreed `PASS_WITH_KNOWN_LIMITATIONS`.
-Required Test: A document check, verified by the reviewer, that every ADR lists at least 2 evaluated alternatives with reasons. ADR-005 contains a dated approval note for the deferral.
+File: `docs/status/evidence/phase00/*`, `docs/status/PHASE_00_REPORT.md`, `docs/status/PHASE_00_CHECKLIST.md`
+Problem: The "real host" evidence belongs to an **older revision**, not to HEAD. Four signs:
+- `host-ping.json` serializes `"Status": "PONG"` and `"Error": null`. HEAD's types are `IpcStatus`/`IpcError` enums. The Desktop evidence writer uses default serializer options, so it emits `0` today.
+- The stack trace in `host-disconnected.json` points at `...\DtoB_Repo\packages\DtoB.Ipc\PipeProtocol.cs:line 52`. HEAD's `PingAsync` is structured differently and that path no longer exists.
+- `verification-summary.json` hashes `DtoB.Core.dll` and `DtoB.Revit.Core.dll` as deployed from the adapter output. HEAD's adapter references only `DtoB.Ipc` and emits neither.
+- The add-in log lines end in `error=` and the log file is `revit-<pid>.log`. HEAD writes `revit-<timestamp>-<pid>.log` and prunes old logs.
 
-**H-03**
-Severity: HIGH
-File: `packages/DtoB.Cad/CadContracts.cs` (`CadEntity.Transform`, `CadPrimitive`, `CadInsert`), `docs/adr/ADR-006`, `ADR-008`
-Problem: The coordinate-space semantics of CAD IR are undefined. (a) It is not stated whether `Points` of an entity are in the block-local frame or the world frame, or whether `Transform` is the INSERT-accumulated transform or the entity's own. (b) The meaning of `Points` for Arc and Circle (center? `Points[0]`?) and the sweep direction for `StartAngleRadians`/`EndAngleRadians` are not documented. (c) DWG's OCS/extrusion normal (arbitrary-axis algorithm) has no field. `Transform3.Placement` supports only Z-rotation. Mirrored or flipped-normal arcs, polylines and text lose information with no diagnostic. (d) `InsertionPath` entries are not defined (INSERT handle or Id?). (e) The meaning of `SourceToModel` relative to `SourceUnit == "mm"` is unclear.
-Impact: PHASE 04 (CAD Data Engine) will either guess these conventions or need a major schema change. That would need a new ADR under AGENTS rule 14 and would invalidate PHASE 00 fixtures. Wrong Arc direction and normal produce silently wrong walls and columns, which violates the "hidden assumption / data loss" review focus.
-Reproduction: Read `CadPrimitive.Validate`. It checks only count, radius and finiteness. No test places an entity inside a nested transformed INSERT with an Arc.
-Recommended Fix: In ADR-008 and ADR-006, specify frame semantics (recommended: entity geometry is stored in the definition frame, and the accumulated INSERT transform is the entity's `Transform`). Define the Arc/Circle layout and angle direction. Add an optional `ExtrusionNormal` (default +Z) or require non-+Z normals to produce an `UNSUPPORTED_ENTITY` diagnostic. Define `InsertionPath` elements.
-Required Test: Fixture with a nested INSERT, a mirrored INSERT and an Arc. Test that the world-space Arc endpoints are as expected after `Transform`. Test that a non-+Z normal is either represented or diagnosed.
+The following were never exercised inside a real Revit process: the 4-worker server, the `GetNamedPipeServerProcessId` identity check, `ListenerState`, `HostNotRunningException`, the new log naming and retention, and the shutdown path. `scripts/Verify-Phase00Host.ps1` was written to produce current evidence, but `docs/status/evidence/phase00-review/` does not exist.
+The report is also internally stale. It says "No commit or push occurred" and "27 tests" (HEAD has 44). It says "2 warnings" (HEAD has 3) and "No independent review has yet been performed". The checklist still states `HEAD: 720c083` and "No solution… exists". The report also repeats "ADRs created before source implementation", which every ADR amendment now disclaims.
+Impact: Exit Criterion "통신 PoC 성공" is proven for a different binary than the one being gated. The report cannot serve as the Phase Gate record.
+Reproduction: `git show 2a5c85b:docs/status/evidence/phase00/host-ping.json`, compare with `PipeProtocol.cs`. Build `DtoB.Revit2025` and list `bin/Release/net8.0-windows`.
+Recommended Fix: After H-01 is fixed, run `Verify-Phase00Host.ps1` on the final commit. Cover PING/PONG, normal shutdown with STOPPED, a Desktop PING that fails with an explicit error, and restart. Commit the evidence with the commit hash, Revit build and DLL hashes. Rewrite the report and checklist to match reality: 44+ tests, 3 warnings, commit state, and the deletion of `FILE_INDEX.md` and `MASTER_PLAN.md`, which the report omits. Replace the self-assigned gate status with "submitted for review".
+Required Test: A fresh clone at the reported hash builds with Revit. The reproduced run's add-in log and Desktop JSON show the current schema and a request ID visible in both.
 
 ### MEDIUM
 
 **M-01**
 Severity: MEDIUM
-File: `Directory.Build.props`, `revit/DtoB.Revit2025/DtoB.Revit2025.csproj`
-Problem: `TreatWarningsAsErrors=true` does not elevate MSBuild task warnings such as MSB3277. That is why the full build is "successful with 2 warnings". The two warnings are therefore not governed by any gate. A new MSB3277 conflict, such as a Revit API assembly version mismatch, will pass silently. `UseWPF=true` is set in the add-in project but no WPF type is used. It is the likely source of the `System.Drawing`/`Microsoft.VisualBasic` conflicts.
-Impact: A warning budget that cannot regress is unenforced. The unnecessary framework reference widens the adapter dependency surface.
-Reproduction: Read the csproj. Grep `Revit2025/*.cs` for `System.Windows` (no match).
-Recommended Fix: Remove `UseWPF` from `DtoB.Revit2025` and rebuild. If the warnings disappear, drop the "known limitation". If not, record the conflicting assembly identities and add `MSBuildTreatWarningsAsErrors` with a scoped `NoWarn`/allow-list for exactly this documented warning. Also remove the unused `ProjectReference` to `DtoB.Revit.Core`, or add a call site.
-Required Test: A build-log check (script or CI step) that fails if the warning count or codes change from the documented baseline.
+File: `packages/DtoB.Cad/CadContracts.cs` `CadDocument.Validate`, `CadEntity.Validate`; `docs/adr/ADR-006`
+Problem: The coordinate conventions are only documentation. ADR-006 states:
+- Block-definition entities have an empty `InsertionPath` and identity `Transform`.
+- `InsertionPath` is the outermost-to-innermost INSERT handle list.
+- `Entity.Transform` is the accumulated placement.
+
+`Validate()` checks none of these:
+- Entities inside blocks can carry any path or transform.
+- `InsertionPath` handles need not match any `CadInsert`.
+- `Transform` need not equal the composition of its INSERTs.
+- `OwnerBlockId` is not checked against the block that holds the entity.
+- Arc angles are only checked for finiteness.
+
+Impact: A PHASE 04 reader can produce internally inconsistent geometry that still passes `Validate()`. The result is silently wrong placement, which is the "hidden assumption" category this phase is meant to eliminate.
+Reproduction: Edit `datasets/controlled/phase00/nested-mirrored.json` so the arc's `transform` is identity but its `insertionPath` is `["A0","B0"]`. `Validate()` still passes.
+Recommended Fix: Add checks for the three ADR-006 rules above that are decidable without tolerance. Check composed-transform consistency with a caller-supplied tolerance. Confirm `OwnerBlockId` matches the containing block.
+Required Test: Negative tests for each rule: a non-empty path on a definition entity, a path handle with no matching INSERT, and a transform that disagrees with the composed INSERT chain.
 
 **M-02**
 Severity: MEDIUM
-File: `docs/adr/ADR-001…010`, `docs/status/PHASE_00_REPORT.md` ("created before foundation source implementation")
-Problem: ADR mtimes are all 13:42:49, 4 to 14 minutes after the source files. Nothing proves the ADR-first ordering. Every ADR contains a literal `?` where an em dash was intended ("Accepted ? user-approved"), so the files were written through a lossy encoding path. `docs/PHASE_00_BUILD.md` and the report show the same corruption in the Revit path (`D:\프로그램\Revit 2025`).
-Impact: An unverifiable process claim in the report. Garbled non-ASCII text in the permanent record.
-Reproduction: `Get-ChildItem docs/adr | Select Name,LastWriteTime`; `Select-String '\?' docs/adr`.
-Recommended Fix: Commit history is the evidence of ordering (see H-01). Remove the claim or restate it as "ADRs finalized after implementation". Re-save all docs as UTF-8 and fix the corrupted characters.
-Required Test: A check script (or CI) that fails on `?`/U+FFFD in `docs/**/*.md`.
+File: `CadDocument.Validate` (`SourceUnit == "mm"`); `docs/adr/ADR-006` ("Keep source unit metadata")
+Problem: The contract accepts only `SourceUnit == "mm"`, so the original DWG unit (`INSUNITS`) cannot be recorded. A reader for an inch drawing must pre-scale into mm and lose the original unit. ADR-006 says to keep source unit metadata, but the contract rejects any value other than mm. `SourceToModel` has no stated relationship to unit scale.
+Impact: Information loss, in tension with AGENTS rule 12 (explicit unit conversion at the boundary). PHASE 04 will need a schema change, which requires an ADR under rule 14.
+Reproduction: Deserialize any CAD fixture with `sourceUnit: "inch"` and call `Validate()`. It throws.
+Recommended Fix: Decide now between two options. (a) `SourceUnit` is informational and the producer must declare a unit scale. (b) The unit stays a validated enum with an explicit scale field. Record the choice in ADR-006/008. If the owner intentionally defers, list it under Known Limitations.
+Required Test: A fixture with a non-mm source unit that either round-trips with its original unit or fails with an explicit, documented diagnostic.
 
 **M-03**
 Severity: MEDIUM
-File: `packages/DtoB.Core/Contracts.cs` (`IrJson`, `Contract.Version`), `CadContracts.cs`, `BimContracts.cs`
-Problem: (a) `UnmappedMemberHandling.Disallow` plus an integer-only `SchemaVersion` means a document from a newer producer fails in `Deserialize` with a `JsonException` about an unmapped member. `Validate()` never runs, so the clear "Unsupported schema major version" message is unreachable. There is no minor version, so any additive change is a breaking change. (b) The documents are positional records without `required`. STJ on .NET 8 fills missing constructor parameters with `default`, so `{"schemaVersion":1}` yields `Layers == null`. `Validate()` then throws `NullReferenceException`, not `InvalidDataException`. (Code-read, not executed because of the sandbox limit.) (c) The discriminator `$kind`/`$category` must be the first property (documented). A non-.NET producer, such as the planned Python service, will fail unpredictably.
-Impact: Non-explicit failures at the most important data boundary. Forward-compatibility policy is undefined.
-Reproduction: Deserialize `{"schemaVersion":1}` as `CadDocument`, then call `Validate()`. Deserialize a v2 document with an extra field.
-Recommended Fix: Parse `schemaVersion` first (small envelope probe) and reject unsupported versions before the full parse. Add `schemaMinor` plus a unknown-field policy, or document that unknown fields are forbidden in IR. Make `Validate()` null-safe, or add `required` on the arrays. Document the key-order requirement as a producer contract.
-Required Test: Tests for a missing array, a v2 document, an unknown field and an out-of-order discriminator, each asserting a typed, explicit error.
+File: `packages/DtoB.Bim/BimContracts.cs` `BimObject.Validate` (line 62), `IsSemanticPrediction`
+Problem: Prediction enforcement depends on the producer-declared boolean `IsSemanticPrediction`. `(object from SourceDrawing) with { IsSemanticPrediction = false, Status = Confirmed, Prediction = null }` passes validation. The regression test `ConfirmingPredictionCannotDiscardEvidence` covers only the `true` path.
+Impact: AGENTS rule 3 ("every semantic prediction has confidence/evidence") is voluntary. A recognition engine can erase evidence by clearing a flag. The flag is redundant with `Provenance.Origin`.
+Reproduction: Apply the test's mutation with `IsSemanticPrediction=false` to a `SourceDrawing`-origin wall. It passes.
+Recommended Fix: Derive the rule from `Provenance.Origin`. A `SourceDrawing` object needs `Prediction`, or it must have been explicitly confirmed by a documented manual action. Drop the flag, or make it derived.
+Required Test: A `SourceDrawing`-origin object with Confirmed, flag false and null prediction is rejected. A `Manual` object with the same shape passes.
 
 **M-04**
 Severity: MEDIUM
-File: `packages/DtoB.Bim/BimContracts.cs` (`BimObject.Validate`)
-Problem: Only `Status == Suggested` requires a `Prediction`. A `SourceDrawing`-origin object can be flipped to `Confirmed` with `Prediction = null`, and validation passes. The recognition evidence and confidence are dropped. ADR-009 and the report say "confirmed predictions retain evidence", but that is not enforced.
-Impact: This violates AGENTS rule 3 (every semantic prediction has confidence/evidence) across review transitions in PHASE 11.
-Reproduction: `(level with { Status = Confirmed, Prediction = null })` where `Provenance.Origin == SourceDrawing` (the existing test uses a Manual level for the pass case only).
-Recommended Fix: For `SourceDrawing` provenance, require `Prediction` for `Suggested`, `NeedsReview` and `Confirmed`. Require it for `Confirmed` unless the origin is `Manual`.
-Required Test: A SourceDrawing object with Confirmed and no Prediction is rejected. A Manual object with Confirmed and no Prediction passes.
+File: `packages/DtoB.Bim/BimContracts.cs` (`BoundaryContract`, `BimDocument.Validate()`), `packages/DtoB.Geometry/Geometry.cs` (`Segment3.Validate()`)
+Problem: There are two validation paths. The tolerance-aware `Validate(GeometryTolerance)` checks closure and degeneracy. The default `Validate()` — used by the fixtures, the Analysis engine and most tests — does not. Its boundary check is only `Length >= 4`, and `Segment3.Validate()` uses exact `Start != End`. An unclosed Floor or Room, or a 1e-9 mm wall, passes `BimDocument.Validate()`.
+Impact: A caller who forgets the tolerance overload silently skips geometry validation. This sits uneasily with rule 13 (no hard-coded tolerance) and with the report's "caller-supplied tolerance".
+Reproduction: A `BimFloor` whose last point differs from its first passes `BimDocument.Validate()`.
+Recommended Fix: Make `Validate()` clearly "structural only" by renaming it. Or remove the exact-equality overloads so geometry validation always needs a tolerance.
+Required Test: An open floor boundary fails the geometry-validation entry point and passes the structural entry point, with names that make this obvious.
 
 **M-05**
 Severity: MEDIUM
-File: `packages/DtoB.Geometry/Geometry.cs`, `BimContracts.cs` (`BoundaryContract`), `Segment3.Validate`
-Problem: Geometry predicates use exact floating equality. `boundary[0] == boundary[^1]` is the closure test, `Start != End` is the degeneracy test, and `Matrix[12] == 0` is the affine test. The DWG-derived closure test will reject near-closed polylines. A sliver segment of 1e-9 mm passes as valid. AGENTS rule 13 forbids arbitrary hard-coded tolerance. The correct fix is the caller-supplied `GeometryTolerance` that already exists but is not wired in.
-Impact: Closure and degeneracy semantics will be wrong for real CAD data.
-Reproduction: `BimFloor` with a last point offset by 1e-12.
-Recommended Fix: Pass `GeometryTolerance` into the geometry predicates. Keep exact checks only where the exactness is intentional (the Transform affine row).
-Required Test: A near-closed boundary passes with a supplied tolerance and fails with a tight one. A degenerate segment of length below the tolerance is rejected.
+File: `docs/status/PHASE_00_REPORT.md` (Changed Files, Unsupported Cases)
+Problem: The commit `2a5c85b` **deletes `FILE_INDEX.md` and `MASTER_PLAN.md`** and rewrites `ARCHITECTURE.md`, `README.md`, `START_HERE.md` and `CODEX_INSTRUCTIONS.md`. The report mentions the rewrites but not the two deletions. It also states that "the 43 initially staged files were not reset". The `AGENTS.md` and `START_HERE.md` instructions do not authorize changing governing documents during PHASE 00 implementation.
+Impact: Undisclosed scope and a misleading change log. Whether the deletions are intended is a project-owner decision.
+Reproduction: `git diff --name-status fc3633d HEAD`.
+Recommended Fix: Owner to confirm both deletions and the governing-document rewrites. Record them explicitly in the report, or restore the files.
+Required Test: None (process).
 
 **M-06**
 Severity: MEDIUM
-File: `packages/DtoB.Ipc/PipeProtocol.cs` (`PingServer.RunAsync`)
-Problem: The server has `maxNumberOfServerInstances = 1` and serves connections serially with a 3 s request deadline. Any same-user process, or a stuck Desktop, that connects and idles blocks all other clients for 3 s. Repeated connects keep the endpoint unavailable. A fatal error in `CreatePipe()` inside the loop ends the listener task, and the only signal is a log line. The server then appears "disconnected" to the Desktop with no health state. `DisposeAsync` re-throws the stored exception, so `OnShutdown` returns `Result.Failed`.
-Impact: Local self-DoS and silent loss of the listener. This is a lifecycle weakness that PHASE 12 will inherit.
-Reproduction: Open a raw `NamedPipeClientStream` and send nothing. A second `PingAsync` waits for the first deadline (the existing idle test only checks recovery after the deadline).
-Recommended Fix: Allow multiple server instances, or accept connections and handle each in a bounded task. Make the listener restart on pipe-creation failure with a logged, bounded retry. Expose a `Faulted` state. Make `DisposeAsync` swallow a faulted `loop` after logging.
-Required Test: A concurrency test: an idle connection is open, a second client still receives PONG within the deadline. A test that injects a pipe-creation failure and checks that the listener recovers.
+File: `packages/DtoB.Ipc/PipeProtocol.cs` (`PingServer`, `PingClient`); `tests/DtoB.Tests/IpcTests.cs`
+Problem: The server has 4 workers, each with a request deadline of 3 s. Four idle connections (unauthenticated, same-user) hold every worker. A legitimate Desktop PING then times out at the 1 s connect limit. `IdleConnectionDoesNotBlockSecondClient` uses only one idle client, so this is not tested.
+Impact: Local self-DoS for the duration of the idle deadline, repeatable indefinitely. The Desktop shows "Disconnected" while Revit is healthy. ADR-004 accepts that peers are trusted same-user processes. It does not state that they can starve the endpoint.
+Reproduction (executed): connect 4 idle `NamedPipeClientStream`s, then `PingAsync(..., 5 s)`. It threw `TimeoutException` after 1028 ms.
+Recommended Fix: Shorten the first-frame deadline to a small value. Accept more concurrent connections or hand each connection to its own bounded task. State the same-user starvation limit in ADR-004 if it is accepted.
+Required Test: Open N = workers idle clients and assert that a PING still succeeds within the deadline, or that the limitation is the documented behavior.
 
 **M-07**
 Severity: MEDIUM
-File: `packages/DtoB.Ipc/PipeProtocol.cs`, `docs/adr/ADR-004-IPC.md`
-Problem: There are no protocol-level types. The framing is generic, but the message types are `PingRequest`/`PingResponse` with magic strings (`"PING"`, `"PONG"`, `"ERROR"`, `"Revit"`). The IPC options are default `JsonSerializerOptions`, separate from `IrJson`. The server and client versions are exact-match (`== 1`), with no negotiation. The identity check trusts self-reported fields: `Host.ProcessId` and `Product` come from the peer, so the "host mismatch" test only exercises a mismatched forged value.
-Impact: Adding any second command in PHASE 12 changes wire contracts. Magic strings invite typos. ADR-004 documents none of this, and an impersonating same-user process passes the client checks.
-Reproduction: Read the code. `ClientRejectsForgedResponse("host")` only covers a differing PID.
-Recommended Fix: Introduce a minimal request/response envelope (`Command` enum, `Status` enum, `Error` code) now. Keep it a PHASE 00-sized change. State in ADR-004 that the pipe is current-user only, with no authentication, and that same-user processes are trusted. Verify the pipe server's process ID from the pipe handle on the client (`GetNamedPipeServerProcessId`).
-Required Test: A forged server owned by a different PID but reporting the expected PID is rejected.
+File: `tests/DtoB.Tests/FoundationDocumentTests.cs` (`AllProductionProjectDirectionsAreEnforced`, line 33), `IpcTests.cs` (`OsProcessIdentityRejectsImpersonation`, line 130)
+Problem:
+- The test finds each project with `Directory.EnumerateFiles(Root(), name + ".csproj", AllDirectories).Single()`. The untracked nested copy `DtoB_Review/` in this working tree duplicates every project, so `Single()` throws. **Reproduced: 43 passed, 1 failed in the working tree. A clean clone passes 44/44.**
+- The impersonation test picks `GetProcessesByName("explorer").First()`. It depends on the machine having an interactive shell. It throws `InvalidOperationException` on a headless or service session instead of testing.
+- `NonexistentProcessFailsFast` never asserts "fast". It would pass after a 5 s wait.
+- `AdrsContainEvaluatedAlternativesAndValidUtf8` checks only the heading text and table line count. It does not assert that rejected or selected options have reasons.
 
-**M-08**
-Severity: MEDIUM
-File: `docs/status/PHASE_00_REPORT.md`, `.github/workflows/foundation.yml`, `docs/PHASE_00_BUILD.md`
-Problem: Real-host evidence is a one-time manual procedure on one machine. It depends on a hard-coded local path (`D:\프로그램\Revit 2025`), a manual PID and a local deployment. CI covers Core, Desktop and tests only. The Revit2025 adapter build is not in CI, and a Revit API change cannot be detected. The tests project does not reference the Desktop or the Revit adapter, so the "no Autodesk dependency" test covers only 7 assemblies and not the Desktop or the add-in project.
-Impact: Build reproducibility for the adapter is local-only. A regression in `DtoB.Revit2025` or the Desktop boundary will not be caught by CI.
-Reproduction: Review the workflow.
-Recommended Fix: Add a documented self-hosted or manual gate script (`scripts/Verify-Phase00Host.ps1`) that builds, deploys and PINGs, and keeps its output under `docs/status/evidence/`. Add a project-reference graph test (parse `*.csproj`) that asserts the allowed dependency directions, including that `Desktop` and the Core packages never reference `Revit*`.
-Required Test: A dependency-direction test that fails when a forbidden `ProjectReference` or `Reference` is added.
-
-**M-09**
-Severity: MEDIUM
-File: `packages/DtoB.Core/Contracts.cs` (`CadIdentity`), `SourceReference`
-Problem: Source identity is weak in three places. (a) DWG handles are hexadecimal strings with no normalization (`"FF"` and `"ff"` give different identities). (b) `SourceReference` carries both `Handle` and `CadEntityId`, which are redundant and never checked for consistency. A BIM object can claim `Handle=A` and `CadEntityId` for a different handle. (c) BIM provenance is not validated against the CAD document (an intentional PHASE 00 limit, but not listed in "Known Limitations").
-Impact: Source trace can silently break (AGENTS rule 6). Identity collisions or mismatches are possible after a reader changes its case convention.
-Reproduction: `CadIdentity.Create(id, "ff") != CadIdentity.Create(id, "FF")`.
-Recommended Fix: Define a handle normalization (upper-case hex) in ADR-007 and apply it in `Create`. Derive or verify `Handle` against `CadEntityId` in `SourceReference` validation. Add the cross-document check to the Known Limitations.
-Required Test: Case-variant handles produce the same identity. A mismatched Handle/CadEntityId pair is rejected.
+Impact: The suite passes in CI and fails on a dirty checkout. A reviewer or developer sees a red test that comes from the environment, not from a regression. Some assertions are weaker than their names claim.
+Reproduction: Run `dotnet test tests/DtoB.Tests -c Release` in the working tree. Then run it in `git clone`.
+Recommended Fix: Resolve projects from the solution file or from `git ls-files`-style paths. Exclude `bin/`, `obj/` and nested repositories. Use `Process.GetCurrentProcess().Id`-independent fake PIDs, or any other running non-test PID, for the impersonation test. Add an elapsed-time bound to the fast-fail test.
+Required Test: The suite is green when a duplicate nested copy of the repository exists. The fast-fail test fails if the elapsed time exceeds a stated bound.
 
 ### LOW
 
 **L-01**
 Severity: LOW
-File: `CadContracts.cs`, `BimContracts.cs`, `Geometry.cs` (records holding `double[]`, `Point3[]`, `string[]`)
-Problem: Records advertise value equality, but array members compare by reference. `Transform3.Equals` and `CadEntity.Equals` are wrong across copies. Arrays are mutable after `Validate()`.
-Impact: Latent equality and immutability bugs. Tests such as `o == door` work only on the same instance.
-Reproduction: `new Transform3([...]) == new Transform3([...])` is false.
-Recommended Fix: Use `ImmutableArray<T>` or custom equality. Alternatively, document that records here are not value-comparable.
-Required Test: Equality test on two independently deserialized identical documents.
+File: `apps/DtoB.Desktop/App.xaml.cs` (line 12), `MainWindow.xaml.cs`
+Problem: If `--verify-pid` is passed with the wrong argument count or form, the arguments are silently ignored and a normal window opens. No error or evidence file results. The Desktop evidence writer uses default JSON options (numeric enums) but the wire uses string enums.
+Impact: A failed evidence run looks like a normal start. The evidence JSON uses a different enum encoding from the protocol.
+Reproduction: Run `DtoB.Desktop.exe --verify-pid abc`.
+Recommended Fix: Report bad arguments in the status text. Use the same options for evidence as for the wire, or document the difference.
+Required Test: Not required for a verification shell.
 
 **L-02**
 Severity: LOW
-File: `ConnectorApplication.cs` (`Log`)
-Problem: An append-only log named `revit-{pid}.log` is never rotated. PID reuse appends to old files. `Log` swallows all failures and falls back to `Trace`, so persistent loss of logging is invisible. A `TaskDialog` on startup failure blocks the Revit startup thread.
-Impact: Log growth and ambiguous history. Silent log loss.
-Reproduction: Review the code.
-Recommended Fix: Include the start timestamp in the log file name and set a simple retention rule.
+File: `revit/DtoB.Revit2025/ConnectorApplication.cs` (lines 20–21, 26–27)
+Problem: Log pruning (`old.Delete()`) sits inside the startup `try`. An `IOException` on an old locked log makes the whole connector fail to start. `TaskDialog.Show` is called on the startup path. `Log()` swallows failures to `Trace` only.
+Impact: A housekeeping failure can disable the add-in. Log loss is invisible.
+Reproduction: Hold an old `revit-*.log` open with deny-delete, then start Revit.
+Recommended Fix: Wrap pruning in its own try-catch and continue.
 Required Test: Not required for PHASE 00.
 
 **L-03**
 Severity: LOW
-File: `apps/DtoB.Desktop/MainWindow.xaml.cs`
-Problem: `Closed` cancels the token while a request may be pending. The `OperationCanceledException` path then writes to UI controls of a closed window. The catch list is closed (specific exception types), so any other exception from `async void` crashes the process. Connection status is last-PING only. There is no UI state for "Revit not running" versus "hung".
-Impact: Minor robustness issue in the verification-only UI.
-Reproduction: Click PING and close the window immediately.
-Recommended Fix: Skip UI updates after cancellation. Handle unexpected exceptions with a status message.
-Required Test: Not required (UI shell).
+File: `packages/DtoB.Cad/CadContracts.cs` (`CadEntity.Validate`, line 64–65)
+Problem: The "non-+Z normal is unsupported" rule hides in `RawProperties["extrusionNormal"]`. The check uses exact `== 0`/`== 1` on `GetDouble()`. A non-numeric element throws `InvalidOperationException`, not `InvalidDataException`. A reader that omits the key on a flipped entity passes silently.
+Impact: A typed concept is stored in an untyped bag and compared exactly. A DWG normal of `(1e-17, 0, 1)` would be rejected.
+Reproduction: Set `extrusionNormal` to `["a", 0, 1]`.
+Recommended Fix: Make the normal a typed optional field with a documented tolerance. Convert JSON-type errors to `InvalidDataException`.
+Required Test: Malformed and near-+Z normals produce an explicit, typed outcome.
 
 **L-04**
 Severity: LOW
-File: `BimContracts.cs` (`ReviewStatus`, `Parameters`)
-Problem: `ReviewStatus` (a PHASE 11 workflow concept) and the open `Parameters` bag (`Dictionary<string, JsonElement>`) are in the minimal BIM IR. ADR-009 rejected "property bags".
-Impact: Mild scope creep and an uncontrolled extension point that can carry untyped semantics.
-Reproduction: Read the contract.
-Recommended Fix: Keep `ReviewStatus` only if required by the provenance rule (see M-04). Define what may go into `Parameters` or remove it.
+File: `packages/DtoB.Bim/BimContracts.cs` (`ReviewStatus`, `Parameters`), `packages/DtoB.Core/Contracts.cs` (`SemanticPrediction<T>`)
+Problem: `ReviewStatus` is a PHASE 11 workflow concept. `Parameters` is an untyped `Dictionary<string, JsonElement>`, although ADR-009 rejects property bags. `SemanticPrediction<T>` has no production caller, only a test. The earlier review raised the first two; they remain.
+Impact: Scope creep and an uncontrolled extension point.
+Reproduction: Read the contracts.
+Recommended Fix: Remove `Parameters`, or define what may go in it. Remove `SemanticPrediction<T>` until recognition exists.
 Required Test: None.
 
 **L-05**
 Severity: LOW
-File: `scripts/Install-Phase00Connector.ps1`
-Problem: The script copies every `DtoB.*` file, including PDBs, into the user profile. It refuses to run while any Revit process exists but does not verify the deployed hash. The evidence JSON has a hash comparison done by hand, not by a script.
-Impact: Deployment is not reproducible from the repo.
-Reproduction: Review the script.
-Recommended Fix: Emit a SHA-256 manifest as part of the install script.
+File: `packages/DtoB.Ipc/PipeProtocol.cs`, `DtoB.Ipc.csproj`
+Problem: `DtoB.Ipc` targets plain `net8.0` but calls the Windows-only `GetNamedPipeServerProcessId` and hard-codes the product string `"Revit"` and endpoint prefix `dtob-revit-`. The protocol layer knows its host. The `JsonStringEnumConverter` also accepts raw integers, so `(IpcCommand)99` flows through.
+Impact: Weakens the claimed layering and platform neutrality. Not a defect today.
+Reproduction: Read the file.
+Recommended Fix: Make the project Windows-targeted, or isolate the P/Invoke. Move the host product name into configuration.
 Required Test: None.
 
 **L-06**
 Severity: LOW
-File: `packages/DtoB.Ipc/PipeProtocol.cs` (`PingClient`)
-Problem: A client timeout covers connect and the whole round trip, so "Revit not running" takes the full 5 s to report. A hung add-in cannot be told apart from a missing add-in.
-Impact: Slow and ambiguous user feedback.
-Reproduction: PING a nonexistent PID.
-Recommended Fix: Check the process (`Process.GetProcessById`) and use a short connect timeout.
-Required Test: PING a nonexistent PID fails fast with a distinct error.
+File: `docs/status/evidence/phase00/host-disconnected.json`
+Problem: The stack traces embed the developer's absolute path and username-derived directory. The disconnected evidence is an old-revision timeout, not the current `HostNotRunningException` fast-fail.
+Impact: Minor privacy exposure and a stale failure mode (see H-02).
+Reproduction: Open the file.
+Recommended Fix: Regenerate under H-02 and strip absolute paths.
+Required Test: None.
 
 **L-07**
 Severity: LOW
-File: `datasets/controlled/phase00/*.json`
-Problem: The fixtures are synthetic only (acknowledged). No real or controlled DWG-derived fixture exists to challenge the contracts (see H-03).
-Impact: The schema is validated only against self-authored data.
-Reproduction: Read the fixtures.
-Recommended Fix: Add a hand-written fixture that mimics real DWG output (nested blocks, mirrored INSERT, an unsupported entity with raw properties) before PHASE 04.
-Required Test: Round-trip plus validation on that fixture.
-
-**L-08**
-Severity: LOW
-File: `docs/status/PHASE_00_REPORT.md`
-Problem: The report says "Ready for independent review" and lists "Not performed: commit/push", and it also carries a self-assessed `PASS_WITH_KNOWN_LIMITATIONS` status. The task Phase Gate allows only the Review owner to issue it. The Known Limitations omit the items in H-03, M-03 and M-09.
-Impact: Overstated assurance.
-Reproduction: Read the report header and Known Limitations.
-Recommended Fix: Replace the self-assigned status with "Submitted for review". Add the missing limitations.
+File: Repository root, `DtoB_Review/`
+Problem: An untracked, full nested copy of the repository (`DtoB_Review/` with its own `.git`) sits in the working directory. It breaks M-07's test, doubles file searches, and risks reviewing the wrong tree.
+Impact: Confusing workspace state.
+Reproduction: `git status` shows `?? DtoB_Review/`.
+Recommended Fix: The owner decides whether to delete or ignore it. I did not touch it.
 Required Test: None.
 
----
-
-## 2. Boundary, Dependency and Scope Review
+## 2. Boundary, Dependency and Scope
 
 | Item | Result |
 |---|---|
-| Revit API leakage outside the adapter | **None found.** Only `DtoB.Revit2025` references `RevitAPI`/`RevitAPIUI` (`Private=false`). IPC never touches `Document`. |
-| CAD parser ↔ Revit coupling | None. `IDrawingReader` is an interface only. |
-| Dependency direction | Correct: Core → Geometry → Cad/Bim → Analysis. Desktop and Revit2025 depend on Ipc only. `Revit.Core` depends on Core only. It holds no Revit API, so the name is misleading but harmless. |
-| Units | mm in core, 304.8 conversion only in `RevitUnits` at the adapter boundary. Adapter use is not exercised in the host (it is unused by `ConnectorApplication`). |
-| .NET 8 / Revit 2025 | The assumption is correct for Revit 2025. `net8.0-windows`, x64, `Private=false` are right. Evidence is a runtimeconfig reading from one installation (25.4.50.35). |
-| Scope | No PHASE 01+ feature. Mild extras: `ReviewStatus`, `Parameters`, the `--verify-pid` evidence mode. All are small. |
-| Over-engineering | Not significant. The Prediction / SemanticPrediction / Provenance trio is slightly heavy, but it supports AGENTS rules 3 and 6. |
-| Silent failures | The Unsupported-entity path is explicit (diagnostic required). Listener death and log loss are silent (M-06, L-02). |
-| Local IPC security | `CurrentUserOnly` plus a bounded frame (16 KiB) plus a deadline are sound for the local-user model. There is no authentication of the server (M-07) and serial handling allows self-DoS (M-06). |
+| Revit API leakage | **None.** Only `DtoB.Revit2025` references RevitAPI/RevitAPIUI with `Private=false`, and the adapter output has no Autodesk DLL. IPC never touches `Document`. |
+| Dependency direction | **Correct.** Core → Geometry → Cad/Bim → Analysis. Desktop and Revit2025 depend on Ipc only. `DtoB.Revit.Core` depends on Core only, has no Revit API, and is used only by tests. The name is misleading but harmless. The dependency test covers all 9 production projects. |
+| Revit 2025 / .NET 8 | **Correct.** The target is `net8.0-windows`, x64. Revit's runtime config declares net8.0. Note that this is evidence from one installation, 25.4.50.35. |
+| Units | mm core. The 304.8 conversion lives only in `Revit.Core`. The adapter does not call it yet, so the conversion is only unit-tested. See M-02 for the source-unit gap. |
+| Scope | No PHASE 01+ feature. Extras are small: `ReviewStatus`, `Parameters`, `--verify-pid`, `SemanticPrediction<T>` (L-04). See M-05 for undisclosed deletions. |
+| Over-engineering | Moderate and acceptable. The 4-worker server is more than a PING PoC needs, and it introduced H-01. |
+| Silent failures | Unsupported CAD entities are explicit. Silent paths: a dead listener (H-01), bad `--verify-pid` arguments (L-01) and log pruning/log loss (L-02). |
+| Local IPC security | `CurrentUserOnly`, a bounded 16 KiB frame, an OS-level server PID check and request deadlines are sound for the trusted same-user model that ADR-004 states. Resource starvation by same-user peers is not handled (M-06, H-01). |
+| Serialization/versioning | `schemaVersion` is probed before the typed parse. Unknown fields are rejected. Missing arrays produce typed errors. Discriminator order is documented and tested. The "any addition is a major change" policy is strict but documented. |
 
-## 3. The Two Revit Reference Warnings (MSB3277)
+## 3. The Three Documented Revit Warnings (MSB3277)
 
-Acceptable **conditionally**. They are version-unification warnings on `Microsoft.VisualBasic` and `System.Drawing`, reached via the Revit API references. The add-in loaded and the PING/shutdown/restart succeeded, so they are not a functional blocker.
+I reproduced them on a clean clone. They are version-unification warnings from RevitAPI/RevitAPIUI pulling .NET Framework identities (`System.Drawing` 4.0, `WindowsBase` 4.0, `Microsoft.VisualBasic` 10.0) onto .NET 8 reference assemblies. `UseWPF` is correctly gone, yet `WindowsBase` still appears, so it comes from the Revit API references.
 
-The conditions are:
-
-1. First remove `UseWPF` from `DtoB.Revit2025` and retest (M-01). It is the cheapest likely cause.
-2. If the warnings persist, record the assembly identities and add a warning allow-list gate, so new MSB3277 warnings fail the build.
-3. Keep the "not validated beyond PING" statement, because no Revit API function is exercised.
+**Acceptable for PHASE 00 under conditions.**
+1. The adapter uses none of these assemblies. Loading and PING worked in the old-revision evidence.
+2. The report must state the true count, 3, and the three identities. It currently says 2.
+3. `TreatWarningsAsErrors` does not catch MSB3277, but `Verify-Phase00Foundation.ps1` fails on any change in code or identity. That gate runs only with a local Revit installation. CI cannot run it. State that explicitly.
+4. They must be re-evaluated when a Revit API call touches `System.Drawing` or WPF types (ribbon icons, dialogs). That work is PHASE 12 or later. Passing PING does not validate it.
 
 ## 4. Exit Criteria Verification
 
-Task Exit Criteria (`tasks/PHASE_00.md` §8):
+Task criteria, `tasks/PHASE_00.md` §8:
 
 | # | Criterion | Verdict | Basis |
 |---|---|---|---|
-| 1 | Desktop Framework 확정 | **Partially met** | WPF/.NET 8 is decided and builds, and the shell runs. ADR-001 has no real alternative comparison (H-02). |
-| 2 | Analysis Engine 전략 확정 | **Partially met** | In-process C# is decided, with an explicit boundary and test. The Python option is not evaluated in the ADR (H-02). |
-| 3 | Revit 구조 확정 | **Met** | Isolated adapter, `net8.0-windows`, the Core/adapter split and the boundary test. The build ID is recorded. Reproduction is local only (M-08). |
-| 4 | 통신 PoC 성공 | **Met (evidence-based)** | The real-host timeline is internally consistent. It was not reproduced by me. Lifecycle weaknesses are in M-06 and M-07. |
-| 5 | Unit/Coordinate 규칙 확정 | **Partially met** | Units, axes, rotation and composition are defined and tested. The CAD frame/OCS/arc semantics are undefined (H-03). Exact-equality predicates conflict with the tolerance policy (M-05). |
-| 6 | CAD IR/BIM IR 최소 Schema | **Partially met** | Typed contracts, fixtures and round-trip tests exist. Version and null-handling gaps (M-03), prediction enforcement (M-04) and frame semantics (H-03). |
-| 7 | Repository/Test 구조 확정 | **Partially met** | The structure matches the requested layout. The work is uncommitted and CI is unproven (H-01, M-08). |
-| 8 | Architecture ADR 작성 | **Partially met** | 10 files exist. They are shallow, the ordering claim is unsupported and the text is corrupted (H-02, M-02). |
+| 1 | Desktop Framework 확정 | **Met** | ADR-001 compares WPF, WPF+WebView2 and WinUI/web, and picks WPF. The Desktop project builds in CI. I did not launch the window. |
+| 2 | Analysis Engine 전략 확정 | **Met** | ADR-002 and an explicit in-process boundary. `FoundationAnalysisEngine` returns `ANALYSIS_NOT_IMPLEMENTED` and has a test. |
+| 3 | Revit 구조 확정 | **Met** | Isolated `net8.0-windows` x64 adapter, no Autodesk DLL in the output, and the dependency test. The adapter builds from a clean clone with Revit installed. Load verification applies to the older revision only (H-02). |
+| 4 | 통신 PoC 성공 | **Not met for HEAD** | Loopback tests pass (44/44, clean clone). Real-host evidence is from a different revision (H-02). A reproduced defect permanently disables the listener (H-01), and four idle clients starve it (M-06). |
+| 5 | Unit/Coordinate 규칙 확정 | **Partially met** | The conventions are documented in ADR-006 and unit-tested (rotation, mirroring, composition). Validation does not enforce them (M-01) and the source-unit model conflicts with the ADR (M-02). |
+| 6 | CAD IR/BIM IR 최소 Schema | **Partially met** | Typed contracts, fixtures, round-trip tests, version probing and typed errors exist. Gaps: M-01, M-02, M-03, M-04. |
+| 7 | Repository/Test 구조 확정 | **Met, with caveats** | The layout matches the plan, work is committed and pushed, and CI is green. The suite is fragile (M-07). Documentation drifts from the code (H-02, M-05). |
+| 8 | Architecture ADR 작성 | **Met** | 10 ADRs with alternatives and amendments. The report's "written before implementation" claim still contradicts the ADR amendments (H-02). |
 
-Master-plan Exit Criteria (`DtoB_FINAL_MASTER_PLAN.md` §14):
+Master-plan criteria, `DtoB_FINAL_MASTER_PLAN.md` §14:
 
 | Criterion | Verdict |
 |---|---|
-| Desktop Framework 확정 | Partially met (as 1) |
-| Revit Add-in 구조 확정 | Met |
-| 통신 방식 확정 | Met (as 4) |
-| CAD Reader 방향 확정 | **Not met** (deferred, no criteria or recorded approval, H-02) |
-| CAD IR 최소 Schema | Partially met (as 6) |
-| BIM IR 최소 Schema | Partially met (as 6) |
-| Repository 구조 확정 | Partially met (as 7) |
-| Test Strategy 확정 | Met (xUnit, synthetic fixtures, layered tests). Gaps are listed in M-08. |
+| Desktop Framework 확정 | Met (1) |
+| Revit Add-in 구조 확정 | Met (3) |
+| 통신 방식 확정 | Method decided in ADR-004 (met). The PoC is not met for HEAD (4). |
+| CAD Reader 방향 확정 | **Met only as a recorded owner deferral.** ADR-005 evaluates ODA, RealDWG and AutoCAD-assisted candidates and records the deferral to PHASE 03/04. This is acceptable only if the project owner agrees. Passing it as `PASS_WITH_KNOWN_LIMITATIONS` needs their explicit acceptance. |
+| CAD IR 최소 Schema | Partially met (6) |
+| BIM IR 최소 Schema | Partially met (6) |
+| Repository 구조 확정 | Met (7) |
+| Test Strategy 확정 | Met |
 
-Required tests from `tasks/PHASE_00.md` §7:
+Required tests, `tasks/PHASE_00.md` §7:
 
 | Test | Result |
 |---|---|
-| Desktop build | Reported (not reproduced) |
-| Revit add-in build | Reported (not reproduced) |
-| Core builds without Revit DLL | Reported (0 warnings) and consistent with the project graph |
-| IPC PING/PONG | Met by tests and real-host evidence |
-| Unit conversion smoke | Met |
-| CAD/BIM IR serialization | Met for the happy path. Error paths are weak (M-03). |
+| Desktop build | **Verified** (CI and clean clone). |
+| Revit add-in build | **Verified** locally on a clean clone (0 errors, 3 warnings). CI does not build it. |
+| Core builds without Revit DLL | **Verified** (0 warnings). |
+| IPC PING/PONG | Loopback verified. Real host verified for an older revision only. |
+| Unit conversion smoke | Verified. |
+| CAD IR/BIM IR serialization | Verified for happy and common error paths. |
 
-## 5. Required Before Re-review
+## 5. Disposition of the Earlier Review
 
-1. H-01: commit, push and a green CI run.
-2. H-02: ADR comparisons and the recorded DWG-reader deferral (or an explicit agreed `PASS_WITH_KNOWN_LIMITATIONS`).
-3. H-03: define the CAD frame, arc and OCS semantics with tests.
-4. M-01, M-03, M-04, M-06 (small, targeted fixes).
-5. Update the report and its Known Limitations.
+| Earlier finding | Current status |
+|---|---|
+| H-01 uncommitted work, unproven CI | **Resolved.** Committed, pushed, CI green. The junk root file is gone. |
+| H-02 shallow ADRs | **Resolved.** Alternatives tables and a recorded deferral. |
+| H-03 undefined CAD frame/arc/normal | **Documented, not enforced** (M-01). |
+| M-01 `UseWPF` and a warning gate | `UseWPF` removed, identity gate added locally. The report count is wrong (H-02). |
+| M-03 versioning and null handling | **Resolved.** |
+| M-04 prediction not enforced | **Partly resolved**, bypassable (M-03). |
+| M-05 exact floating equality | **Resolved** for the tolerance overload (M-04 remains). |
+| M-06 serial server and self-DoS | **Reworked and worse in one respect** (H-01, M-06). |
+| M-07 IPC types and PID trust | **Resolved.** |
+| M-08 dependency-direction test | **Resolved.** |
+| M-09 handle normalization | **Resolved.** |
 
-M-02, M-05, M-07, M-08, M-09 and the LOW items may be accepted into PHASE 01 as tracked items if the owner agrees.
+## 6. Required Before Re-review
+
+1. H-01: fix the listener fault path, add the connect-drop and forced-fault tests.
+2. H-02: re-run real-host verification on the final commit, commit current evidence, and correct the report and checklist.
+3. M-01 to M-04 and M-07: targeted fixes, or recorded owner acceptance as known limitations.
+4. M-05: the owner confirms the deletions and governing-document rewrites.
+5. M-06 and the LOW items may be accepted into PHASE 01 as tracked items if the owner agrees.
 
 ## Verdict
 
-**CHANGES_REQUIRED**
+CHANGES_REQUIRED
+
+## Final Re-review
+
+**Reviewed Git Commit SHA:** `466c7f7a1b7135a12ee80b3200e8959cd10c068e`
+**Build Result:** `PASS` (Core: 0 errors/warnings, Solution: 0 errors, 3 MSB3277 warnings)
+**Test Count/Result:** `56/56 PASS`
+**Real Revit Host Evidence Result:** `PASS` (Verified from `docs/status/evidence/phase00-review/re-review-final-ping/` and `re-review-final-restart/`. PING/PONG works, restart is properly handled, and `RequestId` matching is correct).
+
+### Status of Previous HIGH/MEDIUM Findings
+
+| Finding | Status | Notes |
+|---|---|---|
+| H-01 (IPC listener fault recovery) | **Resolved** | The listener catches `IOException` during `WaitForConnectionAsync` and continues without faulting the worker. |
+| H-02 (Final Revit host evidence) | **Resolved** | The evidence in `docs/status/evidence/phase00-review/re-review-final-*/` matches the final IPC contracts (with `RequestId` and correct logging). |
+| M-01 (CAD coordinate/insertion path invariants) | **Resolved** | `CadContracts.cs` now properly asserts that `InsertionPath.Length == 0` and `Transform` is Identity for block definitions. |
+| M-02 (Original source unit preservation) | **Resolved** | `SourceUnit` conversion is strictly verified against `SourceToMillimetersScale` using a switch expression. |
+| M-03 (Prediction evidence bypass) | **Resolved** | The `IsSemanticPrediction` flag was replaced with proper structural validation semantics checking `Prediction` and `Provenance.Confirmation`. |
+| M-04 (Tolerance-aware validation) | **Resolved** | A dedicated `ValidateGeometry(GeometryTolerance)` method properly checks bounded equality and closure. |
+| M-05 (Owner-approved deletion documentation) | **Resolved** | `PHASE_00_REPORT.md` explicitly documents the owner's approval for deleting `FILE_INDEX.md` and `MASTER_PLAN.md`. |
+| M-06 (Idle client starvation) | **Resolved** | The server reads requests with a maximum 250ms deadline, aborting idle client connections and preventing starvation. |
+| M-07 (Test stability with nested repos/PID) | **Resolved** | `FoundationDocumentTests` climbs directories searching for `DtoB.sln` instead of `.git`. `IpcTests` uses `Environment.ProcessId` instead of `explorer.exe`. |
+
+### Exit Criteria Verification
+
+All previous partial/failing exit criteria have been addressed. The project cleanly defines the architecture, validates the boundaries, establishes the IPC patterns with proper fault tolerance, enforces CAD/BIM contract constraints, and provides comprehensive documentation/evidence.
+
+## Verdict
+
+PASS
