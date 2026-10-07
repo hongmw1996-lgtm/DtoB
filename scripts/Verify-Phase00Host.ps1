@@ -5,7 +5,7 @@ $evidence=Join-Path $repo "docs/status/evidence/phase00-review/$RunName"
 New-Item -ItemType Directory -Force -Path $evidence | Out-Null
 & (Join-Path $PSScriptRoot 'Get-Phase00Snapshot.ps1') -OutputPath (Join-Path $evidence 'source-snapshot.json') | Out-Null
 if (!$AttachOnly) {
-    if(Get-Process DtoB.Desktop,Revit -ErrorAction SilentlyContinue){throw 'Close verification Desktop and Revit normally before rebuild/deployment.'}
+    if(Get-Process DtoB,Revit -ErrorAction SilentlyContinue){throw 'Close verification Desktop and Revit normally before rebuild/deployment.'}
     & (Join-Path $PSScriptRoot 'Verify-Phase00Foundation.ps1') -RevitInstallDir $RevitInstallDir -Configuration $Configuration -EvidenceDirectory (Join-Path $repo "artifacts/phase00-review/$RunName") -Toolchain $Toolchain
     & (Join-Path $PSScriptRoot 'Install-Phase00Connector.ps1') -Configuration $Configuration
     Copy-Item -LiteralPath (Join-Path $env:LOCALAPPDATA 'DtoB/phase00/connector/deployment-manifest.json') -Destination $evidence
@@ -26,7 +26,7 @@ do {
 if (!$log -or (Get-Content -LiteralPath $log.FullName -Raw) -notmatch 'STARTED') { throw 'Connector did not start within 60 seconds. Observe the Revit UI; do not bypass security/authentication prompts.' }
 $pingPath=Join-Path $evidence 'desktop-ping.json'
 if (Test-Path -LiteralPath $pingPath) { throw 'Evidence path already exists; select a unique RunName.' }
-$desktop=Join-Path $repo "apps/DtoB.Desktop/bin/$Configuration/net8.0-windows/DtoB.Desktop.exe"
+$desktop=Join-Path $repo "apps/DtoB.Desktop/bin/$Configuration/net8.0-windows/DtoB.exe"
 $desktopProcess=Start-Process -FilePath $desktop -ArgumentList @('--verify-pid', $hostProcess.Id, '--evidence', ('"'+$pingPath+'"')) -WindowStyle Hidden -PassThru
 $deadline=[DateTime]::UtcNow.AddSeconds(15)
 while (!(Test-Path -LiteralPath $pingPath) -and [DateTime]::UtcNow -lt $deadline) { Start-Sleep -Milliseconds 200 }
