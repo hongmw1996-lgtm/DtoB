@@ -14,7 +14,7 @@ public sealed class FoundationAnalysisEngine : IAnalysisEngine
 {
     public Task<AnalysisResult> AnalyzeAsync(CadDocument document, CancellationToken cancellationToken = default)
     {
-        cancellationToken.ThrowIfCancellationRequested(); document.Validate();
+        cancellationToken.ThrowIfCancellationRequested(); document.ValidateStructure();
         return Task.FromResult(new AnalysisResult(null, [new("ANALYSIS_NOT_IMPLEMENTED", DiagnosticSeverity.Warning,
             "Semantic recognition belongs to subsequent phases; no BIM model was produced.")]));
     }

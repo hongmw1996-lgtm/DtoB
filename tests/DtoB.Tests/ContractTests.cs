@@ -16,8 +16,8 @@ public class ContractTests
 
     [Fact] public void CadRoundTripPreservesSourceUnknownRawDataAndAllEntityContracts()
     {
-        var original = Cad(); original.Validate();
-        var json = IrJson.Serialize(original); var copy = IrJson.Deserialize<CadDocument>(json); copy.Validate();
+        var original = Cad(); original.ValidateStructure();
+        var json = IrJson.Serialize(original); var copy = IrJson.Deserialize<CadDocument>(json); copy.ValidateStructure();
         Assert.Equal(json, IrJson.Serialize(copy));
         Assert.Contains(copy.Entities, e => e is CadText); Assert.Contains(copy.Entities, e => e is CadDimension);
         Assert.Contains(copy.Entities, e => e is CadInsert); Assert.Single(copy.Blocks);
@@ -28,12 +28,12 @@ public class ContractTests
         Assert.Equal(4, copy.Entities.OfType<CadPrimitive>().Count());
     }
     [Fact] public void UnsupportedCannotDisappearWithoutDiagnostic()
-    { Assert.Throws<InvalidDataException>(() => (Cad() with { Diagnostics = [] }).Validate()); }
+    { Assert.Throws<InvalidDataException>(() => (Cad() with { Diagnostics = [] }).ValidateStructure()); }
     [Fact] public void SchemaMajorAndMissingSourceAreRejected()
     {
-        Assert.Throws<InvalidDataException>(() => (Cad() with { SchemaVersion = 2 }).Validate());
-        Assert.Throws<InvalidDataException>(() => (Bim() with { SchemaVersion = 2 }).Validate());
-        Assert.Throws<InvalidDataException>(() => (Cad() with { DrawingId = Guid.Empty }).Validate());
+        Assert.Throws<InvalidDataException>(() => (Cad() with { SchemaVersion = 2 }).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => (Bim() with { SchemaVersion = 2 }).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => (Cad() with { DrawingId = Guid.Empty }).ValidateStructure());
     }
     [Fact] public void OccurrenceIdentityIsUnambiguous()
     {
@@ -43,30 +43,30 @@ public class ContractTests
     }
     [Fact] public void BimRoundTripIncludesAllEightTypesAndManualObjectWithoutPrediction()
     {
-        var original = Bim(); original.Validate(); var json = IrJson.Serialize(original);
-        var copy = IrJson.Deserialize<BimDocument>(json); copy.Validate(); Assert.Equal(json, IrJson.Serialize(copy));
+        var original = Bim(); original.ValidateStructure(); var json = IrJson.Serialize(original);
+        var copy = IrJson.Deserialize<BimDocument>(json); copy.ValidateStructure(); Assert.Equal(json, IrJson.Serialize(copy));
         Assert.Equal(8, copy.Objects.Select(o => o.GetType()).Distinct().Count());
         Assert.Contains(copy.Objects, o => o.Provenance.Origin == ProvenanceOrigin.Manual && o.Prediction == null && o.Status == ReviewStatus.Confirmed);
         Assert.All(copy.Objects, o => Assert.NotNull(o.Provenance));
     }
     [Fact] public void PredictedResultRequiresEvidenceAndConfidenceButConfirmedDomainDoesNot()
     {
-        Assert.Throws<InvalidDataException>(() => new Prediction(double.NaN, ["layer"]).Validate());
-        Assert.Throws<InvalidDataException>(() => new Prediction(1.1, ["layer"]).Validate());
-        Assert.Throws<InvalidDataException>(() => new Prediction(0.9, []).Validate());
+        Assert.Throws<InvalidDataException>(() => new Prediction(double.NaN, ["layer"]).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => new Prediction(1.1, ["layer"]).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => new Prediction(0.9, []).ValidateStructure());
         var level = Assert.Single(Bim().Objects.OfType<BimLevel>());
-        (level with { Prediction = null, Status = ReviewStatus.Confirmed }).Validate();
-        Assert.Throws<InvalidDataException>(() => (level with { Prediction = null, Status = ReviewStatus.Suggested }).Validate());
-        Assert.Throws<InvalidDataException>(() => new SemanticPrediction<BimLevel>(level, null!).Validate());
-        new SemanticPrediction<BimLevel>(level, new(0.9, ["synthetic prediction"])).Validate();
-        Assert.Throws<InvalidDataException>(() => (level with { Status = ReviewStatus.Confirmed, Prediction = new(0.9, []) }).Validate());
+        (level with { Prediction = null, Status = ReviewStatus.Confirmed }).ValidateStructure();
+        Assert.Throws<InvalidDataException>(() => (level with { Prediction = null, Status = ReviewStatus.Suggested }).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => new SemanticPrediction<BimLevel>(level, null!).ValidateStructure());
+        new SemanticPrediction<BimLevel>(level, new(0.9, ["synthetic prediction"])).ValidateStructure();
+        Assert.Throws<InvalidDataException>(() => (level with { Status = ReviewStatus.Confirmed, Prediction = new(0.9, []) }).ValidateStructure());
     }
     [Fact] public void InvalidHostLevelAndProvenanceAreRejected()
     {
         var doc = Bim(); var door = Assert.Single(doc.Objects.OfType<BimDoor>());
-        Assert.Throws<InvalidDataException>(() => (doc with { Objects = doc.Objects.Select(o => o == door ? door with { HostWallId = Guid.NewGuid() } : o).ToArray() }).Validate());
-        Assert.Throws<InvalidDataException>(() => (doc with { Objects = doc.Objects.Where(o => o is not BimLevel).ToArray() }).Validate());
-        Assert.Throws<InvalidDataException>(() => (door with { Provenance = new(ProvenanceOrigin.SourceDrawing, "source", []) }).Validate());
+        Assert.Throws<InvalidDataException>(() => (doc with { Objects = doc.Objects.Select(o => o == door ? door with { HostWallId = Guid.NewGuid() } : o).ToArray() }).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => (doc with { Objects = doc.Objects.Where(o => o is not BimLevel).ToArray() }).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => (door with { Provenance = new(ProvenanceOrigin.SourceDrawing, "source", []) }).ValidateStructure());
     }
     [Fact] public async Task AnalysisFoundationReportsUnsupportedAndProducesNoModel()
     {

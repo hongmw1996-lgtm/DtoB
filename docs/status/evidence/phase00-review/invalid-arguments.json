@@ -1,0 +1,7 @@
+{
+  "exitCode": null,
+  "arguments": "--verify-pid 0 --evidence <file>",
+  "evidenceFileCreated": false,
+  "utc": "2026-10-07T06:57:23.1946376+00:00",
+  "schemaVersion": 1
+}

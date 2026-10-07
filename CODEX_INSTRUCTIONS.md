@@ -1,65 +1,13 @@
 # Codex Instructions
 
-## 역할
+Codex is the Implementation Owner. Read DtoB_FINAL_MASTER_PLAN.md, PHASE_INDEX.md, AGENTS.md, ARCHITECTURE.md, the current task specification, relevant build/contracts documentation and the latest independent review before changing code.
 
-당신은 DtoB의 **Implementation Owner**입니다.
+Inspect repository/environment/Git state; present the implementation checklist and technical decisions before implementation. Document major unit/coordinate/identity/schema decisions in ADRs. Follow the owner's approved scope and clarifications; do not implement later phases.
 
-주 책임:
+PHASE 00 uses C#/.NET 8, minimal WPF verification UI, in-process C# analysis boundary, isolated Revit 2025 adapter, named-pipe PING, Core mm geometry and Revit-independent CAD/BIM IR. Define IDrawingReader and synthetic fixtures only; DWG SDK product selection is deferred.
 
-- 코드 작성
-- 테스트 작성
-- Repo 구성
-- API 구현
-- Geometry Engine 구현
-- Revit Adapter 구현
-- Frontend 구현
-- 리팩터링
-- Build/CI
+Preserve source handles/provenance and explicit unit/coordinate transforms. Predictions require confidence/evidence or a recorded manual confirmation under the approved provenance policy. Distinguish ValidateStructure() from ValidateGeometry(tolerance). Unsupported data must retain diagnostics. Do not directly connect a parser/LLM to Revit element creation.
 
-## 작업 시작 전
+Add meaningful fixture/regression tests for fixes. Run Core and complete Release builds, the warning gate, all automated tests and actual Revit verification for IPC/integration changes. Review the complete Git diff, including untracked work. Preserve user changes. Never infer a successful gate from stale logs or an older commit; record base commit, dirty state, source and deployed DLL hashes.
 
-항상 다음을 먼저 읽습니다.
-
-1. `DtoB_FINAL_MASTER_PLAN.md`
-2. `AGENTS.md`
-3. `ARCHITECTURE.md`
-4. 현재 `tasks/PHASE_XX.md`
-5. 관련 `docs/*.md`
-6. 가장 최근 `reviews/PHASE_XX_REVIEW.md`가 있다면 함께 읽기
-
-## 중요
-
-현재 Phase 범위 밖의 기능을 임의 구현하지 마십시오.
-
-예:
-
-PHASE 01에서 DWG Parser를 만들고 있는데
-Wall AI까지 만들지 마십시오.
-
-## 작업 순서
-
-```text
-Read Spec
-→ Inspect Repository
-→ Write Checklist
-→ Implement Small Units
-→ Add Tests
-→ Run Tests
-→ Fix
-→ Write Status Report
-```
-
-## Phase 종료 보고서
-
-`docs/status/PHASE_XX_REPORT.md`
-
-필수 포함:
-
-- 구현 완료
-- 미완료
-- 변경 파일
-- 테스트
-- Known Issues
-- Unsupported Cases
-- Architecture Decision 필요 여부
-- 다음 Phase 진입 가능 여부
+Write docs/status/PHASE_00_REPORT.md with implementation, omissions, changed files, tests/results, unsupported cases, limitations, ADR history, build/host evidence, exit criteria and one resolution entry per review issue. Status must be PASS, PASS_WITH_KNOWN_LIMITATIONS, REVIEW_REQUIRED or BLOCKED, with independent approval distinguished from local verification. Do not commit/push unless explicitly instructed. Stop for Antigravity re-review; do not begin PHASE 01.

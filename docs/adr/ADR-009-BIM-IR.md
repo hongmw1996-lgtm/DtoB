@@ -26,4 +26,6 @@ Initial foundation, no existing source or persisted schemas to migrate. Later ma
 
 Finalized during review resolution. File modification times do not establish original ADR/code ordering. No commit-history ordering claim is made.
 
-IsSemanticPrediction persists recognition lineage independently of ReviewStatus and ProvenanceOrigin. It requires Prediction even when Confirmed/Ignored/Error. Suggested also requires metadata. SourceDrawing alone is not evidence of prediction: direct observations and manually confirmed non-predicted objects remain valid without artificial confidence, per explicit user approval. Parameters may contain auxiliary display metadata only, never geometry, source identity, relationships or generation instructions. ReviewStatus records object review state; no review workflow is implemented.
+Superseded checkpoint: prediction lineage boolean replaced by explicit provenance/manual action below. The open Parameters bag is removed; future typed output parameters require their own schema decision. ReviewStatus records object review state; no review workflow is implemented.
+
+Final owner amendment: remove mutable IsSemanticPrediction. SourceDrawing provenance requires Prediction unless a documented ManualConfirmation (actor, action description, timestamp) is present. Manual domain origin needs no artificial prediction. A plain status change cannot waive evidence. Provenance changes are auditable transport data, not authorization; no cryptographic history is claimed.

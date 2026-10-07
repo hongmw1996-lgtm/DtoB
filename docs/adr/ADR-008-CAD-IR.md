@@ -27,3 +27,5 @@ Initial foundation, no existing source or persisted schemas to migrate. Later ma
 Finalized during review resolution. File modification times do not establish original ADR/code ordering. No commit-history ordering claim is made.
 
 IR v1 is strict: unknown fields are forbidden, additive wire fields require an ADR and schema-major migration before deployment. Probe schemaVersion before typed deserialization. $kind/$category must appear first on polymorphic objects for .NET 8; producer violations yield InvalidDataException. Records with arrays are transport snapshots, not value-comparable or deeply immutable. Compare serialized contents and revalidate after mutation. Frame/arc/normal conventions are defined in ADR-006.
+
+Final owner amendment: minimum CAD v1 fixture revision adds explicit source conversion scale and local INSERT Placement. No released DWG data exists; synthetic fixtures are updated under this ADR. Structural and tolerance-aware validation APIs are explicitly named. Unitless/unknown DWG units remain unsupported and must be resolved explicitly before producing supported IR.

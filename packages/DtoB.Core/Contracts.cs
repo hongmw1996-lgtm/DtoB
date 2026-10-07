@@ -6,20 +6,23 @@ namespace DtoB.Core;
 
 public sealed record SourceReference(Guid DrawingId, Guid RevisionId, string Handle, string CadEntityId)
 {
-    public void Validate()
+    public void ValidateStructure()
     {
         Contract.Require(RevisionId != Guid.Empty && !string.IsNullOrWhiteSpace(CadEntityId), "Source revision and CAD identity required.");
-        var prefix = CadIdentity.Create(DrawingId, Handle);
-        Contract.Require(CadEntityId == prefix || CadEntityId.StartsWith(prefix + "/", StringComparison.Ordinal), "Source handle/CAD identity mismatch.");
+        Contract.Require(CadEntityId == CadIdentity.Create(DrawingId, Handle, CadEntityId.Split('/').Skip(2)), "Source handle/CAD identity mismatch or noncanonical insertion path.");
     }
 }
 public enum ProvenanceOrigin { SourceDrawing, Manual }
-public sealed record Provenance(ProvenanceOrigin Origin, string Description, SourceReference[] Sources);
+public sealed record ManualConfirmation(string Actor, string Action, DateTimeOffset AtUtc)
+{
+    public void ValidateStructure() => Contract.Require(!string.IsNullOrWhiteSpace(Actor) && !string.IsNullOrWhiteSpace(Action) && AtUtc != default, "Manual confirmation requires actor/action/timestamp.");
+}
+public sealed record Provenance(ProvenanceOrigin Origin, string Description, SourceReference[] Sources, ManualConfirmation? Confirmation = null);
 public enum DiagnosticSeverity { Info, Warning, Error }
 public sealed record Diagnostic(string Code, DiagnosticSeverity Severity, string Message, string? SourceHandle = null);
 public sealed record Prediction(double Confidence, string[] Evidence)
 {
-    public void Validate()
+    public void ValidateStructure()
     {
         Contract.Require(double.IsFinite(Confidence) && Confidence is >= 0 and <= 1, "Prediction confidence must be in [0,1].");
         Contract.Require(Evidence != null && Evidence.Length > 0 && Evidence.All(e => !string.IsNullOrWhiteSpace(e)), "Prediction evidence is required.");
@@ -29,10 +32,10 @@ public sealed record Prediction(double Confidence, string[] Evidence)
 // Recognition APIs return this wrapper; plain domain objects do not pretend to be predictions.
 public sealed record SemanticPrediction<T>(T Value, Prediction Prediction)
 {
-    public void Validate()
+    public void ValidateStructure()
     {
         Contract.Require(Value != null && Prediction != null, "Semantic prediction value and metadata required.");
-        Prediction!.Validate();
+        Prediction!.ValidateStructure();
     }
 }
 

@@ -21,7 +21,7 @@ public partial class MainWindow : Window
             var response = await new PingClient().PingAsync(pid, TimeSpan.FromSeconds(5), closing.Token);
             if (closing.IsCancellationRequested) return;
             ConnectionStatus.Text = $"Connected · PONG from Revit {response.Host.Version}\nBuild {response.Host.Build} · PID {pid}\nRequest {response.RequestId}";
-            if (evidencePath != null) await File.WriteAllTextAsync(evidencePath, JsonSerializer.Serialize(new { utc = DateTimeOffset.UtcNow, desktopPid = Environment.ProcessId, response }, new JsonSerializerOptions { WriteIndented = true }));
+            if (evidencePath != null) await File.WriteAllTextAsync(evidencePath, JsonSerializer.Serialize(new { schemaVersion = 1, utc = DateTimeOffset.UtcNow, desktopPid = Environment.ProcessId, response }, new JsonSerializerOptions { WriteIndented = true }));
         }
         catch (OperationCanceledException) when (closing.IsCancellationRequested) { }
         catch (Exception ex)
@@ -30,7 +30,7 @@ public partial class MainWindow : Window
             ConnectionStatus.Text = $"Disconnected / error · {ex.Message}";
             if (evidencePath != null)
             {
-                try { await File.WriteAllTextAsync(evidencePath, JsonSerializer.Serialize(new { utc = DateTimeOffset.UtcNow, error = ex.ToString() })); }
+                try { await File.WriteAllTextAsync(evidencePath, JsonSerializer.Serialize(new { schemaVersion = 1, utc = DateTimeOffset.UtcNow, processId = pid, errorType = ex.GetType().Name, error = "Host verification failed; see Desktop status." })); }
                 catch (Exception writeError) when (writeError is IOException or UnauthorizedAccessException)
                 { ConnectionStatus.Text += $"\nEvidence write failed: {writeError.Message}"; }
             }

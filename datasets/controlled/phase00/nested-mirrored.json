@@ -332,7 +332,27 @@
       "rawColor": "ByLayer",
       "id": "11111111111111111111111111111111/30",
       "rawProperties": {},
-      "sourceHandle": "30"
+      "sourceHandle": "30",
+      "placement": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
     },
     {
       "$kind": "unsupported",
@@ -406,7 +426,27 @@
       "id": "11111111111111111111111111111111/A0",
       "rawProperties": {},
       "sourceHandle": "A0",
-      "insertionPath": []
+      "insertionPath": [],
+      "placement": {
+        "matrix": [
+          0,
+          -1,
+          0,
+          100,
+          1,
+          0,
+          0,
+          200,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
     },
     {
       "$kind": "insert",
@@ -444,7 +484,27 @@
       "insertionPath": [
         "A0"
       ],
-      "ownerBlockId": "outer"
+      "ownerBlockId": "outer",
+      "placement": {
+        "matrix": [
+          -1,
+          0,
+          0,
+          10,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
     }
   ],
   "layers": [
@@ -483,12 +543,10 @@
             ]
           },
           "sourceHandle": "B1",
-          "id": "11111111111111111111111111111111/B1/30",
+          "id": "11111111111111111111111111111111/B1",
           "ownerBlockId": "block-column",
           "entityType": "Line",
-          "insertionPath": [
-            "30"
-          ],
+          "insertionPath": [],
           "effectiveLayer": "A-WALL",
           "effectiveColor": "Red",
           "rawColor": "ByLayer",
@@ -522,5 +580,6 @@
       "sourceHandle": "B1",
       "entities": []
     }
-  ]
+  ],
+  "sourceToMillimetersScale": 1
 }

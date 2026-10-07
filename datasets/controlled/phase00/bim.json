@@ -16,7 +16,12 @@
           }
         ],
         "description": "Synthetic contract fixture, not a recognition result",
-        "origin": "SourceDrawing"
+        "origin": "SourceDrawing",
+        "confirmation": {
+          "actor": "fixture-author",
+          "action": "Explicit manual confirmation of synthetic non-predicted object",
+          "atUtc": "2026-10-07T00:00:00Z"
+        }
       },
       "id": "00000000-0000-0000-0000-000000000001"
     },
@@ -46,7 +51,12 @@
           }
         ],
         "description": "Synthetic contract fixture, not a recognition result",
-        "origin": "SourceDrawing"
+        "origin": "SourceDrawing",
+        "confirmation": {
+          "actor": "fixture-author",
+          "action": "Explicit manual confirmation of synthetic non-predicted object",
+          "atUtc": "2026-10-07T00:00:00Z"
+        }
       },
       "id": "00000000-0000-0000-0000-000000000002"
     },
@@ -80,7 +90,6 @@
         "description": "Synthetic contract fixture, not a recognition result",
         "origin": "SourceDrawing"
       },
-      "isSemanticPrediction": true,
       "prediction": {
         "confidence": 0.95,
         "evidence": [
@@ -111,7 +120,12 @@
           }
         ],
         "description": "Synthetic contract fixture, not a recognition result",
-        "origin": "SourceDrawing"
+        "origin": "SourceDrawing",
+        "confirmation": {
+          "actor": "fixture-author",
+          "action": "Explicit manual confirmation of synthetic non-predicted object",
+          "atUtc": "2026-10-07T00:00:00Z"
+        }
       },
       "id": "00000000-0000-0000-0000-000000000004"
     },
@@ -136,7 +150,12 @@
           }
         ],
         "description": "Synthetic contract fixture, not a recognition result",
-        "origin": "SourceDrawing"
+        "origin": "SourceDrawing",
+        "confirmation": {
+          "actor": "fixture-author",
+          "action": "Explicit manual confirmation of synthetic non-predicted object",
+          "atUtc": "2026-10-07T00:00:00Z"
+        }
       },
       "id": "00000000-0000-0000-0000-000000000005",
       "hostWallId": "00000000-0000-0000-0000-000000000003"
@@ -163,7 +182,12 @@
           }
         ],
         "description": "Synthetic contract fixture, not a recognition result",
-        "origin": "SourceDrawing"
+        "origin": "SourceDrawing",
+        "confirmation": {
+          "actor": "fixture-author",
+          "action": "Explicit manual confirmation of synthetic non-predicted object",
+          "atUtc": "2026-10-07T00:00:00Z"
+        }
       },
       "id": "00000000-0000-0000-0000-000000000006",
       "hostWallId": "00000000-0000-0000-0000-000000000003"
@@ -183,7 +207,12 @@
           }
         ],
         "description": "Synthetic contract fixture, not a recognition result",
-        "origin": "SourceDrawing"
+        "origin": "SourceDrawing",
+        "confirmation": {
+          "actor": "fixture-author",
+          "action": "Explicit manual confirmation of synthetic non-predicted object",
+          "atUtc": "2026-10-07T00:00:00Z"
+        }
       },
       "id": "00000000-0000-0000-0000-000000000007",
       "boundary": [

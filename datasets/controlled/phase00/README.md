@@ -1,5 +1,7 @@
 # Synthetic PHASE 00 fixtures
 
-cad.json exercises all minimum CAD contracts, four basic primitive shapes, one block/INSERT occurrence, text, dimension and an unsupported proxy with retained properties and a source-linked warning. bim.json exercises eight BIM categories, a synthetic prediction and a confirmed manual room without artificial confidence. Dimensions follow the final plan's controlled 8000 x 6000 mm example.
+cad.json covers basic primitives, definitions/INSERT, text, dimension and unsupported raw data. nested-mirrored.json adds nested and mirrored INSERT occurrences, a definition-frame Arc and an unsupported -Z extrusion normal with a source-linked diagnostic. bim.json contains eight typed BIM categories, prediction evidence and explicit manual confirmations.
 
-These files are hand-authored contract fixtures, not parsed DWG or recognition output. Polymorphic `$kind`/`$category` metadata must precede data properties for System.Text.Json on .NET 8. Schema version is 1; unknown major versions are unsupported. Call Validate() after deserialization and before using contracts.
+These are hand-authored contract fixtures, not real DWG output or recognition results. Core geometry is already mm; original source unit and conversion scale are metadata. Unitless/unknown units are rejected explicitly. $kind/$category precede data properties in IR v1, and unknown fields are forbidden.
+
+Call ValidateStructure() after deserialization. Call ValidateGeometry(tolerance) before relying on geometric validity. CAD needs MatrixCoefficientTolerance explicitly; Floor/Room closure and near-zero segments need LengthMm. No reader SDK or recognition tolerance is selected here.

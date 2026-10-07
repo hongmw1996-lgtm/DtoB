@@ -30,7 +30,8 @@ public class FoundationDocumentTests
     {
         foreach(var pair in Allowed)
         {
-            var path=Directory.EnumerateFiles(Root(),pair.Key+".csproj",SearchOption.AllDirectories).Single();
+            var line=File.ReadLines(Path.Combine(Root(),"DtoB.sln")).Single(line=>line.Contains("= "+Convert.ToChar(34)+pair.Key+Convert.ToChar(34)) && line.Contains(".csproj"));
+            var relative=line.Split(Convert.ToChar(34))[5]; var path=Path.Combine(Root(),relative);
             Check(pair.Key,XDocument.Load(path));
         }
     }
@@ -43,7 +44,9 @@ public class FoundationDocumentTests
         {
             var text=utf8.GetString(File.ReadAllBytes(path));Assert.DoesNotContain("\uFFFD",text);
             Assert.DoesNotContain("Accepted ?",text);Assert.Contains("| Option | Evaluation",text);
-            Assert.True(text.Split('\n').Count(line=>line.StartsWith("| "))>=3);
+            var alternatives=text.Split("## Alternatives")[1].Split("## Decision")[0].Split('\n').Where(line=>line.StartsWith("| ")&&!line.Contains("Option |")).ToArray();
+            Assert.True(alternatives.Length>=2);
+            Assert.All(alternatives,row=>Assert.True(row.Length>55 && (row.Contains("Selected:")||row.Contains("Rejected")||row.Contains("Deferred:")||row.Contains("Candidate only:")),"Alternatives need evaluated reasons."));
         }
     }
 }

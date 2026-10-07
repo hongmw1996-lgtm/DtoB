@@ -28,3 +28,5 @@ Initial foundation, no existing source or persisted schemas to migrate. Later ma
 Finalized during review resolution. File modification times do not establish original ADR/code ordering. No commit-history ordering claim is made.
 
 Review amendment: typed command/status/error enums; protocol 1 exact-match, no negotiation. CurrentUserOnly with trusted same-user peers, no cryptographic authentication. Client verifies the OS pipe server PID. Four bounded workers; three creation retries then Faulted, disposal logs worker errors.
+
+Final owner amendment: recover accept-time IOException per connection; supervise unexpected worker exits up to three retries. Faulted means exhausted recovery. First-frame budget is at most 250 ms, four workers cap concurrent resource use. Continuous malicious same-user saturation remains outside the trusted-user PoC threat model.

@@ -17,7 +17,12 @@ public sealed class ConnectorApplication : IExternalApplication
             var host = new HostIdentity(Environment.ProcessId, "Revit", app.VersionNumber, app.VersionBuild);
             var directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DtoB", "logs");
             Directory.CreateDirectory(directory); logPath = Path.Combine(directory, $"revit-{DateTime.UtcNow:yyyyMMddTHHmmssfff}-{host.ProcessId}.log");
-            foreach (var old in new DirectoryInfo(directory).GetFiles("revit-*.log").OrderByDescending(f => f.LastWriteTimeUtc).Skip(20)) old.Delete();
+            try
+            {
+                foreach (var old in new DirectoryInfo(directory).GetFiles("revit-*.log").OrderByDescending(f => f.LastWriteTimeUtc).Skip(20))
+                    try { old.Delete(); } catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { Log($"LOG PRUNE WARNING {ex.Message}"); }
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { Log($"LOG PRUNE WARNING {ex.Message}"); }
             server = new PingServer(host, Log, TimeSpan.FromSeconds(3)); server.Start();
             Log($"STARTED Revit={host.Version} Build={host.Build} PID={host.ProcessId} endpoint={PipeProtocol.Endpoint(host.ProcessId)}");
             return Result.Succeeded;

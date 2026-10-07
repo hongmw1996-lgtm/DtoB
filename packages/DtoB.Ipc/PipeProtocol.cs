@@ -83,7 +83,20 @@ public sealed class PingServer:IAsyncDisposable
     public void Start()
     {
         if(loop!=null)throw new InvalidOperationException("Server already started.");
-        var initial=factory();loop=Task.WhenAll(Enumerable.Range(0,4).Select(i=>Task.Run(()=>RunAsync(i==0?initial:null))));
+        var initial=factory();loop=Task.WhenAll(Enumerable.Range(0,4).Select(i=>Task.Run(()=>SuperviseAsync(i==0?initial:null))));
+    }
+    private async Task SuperviseAsync(NamedPipeServerStream? initial)
+    {
+        for(int attempt=1;attempt<=3&&!stopping.IsCancellationRequested;attempt++)
+        {
+            try { await RunAsync(initial); return; }
+            catch(Exception ex)
+            {
+                initial=null;log($"IPC worker unexpected exit ({attempt}/3): {ex.Message}");
+                if(attempt==3){Interlocked.Exchange(ref faulted,1);log("IPC worker FAULTED after exhausted supervision");return;}
+                try { await Task.Delay(100,stopping.Token); } catch(OperationCanceledException){return;}
+            }
+        }
     }
     private async Task RunAsync(NamedPipeServerStream? initial)
     {
@@ -102,8 +115,10 @@ public sealed class PingServer:IAsyncDisposable
                 }
                 using(pipe)
                 {
-                    await pipe.WaitForConnectionAsync(stopping.Token);
-                    using var deadline=CancellationTokenSource.CreateLinkedTokenSource(stopping.Token);deadline.CancelAfter(requestTimeout);
+                    try { await pipe.WaitForConnectionAsync(stopping.Token); }
+                    catch(IOException ex) when(!stopping.IsCancellationRequested)
+                    { log($"IPC accept connection failed: {ex.Message}");continue; }
+                    using var deadline=CancellationTokenSource.CreateLinkedTokenSource(stopping.Token);deadline.CancelAfter(requestTimeout < TimeSpan.FromMilliseconds(250) ? requestTimeout : TimeSpan.FromMilliseconds(250));
                     try
                     {
                         var request=await PipeProtocol.ReadAsync<PingRequest>(pipe,deadline.Token);
@@ -117,7 +132,7 @@ public sealed class PingServer:IAsyncDisposable
             }
         }
         catch(OperationCanceledException)when(stopping.IsCancellationRequested){}
-        catch(Exception ex){Interlocked.Exchange(ref faulted,1);log($"IPC listener FAULTED: {ex}");}
+
         finally{initial?.Dispose();}
     }
     public async ValueTask DisposeAsync()

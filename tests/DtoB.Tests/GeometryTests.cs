@@ -24,10 +24,10 @@ public class GeometryTests
     }
     [Fact] public void NonfiniteGeometryAndHiddenInvalidToleranceAreRejected()
     {
-        Assert.Throws<InvalidDataException>(() => new Point3(double.NaN, 0, 0).Validate());
+        Assert.Throws<InvalidDataException>(() => new Point3(double.NaN, 0, 0).ValidateStructure());
         Assert.Throws<InvalidDataException>(() => RevitUnits.ToInternalFeet(double.PositiveInfinity));
-        Assert.Throws<InvalidDataException>(() => new GeometryTolerance(0, 0.1).Validate());
-        Assert.Throws<InvalidDataException>(() => new Transform3([1]).Validate());
-        new GeometryTolerance(0.01, 0.001).Validate(); // Explicit test profile; not a production default.
+        Assert.Throws<InvalidDataException>(() => new GeometryTolerance(0, 0.1).ValidateStructure());
+        Assert.Throws<InvalidDataException>(() => new Transform3([1]).ValidateStructure());
+        new GeometryTolerance(0.01, 0.001).ValidateStructure(); // Explicit test profile; not a production default.
     }
 }

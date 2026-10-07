@@ -328,7 +328,27 @@
       "rawColor": "ByLayer",
       "id": "11111111111111111111111111111111/30",
       "rawProperties": {},
-      "sourceHandle": "30"
+      "sourceHandle": "30",
+      "placement": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
     },
     {
       "$kind": "unsupported",
@@ -426,5 +446,6 @@
       ],
       "id": "block-column"
     }
-  ]
+  ],
+  "sourceToMillimetersScale": 1
 }

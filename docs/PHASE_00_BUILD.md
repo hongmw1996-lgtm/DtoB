@@ -1,37 +1,45 @@
-# PHASE 00 build and verification
+# PHASE 00 build and host verification
 
-Authoritative scope: DtoB_FINAL_MASTER_PLAN.md and tasks/PHASE_00.md. Only synthetic contracts and technical PING verification are implemented.
+Only PHASE 00 is implemented. DtoB_FINAL_MASTER_PLAN.md and PHASE_INDEX.md govern V1. No DWG SDK, parsing, recognition, project management, final viewer or BIM generation is present.
 
-## Requirements
+## Normal toolchain
 
-Windows, .NET SDK 8.0.416 (global.json), installed licensed Revit 2025 using .NET 8 for actual adapter/host verification. This machine has Revit 2025.4, executable/API FileVersion 25.4.50.35, product build 20260410_1515(x64), at D:\프로그램\Revit 2025. Installed RevitAPI/RevitAPIUI runtimeconfig files declare net8.0. Re-check after a Revit update; never select the adapter runtime from the newest installed SDK alone.
-
-## Build/test
+Windows, .NET SDK 8.0.416 and licensed Revit 2025 are required for the full gate. Set the actual installation directory; do not assume a machine-specific path.
 
 ```powershell
-dotnet build packages/DtoB.Core/DtoB.Core.csproj -c Release
-dotnet build DtoB.sln -c Release '-p:RevitInstallDir=D:\프로그램\Revit 2025'
-dotnet test DtoB.sln -c Release --no-build '-p:RevitInstallDir=D:\프로그램\Revit 2025'
+./scripts/Verify-Phase00Foundation.ps1 -RevitInstallDir '<installed Revit 2025 directory>'
 ```
 
-Stop if build fails; --no-build must only follow a successful current build. Without Revit, build Desktop and run tests/DtoB.Tests/DtoB.Tests.csproj independently. The adapter reports a clear missing-DLL build error. Proprietary API DLLs are not copied or redistributed.
+Without Revit, omit RevitInstallDir to build Core/Desktop and run every portable test. The adapter alone references Autodesk DLLs with Private=false. The script rejects unexpected warning codes and reference-conflict identities. It allows exactly Microsoft.VisualBasic 10.0/10.1, System.Drawing 4.0/8.0 and WindowsBase 4.0/8.0 for the locally verified Revit 25.4.50.35.
 
-## Actual Revit host
+## Existing Visual Studio toolchain
 
-1. Close Revit and run scripts/Install-Phase00Connector.ps1. It deploys DtoB binaries to %LOCALAPPDATA%\DtoB\phase00\connector and writes %APPDATA%\Autodesk\Revit\Addins\2025\DtoB.Phase00.addin. It refuses to replace another add-in identity and refuses deployment while Revit runs.
-2. Start the installed Revit 2025 normally. No project needs to be opened. No model modification occurs.
-3. Find its PID in Task Manager/Get-Process Revit. Launch apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.Desktop.exe. Enter that PID and click PING Revit. Expect Connected/PONG with matching PID and build.
-4. Technical evidence mode: DtoB.Desktop.exe --verify-pid PID --evidence ABSOLUTE_JSON_PATH. The same window/client operation runs automatically and records UTC, Desktop PID and correlated host response. Use a writable directory. This is a verification tool, not a project save feature.
-5. Close Revit normally, check STOPPED in %LOCALAPPDATA%\DtoB\logs\revit-PID.log, and click PING again to see a disconnected timeout. Restart and verify with the new PID.
+The current machine's dotnet.exe was reported blocked by security software and subsequently absent. No security setting, exclusion, renamed executable or quarantine restoration was performed. The already installed Visual Studio 2022 MSBuild 17.14.23 and Roslyn compiler can build these SDK-style projects using the intact SDK 8.0.416 files; VSTest 17.14 runs the tests on .NET 8.0.22.
 
-To remove only this connector, close Revit and delete its DtoB.Phase00.addin manifest; leave unrelated add-ins untouched. The deployed folder can remain until cleanup is requested.
+```powershell
+./scripts/Verify-Phase00Foundation.ps1 -RevitInstallDir '<installed directory>' -Toolchain VisualStudio
+```
 
-## Contract and transport limits
+VisualStudioDirectory and SdkDirectory are configurable parameters. The script sets MSBuildSDKsPath only for the invocation, selects the installed Visual Studio compiler and disables the unused workload resolver. This project has no MAUI/mobile workloads. Targets remain net8.0/net8.0-windows and the global.json pin is unchanged. SDK resolver diagnostics about the absent CLI may still appear; actual compile/test exit codes are checked. Use the normal Dotnet toolchain in CI. A suspected false positive should be investigated through the security vendor's process; this fallback does not validate a quarantined executable.
 
-Core units are mm; adapter helpers convert exactly 304.8 mm/foot. Coordinate conventions and transform composition are in ADR-006. Tolerance is explicitly caller supplied; no recognition tolerance is chosen. Validate documents after deserialization. JSON discriminators precede properties on .NET 8; invalid/unsupported input fails explicitly. Raw CAD fields have a dedicated JSON property dictionary.
+## Actual host gate
 
-The reader SDK is deferred. IDrawingReader is a contract only. FoundationAnalysisEngine validates CAD and returns an explicit ANALYSIS_NOT_IMPLEMENTED diagnostic and no BIM model. BIM objects always have provenance; non-predicted/manual objects need no confidence. Recognition APIs use SemanticPrediction<T>, and Suggested BIM objects require Prediction; confirmed predictions retain their evidence.
+Close the verification Desktop and Revit normally before rebuilding. Do not stop other work or modify open models.
 
-Named pipes are current-user Windows-local, bounded to 16 KiB, one request per connection with version/correlation checks and request deadline. Only PING is supported. Host version/build are captured during valid Revit startup; background IPC never reads Document. Future Revit operations require valid API context (ExternalEvent) and separate feature transactions.
+```powershell
+./scripts/Verify-Phase00Host.ps1 -RevitInstallDir '<installed directory>' -Toolchain VisualStudio -RunName '<unique run name>'
+```
 
-CI checks portable foundation/Desktop build and synthetic tests on Windows. CI does not claim licensed Revit host validation.
+The script runs Core and full Release builds, the warning gate and all tests, verifies deployment hashes, starts the installed Revit and runs the actual WPF/client verification. Raw build/TRX output stays in ignored artifacts; public evidence uses relative source paths and installation-independent version metadata. Evidence is under docs/status/evidence/phase00-review/<run name>.
+
+Normal shutdown remains an observed UI action: close Revit, retain the dated host log including STOPPED, and use the Desktop PING or --verify-pid/--evidence mode to verify HostNotRunningException. Close all verification Desktop windows. Repeat the host gate with another run name to verify restart. -AttachOnly requires exactly one live host and does not rebuild/deploy; it is not a substitute for the full final gate. Inspect authentication/security prompts manually; do not bypass them.
+
+Install-Phase00Connector.ps1 refuses an open Revit or an unrelated manifest identity, copies only DtoB DLL/deps files and emits source/deployed SHA-256 pairs. Logs use revit-<UTC timestamp>-<PID>.log, retaining twenty files; pruning failures are warnings. No model is opened or modified by PING. IPC workers never access Document.
+
+## Contracts
+
+Use ValidateStructure() for structure and ValidateGeometry(tolerance) for geometry. CAD transform validation requires explicit length and dimensionless matrix budgets. BIM boundary/segment validation uses caller-supplied length tolerance. Definition geometry is in mm; accumulated INSERT Transform maps it to mm WCS, then SourceToModel maps mm WCS to model mm. Original SourceUnit and SourceToMillimetersScale remain explicit; NormalizeSourcePoint is an explicit conversion, not implicit scaling during deserialization.
+
+IR major version 1 forbids unknown fields. The envelope checks schemaVersion before parsing; $kind/$category must be first for .NET 8. Transport records with arrays are mutable snapshots, not value-comparable objects. Revalidate after mutation. SourceDrawing provenance requires prediction confidence/evidence or a documented ManualConfirmation; a status change alone cannot waive this requirement. Manual domain objects need no artificial confidence.
+
+Only PING/PONG is implemented. Protocol 1 exact-match, typed commands/status/errors, current-user named pipes, OS server-PID verification, 16 KiB framing, bounded workers/recovery and a 250 ms first-request budget support the technical PoC. Continuous malicious same-user saturation is not prevented. CI covers portable builds/tests, not a licensed Revit host.

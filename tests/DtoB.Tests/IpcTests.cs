@@ -124,14 +124,64 @@ public class IpcTests
         Assert.Contains(log,l=>l.Contains("creation failed"));
     }
     [Fact] public async Task NonexistentProcessFailsFast()
-    { await Assert.ThrowsAsync<HostNotRunningException>(()=>new PingClient().PingAsync(int.MaxValue,TimeSpan.FromSeconds(5))); }
+    { var timer=System.Diagnostics.Stopwatch.StartNew(); await Assert.ThrowsAsync<HostNotRunningException>(()=>new PingClient().PingAsync(int.MaxValue,TimeSpan.FromSeconds(5))); Assert.True(timer.Elapsed<TimeSpan.FromSeconds(1)); }
     [Fact] public async Task OsProcessIdentityRejectsImpersonation()
     {
-        var other=System.Diagnostics.Process.GetProcessesByName("explorer").First().Id;
+        using var live=System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("powershell.exe", "-NoProfile -NonInteractive -Command Start-Sleep -Seconds 10") { UseShellExecute=false,CreateNoWindow=true });
+        var other=live!.Id;
         using var server=new NamedPipeServerStream(PipeProtocol.Endpoint(other),PipeDirection.InOut,1,PipeTransmissionMode.Byte,PipeOptions.Asynchronous);
         using var deadline=new CancellationTokenSource(TimeSpan.FromSeconds(3));
         var accept=server.WaitForConnectionAsync(deadline.Token);
         await Assert.ThrowsAsync<InvalidDataException>(()=>new PingClient().PingAsync(other,TimeSpan.FromSeconds(3)));
-        await accept;
+        await accept; live.Kill();await live.WaitForExitAsync();
+    }
+
+    [Fact] public async Task FiftyConnectAndDropCyclesPreserveListener()
+    {
+        var host=Host();await using var server=new PingServer(host,_=>{},TimeSpan.FromSeconds(1));server.Start();
+        using var deadline=new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        for(int i=0;i<50;i++)
+        {
+            using var client=new NamedPipeClientStream(".",PipeProtocol.Endpoint(host.ProcessId),PipeDirection.InOut,PipeOptions.Asynchronous);
+            await client.ConnectAsync(deadline.Token);
+        }
+        Assert.Equal(IpcStatus.Pong,(await new PingClient().PingAsync(host.ProcessId,TimeSpan.FromSeconds(3))).Status);
+        Assert.Equal(ListenerState.Running,server.State);
+    }
+    [Fact] public async Task ExhaustedCreationRecoveryFaultsAndShutsDownSafely()
+    {
+        var host=Host();int count=0;
+        var server=new PingServer(host,_=>{},TimeSpan.FromSeconds(1),()=>
+        {
+            if(Interlocked.Increment(ref count)>1)throw new IOException("forced unrecoverable fault");
+            return new NamedPipeServerStream(PipeProtocol.Endpoint(host.ProcessId),PipeDirection.InOut,4,PipeTransmissionMode.Byte,PipeOptions.Asynchronous);
+        });server.Start();
+        var deadline=System.Diagnostics.Stopwatch.StartNew();
+        while(server.State!=ListenerState.Faulted&&deadline.Elapsed<TimeSpan.FromSeconds(3))await Task.Delay(20);
+        Assert.Equal(ListenerState.Faulted,server.State);await server.DisposeAsync();
+    }
+    [Fact] public async Task PingSurvivesFourIdleClients()
+    {
+        var host=Host();await using var server=new PingServer(host,_=>{},TimeSpan.FromSeconds(3));server.Start();
+        var idle=new List<NamedPipeClientStream>();
+        try
+        {
+            using var deadline=new CancellationTokenSource(TimeSpan.FromSeconds(3));
+            for(int i=0;i<4;i++){var client=new NamedPipeClientStream(".",PipeProtocol.Endpoint(host.ProcessId),PipeDirection.InOut,PipeOptions.Asynchronous);idle.Add(client);await client.ConnectAsync(deadline.Token);}
+            Assert.Equal(IpcStatus.Pong,(await new PingClient().PingAsync(host.ProcessId,TimeSpan.FromSeconds(2))).Status);
+        }
+        finally{foreach(var client in idle)client.Dispose();}
+    }
+
+    [Fact] public async Task UnexpectedWorkerExitIsSupervisedAndRestarted()
+    {
+        var host=Host();int calls=0;var log=new System.Collections.Concurrent.ConcurrentQueue<string>();
+        await using var server=new PingServer(host,log.Enqueue,TimeSpan.FromSeconds(1),()=>
+        {
+            if(Interlocked.Increment(ref calls)==2)throw new InvalidOperationException("unexpected injected worker exit");
+            return new NamedPipeServerStream(PipeProtocol.Endpoint(host.ProcessId),PipeDirection.InOut,4,PipeTransmissionMode.Byte,PipeOptions.Asynchronous);
+        });server.Start();await Task.Delay(200);
+        Assert.Equal(ListenerState.Running,server.State);Assert.Contains(log,l=>l.Contains("unexpected exit"));
+        Assert.Equal(IpcStatus.Pong,(await new PingClient().PingAsync(host.ProcessId,TimeSpan.FromSeconds(3))).Status);
     }
 }
