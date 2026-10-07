@@ -13,7 +13,7 @@ public class FoundationDocumentTests
     {
         ["DtoB.Core"]=[],["DtoB.Geometry"]=["DtoB.Core"],["DtoB.Cad"]=["DtoB.Core","DtoB.Geometry"],
         ["DtoB.Bim"]=["DtoB.Core","DtoB.Geometry"],["DtoB.Ipc"]=[],["DtoB.Analysis"]=["DtoB.Cad","DtoB.Bim"],
-        ["DtoB.Revit.Core"]=["DtoB.Core"],["DtoB.Revit2025"]=["DtoB.Ipc"],["DtoB.Desktop"]=["DtoB.Ipc"]
+        ["DtoB.Revit.Core"]=["DtoB.Core"],["DtoB.Revit2025"]=["DtoB.Ipc"],["DtoB.Project"]=[],["DtoB.Desktop"]=["DtoB.Ipc","DtoB.Project"]
     };
     private static void Check(string name,XDocument xml)
     {
