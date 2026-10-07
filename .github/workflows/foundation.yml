@@ -1,0 +1,12 @@
+name: PHASE 00 portable foundation
+on: [push, pull_request]
+jobs:
+  foundation:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - run: ./scripts/Verify-Phase00Foundation.ps1
+# Real Revit adapter build/load needs the licensed local installation; no API DLLs are uploaded.

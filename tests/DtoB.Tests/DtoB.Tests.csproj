@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2"><PrivateAssets>all</PrivateAssets></PackageReference>
+    <ProjectReference Include="../../packages/DtoB.Core/DtoB.Core.csproj" />
+    <ProjectReference Include="../../packages/DtoB.Geometry/DtoB.Geometry.csproj" />
+    <ProjectReference Include="../../packages/DtoB.Cad/DtoB.Cad.csproj" />
+    <ProjectReference Include="../../packages/DtoB.Bim/DtoB.Bim.csproj" />
+    <ProjectReference Include="../../packages/DtoB.Ipc/DtoB.Ipc.csproj" />
+    <ProjectReference Include="../../services/DtoB.Analysis/DtoB.Analysis.csproj" />
+    <ProjectReference Include="../../revit/DtoB.Revit.Core/DtoB.Revit.Core.csproj" />
+    <None Include="../../datasets/controlled/phase00/*.json" Link="fixtures/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

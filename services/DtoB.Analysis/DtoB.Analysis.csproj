@@ -1,0 +1,2 @@
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><ProjectReference Include="../../packages/DtoB.Cad/DtoB.Cad.csproj" />
+<ProjectReference Include="../../packages/DtoB.Bim/DtoB.Bim.csproj" /></ItemGroup></Project>

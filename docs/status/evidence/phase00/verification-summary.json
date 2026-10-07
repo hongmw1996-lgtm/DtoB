@@ -1,0 +1,46 @@
+{
+  "sdk": "8.0.416",
+  "deployment": [
+    {
+      "file": "DtoB.Core.dll",
+      "sha256": "2D3C638391FE6D7F7460CA3A01BC26071218B37A5DCB2856CFE4890D1F95E2F8",
+      "deployedMatches": true
+    },
+    {
+      "file": "DtoB.Ipc.dll",
+      "sha256": "123CB3E8D54633AB3DF08C468B3F6BB66C734E23022B1E7FC9CB5FEAD9367DE4",
+      "deployedMatches": true
+    },
+    {
+      "file": "DtoB.Revit.Core.dll",
+      "sha256": "164D04CE24C682125AA2C60274F89CFD28A846E6050977AE2AFFE3148C7EADE5",
+      "deployedMatches": true
+    },
+    {
+      "file": "DtoB.Revit2025.dll",
+      "sha256": "8463A13FEE06E3EDC03073CBD3D9BCCACBB8467723600DEEE840CBF59D6ED19D",
+      "deployedMatches": true
+    }
+  ],
+  "tests": {
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0,
+    "total": 27
+  },
+  "coreBuild": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "solutionBuild": {
+    "warningCode": "MSB3277",
+    "assemblies": [
+      "Microsoft.VisualBasic",
+      "System.Drawing"
+    ],
+    "warnings": 2,
+    "errors": 0
+  },
+  "revitFileVersion": "25.4.50.35",
+  "productBuild": "20260410_1515(x64)"
+}

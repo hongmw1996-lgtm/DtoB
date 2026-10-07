@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>DtoB Phase 00 Connector</Name>
+    <Assembly>__ASSEMBLY_PATH__</Assembly>
+    <AddInId>5EAF15FA-6B60-4866-94EA-58B397F53D88</AddInId>
+    <FullClassName>DtoB.Revit2025.ConnectorApplication</FullClassName>
+    <VendorId>DTOB</VendorId>
+    <VendorDescription>DtoB PHASE 00 PING verification</VendorDescription>
+  </AddIn>
+</RevitAddIns>

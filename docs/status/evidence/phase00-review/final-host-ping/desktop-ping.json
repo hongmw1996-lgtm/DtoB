@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "utc": "2026-10-07T06:48:10.2642271+00:00",
+  "desktopPid": 28964,
+  "response": {
+    "ProtocolVersion": 1,
+    "RequestId": "b97dc9e0-c552-4692-a23f-7acb8c2b7e20",
+    "Status": 0,
+    "Host": {
+      "ProcessId": 18592,
+      "Product": "Revit",
+      "Version": "2025",
+      "Build": "25.4.50.35"
+    },
+    "Error": 0
+  }
+}

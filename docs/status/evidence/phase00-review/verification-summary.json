@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "2a5c85b74bd66cb783664609ca49f5bce4193f01",
+  "workingTreeModified": true,
+  "finalSourceTreeSha256": "53B0ECB5C349683373775286FCED74425664F76E7D3D5258FC50B88FCED6C930",
+  "compiledInputsChangedAfterHostVerification": [],
+  "toolchain": "Visual Studio MSBuild 17.14.23 / Roslyn; SDK files 8.0.416; VSTest 17.14; test runtime .NET 8.0.22",
+  "coreBuild": "PASS, 0 warnings/errors",
+  "solutionBuild": "PASS, 3 MSB3277 identities, 0 errors",
+  "tests": {
+    "total": 56,
+    "passed": 56,
+    "failed": 0,
+    "skipped": 0
+  },
+  "revit": {
+    "fileVersion": "25.4.50.35",
+    "productVersion": "20260410_1515(x64)",
+    "firstPid": 26648,
+    "restartPid": 15456,
+    "firstRequestId": "fd042e24-35d0-4d2b-8832-9397b12b0901",
+    "restartRequestId": "edb33dad-c7bb-4248-97db-bd4a36df18c8"
+  },
+  "normalShutdownBothHosts": true,
+  "disconnectedErrorType": "HostNotRunningException",
+  "deploymentHashesMatch": true,
+  "remoteCI": "Not executed; no commit/push authorized",
+  "staleEvidence": "All phase00, final-host-* and review-final-* checkpoints superseded by re-review-final-ping/re-review-final-restart"
+}

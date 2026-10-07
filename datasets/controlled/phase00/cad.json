@@ -1,0 +1,451 @@
+{
+  "sourceUnit": "mm",
+  "revisionId": "22222222-2222-2222-2222-222222222222",
+  "drawingId": "11111111-1111-1111-1111-111111111111",
+  "diagnostics": [
+    {
+      "sourceHandle": "FF",
+      "message": "Synthetic unsupported proxy retained",
+      "code": "UNSUPPORTED_ENTITY",
+      "severity": "Warning"
+    }
+  ],
+  "sourceToModel": {
+    "matrix": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "sourceFile": "synthetic-phase00.dwg",
+  "schemaVersion": 1,
+  "entities": [
+    {
+      "$kind": "primitive",
+      "effectiveColor": "Red",
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "effectiveLayer": "A-WALL",
+      "rawColor": "ByLayer",
+      "points": [
+        {
+          "z": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "z": 0,
+          "x": 8000,
+          "y": 0
+        }
+      ],
+      "entityType": "Line",
+      "id": "11111111111111111111111111111111/1A",
+      "rawProperties": {},
+      "sourceHandle": "1A"
+    },
+    {
+      "$kind": "primitive",
+      "effectiveColor": "Red",
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "effectiveLayer": "A-WALL",
+      "closed": true,
+      "rawColor": "ByLayer",
+      "points": [
+        {
+          "z": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "z": 0,
+          "x": 8000,
+          "y": 0
+        },
+        {
+          "z": 0,
+          "x": 8000,
+          "y": 6000
+        },
+        {
+          "z": 0,
+          "x": 0,
+          "y": 6000
+        },
+        {
+          "z": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "entityType": "Polyline",
+      "id": "11111111111111111111111111111111/1B",
+      "rawProperties": {},
+      "sourceHandle": "1B"
+    },
+    {
+      "$kind": "primitive",
+      "endAngleRadians": 1.5707963267948966,
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "sourceHandle": "1C",
+      "id": "11111111111111111111111111111111/1C",
+      "effectiveColor": "Red",
+      "entityType": "Arc",
+      "effectiveLayer": "A-WALL",
+      "startAngleRadians": 0,
+      "rawColor": "ByLayer",
+      "rawLayer": "A-WALL",
+      "rawProperties": {},
+      "radiusMm": 900,
+      "points": [
+        {
+          "z": 0,
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "$kind": "primitive",
+      "effectiveColor": "Red",
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "radiusMm": 200,
+      "effectiveLayer": "A-WALL",
+      "rawColor": "ByLayer",
+      "points": [
+        {
+          "z": 0,
+          "x": 1000,
+          "y": 1000
+        }
+      ],
+      "entityType": "Circle",
+      "id": "11111111111111111111111111111111/1D",
+      "rawProperties": {},
+      "sourceHandle": "1D"
+    },
+    {
+      "$kind": "text",
+      "effectiveColor": "Red",
+      "content": "1F FLOOR PLAN",
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "effectiveLayer": "A-WALL",
+      "rawColor": "ByLayer",
+      "heightMm": 250,
+      "id": "11111111111111111111111111111111/20",
+      "rawProperties": {},
+      "sourceHandle": "20",
+      "insertion": {
+        "z": 0,
+        "x": 0,
+        "y": -1000
+      }
+    },
+    {
+      "$kind": "dimension",
+      "effectiveColor": "Red",
+      "measurementMm": 8000,
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "definingPoints": [
+        {
+          "z": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "z": 0,
+          "x": 8000,
+          "y": 0
+        }
+      ],
+      "effectiveLayer": "A-WALL",
+      "rawColor": "ByLayer",
+      "displayText": "8000",
+      "id": "11111111111111111111111111111111/21",
+      "rawProperties": {},
+      "sourceHandle": "21"
+    },
+    {
+      "$kind": "insert",
+      "effectiveColor": "Red",
+      "blockId": "block-column",
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "effectiveLayer": "A-WALL",
+      "attributes": {
+        "MARK": "C1"
+      },
+      "rawColor": "ByLayer",
+      "id": "11111111111111111111111111111111/30",
+      "rawProperties": {},
+      "sourceHandle": "30",
+      "placement": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "$kind": "unsupported",
+      "effectiveColor": "Red",
+      "originalType": "PROXY",
+      "transform": {
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "rawLayer": "A-WALL",
+      "effectiveLayer": "A-WALL",
+      "rawColor": "ByLayer",
+      "reason": "Synthetic unsupported proxy retained",
+      "id": "11111111111111111111111111111111/FF",
+      "rawProperties": {
+        "payload": "proxy"
+      },
+      "sourceHandle": "FF"
+    }
+  ],
+  "layers": [
+    {
+      "lineweightMm": 0.25,
+      "name": "A-WALL",
+      "color": "Red",
+      "linetype": "Continuous"
+    }
+  ],
+  "blocks": [
+    {
+      "sourceHandle": "B0",
+      "name": "COLUMN_400",
+      "entities": [
+        {
+          "$kind": "primitive",
+          "transform": {
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "sourceHandle": "B1",
+          "id": "11111111111111111111111111111111/B1",
+          "ownerBlockId": "block-column",
+          "entityType": "Line",
+          "insertionPath": [],
+          "effectiveLayer": "A-WALL",
+          "effectiveColor": "Red",
+          "rawColor": "ByLayer",
+          "rawLayer": "A-WALL",
+          "rawProperties": {},
+          "points": [
+            {
+              "z": 0,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "z": 0,
+              "x": 400,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "id": "block-column"
+    }
+  ],
+  "sourceToMillimetersScale": 1
+}
