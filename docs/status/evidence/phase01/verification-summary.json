@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "utc": "2026-10-08T07:32:30.0785295+09:00",
+  "configuration": "Release",
+  "sourceTreeSha256": "E5ACDC7DCE7EF374AF7DF66345C8448FDB08B12E242F7BF989AB5353D2DDDFF1",
+  "coreBuild": "PASS",
+  "solutionBuild": "PASS",
+  "toolchain": "Visual Studio MSBuild 17.14.23; SDK files 8.0.416; VSTest 17.14; runtime 8.0.22",
+  "tests": {
+    "failed": 0,
+    "phase00Regression": 56,
+    "total": 78,
+    "passed": 78,
+    "phase01Cases": 22
+  },
+  "acceptedWarningIdentities": [
+    "Microsoft.VisualBasic 10.0/10.1",
+    "System.Drawing 4.0/8.0",
+    "WindowsBase 4.0/8.0"
+  ],
+  "rawEvidence": "artifacts/phase01/final-error-fix-20261008",
+  "binaries": [
+    {
+      "sha256": "85B310B5F38E69C00AEBCA4C45033698409162F15D1C9DF1E7CFF486474A5BC7",
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.exe"
+    },
+    {
+      "sha256": "026CBD2DABB9F71684A41890E362B709B7BC41DB048FFAACB1868D11186C4AD6",
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.dll"
+    },
+    {
+      "sha256": "E699A1F7057A515C4A447EE18E0C939CF5CB2A8C7BE8EBAE102D55AFAE03AD2C",
+      "path": "packages/DtoB.Project/bin/Release/net8.0/DtoB.Project.dll"
+    },
+    {
+      "sha256": "24AFC718408F2187F2F819563D728B2BDB61F3B1A696B69B3F029562782079AD",
+      "path": "tests/DtoB.Tests/bin/Release/net8.0/DtoB.Tests.dll"
+    }
+  ],
+  "hostVerification": "PASS - Revit 2025 Build 25.4.50.35; startup timeout then successful AttachOnly; STOPPED observed"
+}
