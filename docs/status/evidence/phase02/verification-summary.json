@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "utc": "2026-10-08T00:48:34.2492204+00:00",
+  "baseCommit": "be27e7d712332506bc0b5d51b70720ab8fff8a86",
+  "branch": "phase/02-dwg-upload",
+  "workingTreeModified": true,
+  "sourceTreeSha256": "54574431F4C7FECD73A9FFD2BD8A838C0C16AF821346B2E3420AFB3D6CF31C48",
+  "coreRelease": "PASS",
+  "solutionRelease": "PASS",
+  "warningGate": "PASS: unchanged three MSB3277 identities",
+  "testTotal": 111,
+  "testPassed": 111,
+  "testFailed": 0,
+  "testNotExecuted": 0,
+  "phase00Cases": 56,
+  "phase01Cases": 22,
+  "phase02Cases": 33,
+  "rawEvidence": "artifacts/phase00-review/phase02-20261008-final",
+  "revitEvidence": "docs/status/evidence/phase00-review/phase02-20261008-final",
+  "binaries": [
+    {
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.exe",
+      "sha256": "494E7F0B0C781ADF0E6450CB7A1FF4A9DDA5D80F098D9F9FA222644DD6BE494B"
+    },
+    {
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.dll",
+      "sha256": "61A98C228F26528513D74C83F55B348ADA04A6010A745936A28D746992C9F2EC"
+    },
+    {
+      "path": "packages/DtoB.Project/bin/Release/net8.0/DtoB.Project.dll",
+      "sha256": "4B22E05E16FE1E62C785852F522A043AD6DB7BCCE58573922D971391D0047384"
+    },
+    {
+      "path": "tests/DtoB.Tests/bin/Release/net8.0/DtoB.Tests.dll",
+      "sha256": "8C9DFE22ECAE3035DD50ADC106D682AAD43AA3BF8F95AB0C4002873F60B221C5"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "datasets/controlled/phase02/DtoB_TEST_2STORY_R2018.dwg",
+      "size": 46400,
+      "sha256": "3C2F4E880C63B2F247DD5D60EA2CB8D68BC72A99C505E233D88B446D59B9BAAE"
+    },
+    {
+      "path": "datasets/controlled/phase02/DtoB_TEST_2STORY_R2018.dxf",
+      "size": 79147,
+      "sha256": "AFB1FE6D8C7A2294F01637C88A6F3CD98BE9D528066AB30EF70B223A5FB6D14D"
+    }
+  ]
+}

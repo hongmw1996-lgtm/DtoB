@@ -1,0 +1,18 @@
+2026-10-13T07:06:43.9248221+00:00 PID=14644 INFO Desktop started. 
+2026-10-13T07:08:00.9517738+00:00 PID=14644 ERROR Open failed System.IO.InvalidDataException: Invalid drawing revision metadata.
+   at DtoB.Project.DrawingFile.Validate(Guid projectId) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\DrawingMetadata.cs:line 7
+   at DtoB.Project.ProjectFile.Validate() in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\ProjectPersistence.cs:line 12
+   at DtoB.Project.ProjectStore.Load(String path) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\ProjectPersistence.cs:line 56
+   at DtoB.Project.ProjectSession.Open(String path) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\ProjectPersistence.cs:line 71
+   at DtoB.Desktop.MainWindow.<>c__DisplayClass16_0.<OpenPathAsync>b__0(CancellationToken _) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\apps\DtoB.Desktop\MainWindow.xaml.cs:line 55
+   at DtoB.Desktop.MainWindow.RunAsync(String action, Func`2 work) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\apps\DtoB.Desktop\MainWindow.xaml.cs:line 19
+2026-10-13T07:08:42.3329968+00:00 PID=14644 ERROR Open failed System.IO.InvalidDataException: Invalid drawing revision metadata.
+   at DtoB.Project.DrawingFile.Validate(Guid projectId) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\DrawingMetadata.cs:line 7
+   at DtoB.Project.ProjectFile.Validate() in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\ProjectPersistence.cs:line 12
+   at DtoB.Project.ProjectStore.Load(String path) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\ProjectPersistence.cs:line 56
+   at DtoB.Project.ProjectSession.Open(String path) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\packages\DtoB.Project\ProjectPersistence.cs:line 71
+   at DtoB.Desktop.MainWindow.<>c__DisplayClass16_0.<OpenPathAsync>b__0(CancellationToken _) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\apps\DtoB.Desktop\MainWindow.xaml.cs:line 55
+   at DtoB.Desktop.MainWindow.RunAsync(String action, Func`2 work) in D:\##홍민우\02. 프로그램\09. Codex\##DtoB\DtoB_Repo\apps\DtoB.Desktop\MainWindow.xaml.cs:line 19
+2026-10-13T07:13:21.3893856+00:00 PID=14644 INFO Project opened. 
+2026-10-13T07:15:09.0785748+00:00 PID=14644 INFO Explicit integrity verification: Ready · SourceMissing · ReaderPending · Integrity: Verified at 2026-10-13T07:15:09.0771769+00:00 
+2026-10-13T07:15:25.8304319+00:00 PID=14644 INFO Desktop closed. 

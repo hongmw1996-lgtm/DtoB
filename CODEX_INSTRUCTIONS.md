@@ -1,3 +1,5 @@
+# Current task — PHASE 02
+The owner and Antigravity approved PHASE 02 implementation. Follow tasks/PHASE_02.md, the approved checklist and ADR-013/014, retain all prior architecture boundaries, and write docs/status/PHASE_02_REPORT.md. Open/Refresh must not hash/read managed content. Run Core/full Release and all regressions, actual Desktop workflows and preserved Revit connection verification. Stop for independent implementation review; no PHASE 03, commit or push. The original PHASE 00 instructions below remain historical foundation guidance; their obsolete phase-stop/report paths do not override the latest explicit owner scope.
 # Codex Instructions
 
 Codex is the Implementation Owner. Read DtoB_FINAL_MASTER_PLAN.md, PHASE_INDEX.md, AGENTS.md, ARCHITECTURE.md, the current task specification, relevant build/contracts documentation and the latest independent review before changing code.

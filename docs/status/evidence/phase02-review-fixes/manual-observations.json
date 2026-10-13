@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-13",
+  "method": "Agent visual observations of actual Release WPF screenshots returned by Computer Use; owner assisted Open dialog. Accessibility text was unavailable (null) during post-fix observations. This is an observation record, not a network trace.",
+  "fixture": "artifacts/phase02-review-fixes-20261013/manual/Review.dtob",
+  "observations": [
+    {
+      "step": "Opened corrected fixture, no drawing selected",
+      "utc": "2026-10-13T07:13:59.499Z",
+      "accessibility": null,
+      "observed": "No row selected; Missing-UNC.dwg = ManagedMissing / SourceUnchecked / ReaderPending / NotVerified; Ready-local.dxf = Ready / SourceUnchecked / ReaderPending / NotVerified; Open summary: 2 drawings: 1 Ready, 1 ManagedMissing, 2 SourceUnchecked; clean title."
+    },
+    {
+      "step": "Selected ready local row",
+      "utc": "2026-10-13T07:14:25.928Z",
+      "observed": "SourceUnchecked retained, Reveal Source disabled; Reveal Managed enabled; ready row and metadata selected."
+    },
+    {
+      "step": "Normal Refresh",
+      "utc": "2026-10-13T07:14:37.593Z",
+      "observed": "Ready-local.dxf selection and metadata retained. Aggregate Availability refreshed: 2 drawings: 1 Ready, 1 ManagedMissing, 2 SourceUnchecked. Reveal Source still disabled."
+    },
+    {
+      "step": "Explicit Check Source, present local file",
+      "utc": "2026-10-13T07:14:57.625Z",
+      "observed": "Ready-local.dxf SourcePresent; Reveal Source enabled; UNC row remains SourceUnchecked. Summary contains 1 SourceUnchecked and 1 SourcePresent; title clean."
+    },
+    {
+      "step": "Explicit Check Source after moving only owned local source copy",
+      "utc": "2026-10-13T07:15:08.988Z",
+      "observed": "Ready / SourceMissing shown in row and metadata; Reveal Source disabled, Reveal Managed enabled; UNC row remains SourceUnchecked. Aggregate 1 SourceMissing."
+    },
+    {
+      "step": "Explicit Verify Integrity with original absent",
+      "utc": "2026-10-13T07:15:25.776Z",
+      "observed": "Managed local DXF Verified with timestamp; SourceMissing retained; clean title. Original owned source copy subsequently restored."
+    },
+    {
+      "step": "Clean close",
+      "utc": "2026-10-13T07:15:42.605Z",
+      "observed": "Alt+F4; no unsaved prompt; subsequent list_windows has no DtoB window and PID 14644 is absent."
+    }
+  ],
+  "restartLimitation": "Two launch attempts returned accessibility window-opened handler did not become ready. No post-restart UI success claimed."
+}

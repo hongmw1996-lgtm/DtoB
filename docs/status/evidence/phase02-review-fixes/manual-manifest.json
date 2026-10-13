@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 2,
+  "projectId": "4448c7de-07e8-441d-99e4-71a80c861a79",
+  "name": "PHASE 02 Review Fix Verification",
+  "createdAt": "2026-10-08T09:27:00.990522+09:00",
+  "modifiedAt": "2026-10-08T09:44:46.1762668+09:00",
+  "dtoBVersion": "0.3.0",
+  "lastKnownPath": "D:\\##홍민우\\02. 프로그램\\09. Codex\\##DtoB\\DtoB_Repo\\artifacts\\phase02-review-fixes-20261013\\manual\\Review.dtob",
+  "drawings": [
+    {
+      "drawingId": "10189a08-302e-412c-a066-fd38b5c0f772",
+      "revisionId": "97eaf5e4-5b43-4c34-83c4-cf1e1c81cc3e",
+      "originalFileName": "Missing-UNC.dwg",
+      "sourceFilePath": "\\\\unreachable-dtob-test.invalid\\share\\source.dwg",
+      "managedFilePath": "4448c7de07e8441d99e471a80c861a79.dtob-assets/drawings/10189a08302e412ca066fd38b5c0f772/97eaf5e45b434c3483c4cf1e1c81cc3e.dwg",
+      "fileExtension": ".dwg",
+      "fileSize": 46400,
+      "fileHash": "3C2F4E880C63B2F247DD5D60EA2CB8D68BC72A99C505E233D88B446D59B9BAAE",
+      "versionDetection": "HeaderDetected",
+      "detectedDwgVersion": "AC1024",
+      "unitDetection": "PendingReader",
+      "importedAt": "2026-10-08T00:44:44.4319878+00:00",
+      "validation": "BasicHeaderOnly"
+    },
+    {
+      "drawingId": "d96ea1fd-a042-43e3-9323-60e63195f6cd",
+      "revisionId": "2a17f334-27c8-4e0f-b67f-d8e02a71184c",
+      "originalFileName": "Ready-local.dxf",
+      "sourceFilePath": "D:\\##홍민우\\02. 프로그램\\09. Codex\\##DtoB\\DtoB_Repo\\artifacts\\phase02-review-fixes-20261013\\manual\\Local-source.dxf",
+      "managedFilePath": "4448c7de07e8441d99e471a80c861a79.dtob-assets/drawings/d96ea1fda04243e3932360e63195f6cd/2a17f33427c84e0fb67fd8e02a71184c.dxf",
+      "fileExtension": ".dxf",
+      "fileSize": 79147,
+      "fileHash": "AFB1FE6D8C7A2294F01637C88A6F3CD98BE9D528066AB30EF70B223A5FB6D14D",
+      "versionDetection": "NotApplicable",
+      "detectedDwgVersion": null,
+      "unitDetection": "PendingReader",
+      "importedAt": "2026-10-08T00:44:44.4319878+00:00",
+      "validation": "BasicHeaderOnly"
+    }
+  ]
+}
