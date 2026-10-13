@@ -1,0 +1,30 @@
+--- desktop-20261008T0026256150995-22712.log
+2026-10-08T00:26:25.9715152+00:00 PID=22712 INFO Desktop started. 
+2026-10-08T00:28:10.5117447+00:00 PID=22712 INFO Project saved. 
+2026-10-08T00:29:22.4259875+00:00 PID=22712 INFO Drawing registered. 
+2026-10-08T00:29:25.7898972+00:00 PID=22712 INFO Project saved. 
+2026-10-08T00:38:39.5372224+00:00 PID=22712 INFO Explicit integrity verification: Ready · ReaderPending · Integrity: Verified at 2026-10-08T00:38:39.5360569+00:00 
+2026-10-08T00:39:03.9693107+00:00 PID=22712 INFO Explicit integrity verification: Ready · SourceMissing · ReaderPending · Integrity: Verified at 2026-10-08T00:39:03.9686916+00:00 
+2026-10-08T00:39:11.5116431+00:00 PID=22712 FATAL Desktop fatal error System.InvalidOperationException: 창을 닫는 중에는 Visibility를 Visible로 설정하거나 Show, ShowDialog, Close 또는 WindowInteropHelper.EnsureHandle을 호출할 수 없습니다.
+   at System.Windows.Window.VerifyNotClosing()
+   at System.Windows.Window.InternalClose(Boolean shutdown, Boolean ignoreCancel)
+   at DtoB.Desktop.MainWindow.OnClosing(Object sender, CancelEventArgs e) in <repo>\apps\DtoB.Desktop\MainWindow.xaml.cs:line 42
+   at System.Threading.Tasks.Task.<>c.<ThrowAsync>b__128_0(Object state)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+2026-10-08T00:39:56.9599796+00:00 PID=22712 INFO Desktop closed. 
+
+--- desktop-20261008T0040528326040-26708.log
+2026-10-08T00:40:53.2066780+00:00 PID=26708 INFO Desktop started. 
+2026-10-08T00:41:00.8725516+00:00 PID=26708 INFO Project opened. 
+2026-10-08T00:42:14.9202007+00:00 PID=26708 INFO Same content already registered; no change. 
+2026-10-08T00:44:44.4337895+00:00 PID=26708 INFO Drawing replaced; logical identity preserved. 
+2026-10-08T00:44:46.1828920+00:00 PID=26708 INFO Project saved. 
+2026-10-08T00:46:12.2059819+00:00 PID=26708 INFO Drawing registration removed. 
+2026-10-08T00:46:23.0031524+00:00 PID=26708 INFO Project saved. 
+2026-10-08T00:46:49.9663331+00:00 PID=26708 INFO Desktop closed. 
+
+--- desktop-20261008T0051029597908-30136.log
+2026-10-08T00:51:03.3296307+00:00 PID=30136 INFO Desktop started. 
+2026-10-08T00:51:24.8077600+00:00 PID=30136 INFO Project opened. 
+2026-10-08T00:51:36.3393432+00:00 PID=30136 INFO Desktop closed. 

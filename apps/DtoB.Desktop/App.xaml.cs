@@ -24,7 +24,7 @@ public partial class App:Application
             if(File.Exists(Path.Combine(root,"settings.json")))try{settings=store.Load();}catch(Exception ex) when(LocalFileErrors.IsExpected(ex)){notices.Add("Settings could not be loaded; defaults are in use. Original file retained. "+ex.Message);logger.Write(LogLevel.Warning,"Settings load failed",ex);}
             logger.Minimum=settings.LogLevel;
             var recent=new RecentStore(Path.Combine(root,"recent-projects.json"));if(File.Exists(Path.Combine(root,"recent-projects.json")))try{recent.Load();}catch(Exception ex) when(LocalFileErrors.IsExpected(ex)){notices.Add("Recent projects could not be loaded. Original file retained. "+ex.Message);logger.Write(LogLevel.Warning,"Recent load failed",ex);}
-            var window=new MainWindow(new ShellViewModel(new ProjectSession(new ProjectStore())),recent,store,settings,logger);MainWindow=window;window.Show();logger.Write(LogLevel.Info,"Desktop started.");foreach(var notice in notices)MessageBox.Show(window,notice,"DtoB warning",MessageBoxButton.OK,MessageBoxImage.Warning);
+            var window=new MainWindow(new ShellViewModel(new ProjectSession(new ProjectStore(),new DrawingFileService(cleanupWarning:message=>logger.Write(LogLevel.Warning,message)))),recent,store,settings,logger);MainWindow=window;window.Show();logger.Write(LogLevel.Info,"Desktop started.");foreach(var notice in notices)MessageBox.Show(window,notice,"DtoB warning",MessageBoxButton.OK,MessageBoxImage.Warning);
         }
         catch(Exception ex){Fatal(ex);}
     }

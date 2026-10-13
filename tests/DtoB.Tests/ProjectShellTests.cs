@@ -10,7 +10,7 @@ public sealed class ProjectShellTests:IDisposable
     [Fact] public void CreateSaveReloadPreservesIdentityAndMetadata()
     {
         var session=new ProjectSession(new ProjectStore());session.New("Test","0.2.0");var id=session.Project!.ProjectId;var created=session.Project.CreatedAt;
-        session.Save(FilePath("one.dtob"));var saved=session.Project;Assert.False(session.IsDirty);session.Close();session.Open(FilePath("one.dtob"));Assert.Equal(saved,session.Project);Assert.Equal(id,session.Project!.ProjectId);Assert.Equal(created,session.Project.CreatedAt);
+        session.Save(FilePath("one.dtob"));var saved=session.Project;Assert.False(session.IsDirty);session.Close();session.Open(FilePath("one.dtob"));Assert.Equal(System.Text.Json.JsonSerializer.Serialize(saved),System.Text.Json.JsonSerializer.Serialize(session.Project));Assert.Equal(id,session.Project!.ProjectId);Assert.Equal(created,session.Project.CreatedAt);
     }
     [Fact] public void SaveAsPreservesIdentityAndOriginalFile()
     {
@@ -18,7 +18,7 @@ public sealed class ProjectShellTests:IDisposable
     }
     [Fact] public void MovedFileUsesActualPathAndStaysClean()
     {
-        var s=new ProjectSession(new ProjectStore());s.New("Moved","0.2.0");s.Save(FilePath("one.dtob"));var p=s.Project;File.Move(FilePath("one.dtob"),FilePath("moved.dtob"));s.Open(FilePath("moved.dtob"));Assert.Equal(p,s.Project);Assert.Equal(FilePath("moved.dtob"),s.CurrentFilePath);Assert.False(s.IsDirty);
+        var s=new ProjectSession(new ProjectStore());s.New("Moved","0.2.0");s.Save(FilePath("one.dtob"));var p=s.Project;File.Move(FilePath("one.dtob"),FilePath("moved.dtob"));s.Open(FilePath("moved.dtob"));Assert.Equal(System.Text.Json.JsonSerializer.Serialize(p),System.Text.Json.JsonSerializer.Serialize(s.Project));Assert.Equal(FilePath("moved.dtob"),s.CurrentFilePath);Assert.False(s.IsDirty);
     }
     [Theory][InlineData("{")][InlineData("{\"schemaVersion\":2}")][InlineData("{\"schemaVersion\":1}")][InlineData("null")][InlineData("{\"schemaVersion\":true}")][InlineData("{\"schemaVersion\":\"1\"}")]
     public void InvalidProjectCannotReplaceCurrentSession(string json)

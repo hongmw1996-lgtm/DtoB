@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "utc": "2026-10-08T00:53:51.0522183+00:00",
+  "mode": "Actual Release Desktop; native Save/Add/Replace dialogs owner-assisted",
+  "savedManifest": "artifacts/phase01/manual/Project.dtob",
+  "projectId": "1056cf5c-d3ef-4e7b-99e0-062a8c11880f",
+  "drawingId": "3f698694-9d54-478d-bea7-9e71e7c8fcbf",
+  "initialRevisionId": "d7ac5e45-1943-41b7-8a11-923d551fa5c9",
+  "replacementRevisionId": "ffdacff5-6e9e-4f2e-8061-993066983d52",
+  "replacementHash": "AFB1FE6D8C7A2294F01637C88A6F3CD98BE9D528066AB30EF70B223A5FB6D14D",
+  "retainedRevisions": [
+    {
+      "file": "d7ac5e45194341b78a11923d551fa5c9.dwg",
+      "size": 46400,
+      "sha256": "3C2F4E880C63B2F247DD5D60EA2CB8D68BC72A99C505E233D88B446D59B9BAAE"
+    },
+    {
+      "file": "ffdacff56e9e4f2e8061993066983d52.dxf",
+      "size": 79147,
+      "sha256": "AFB1FE6D8C7A2294F01637C88A6F3CD98BE9D528066AB30EF70B223A5FB6D14D"
+    }
+  ],
+  "drawingsAfterRemove": 0,
+  "initialIntegrity": "NotVerified",
+  "explicitIntegrity": "Verified",
+  "sourceTemporarilyMissing": "Ready / SourceMissing, managed verification succeeded; owned source restored",
+  "duplicateResult": "Same content already registered; no change.",
+  "settings": "Observed persisted Working/Cache/2025/Info and successful Save Settings",
+  "cleanCloseFixed": true,
+  "finalNormalDesktopPid": 30136,
+  "finalNormalDesktopClosed": true,
+  "revitPid": 16068,
+  "revitPong": true,
+  "revitStopped": true,
+  "connectionWindowCapture": "Tool failure: foreground window did not report a process id; no Connected screenshot claimed",
+  "verificationProcessCleanup": "Dedicated PID 21264 stopped after correlated PONG evidence; not a normal-window-close claim",
+  "optionalDropManual": "Not exercised",
+  "multiGbUiBenchmark": "Not performed; deterministic probe/read/hash regressions instead"
+}

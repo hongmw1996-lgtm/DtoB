@@ -1,3 +1,7 @@
+# Current authorized scope — PHASE 02
+PHASE 00/01 are independently PASSed and merged. PHASE 02 registers controlled drawing files; CAD reader/IR/Analysis/Revit boundaries remain unchanged. Desktop references Project and Ipc. Project now evolves to schema v2 via ADR-013/014: source provenance plus immutable managed copies, logical/revision UUID separation, manifest-last Save As. Open/Refresh are metadata-only; integrity is explicit async session-local verification. See docs/PHASE_02_DRAWINGS.md and the current phase report. No PHASE 03 implementation.
+
+The following section is the historical PHASE 00 architecture snapshot; its phase gate and UI inventory are historical, superseded by the accepted later-phase ADRs and independent reviews.
 # DtoB Architecture — PHASE 00
 
 DtoB_FINAL_MASTER_PLAN.md and PHASE_INDEX.md are authoritative V1 planning documents. PHASE 00 defines the Controlled CAD foundation and technical connection PoC. Independent review remains CHANGES_REQUIRED until Antigravity re-reviews the resolution; no later phase starts.

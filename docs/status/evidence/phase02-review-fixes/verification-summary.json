@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-13",
+  "branch": "phase/02-dwg-upload",
+  "base": "be27e7d712332506bc0b5d51b70720ab8fff8a86",
+  "status": "REVIEW_REQUIRED",
+  "coreRelease": "PASS",
+  "solutionRelease": "PASS",
+  "gateExitCode": 0,
+  "toolchain": "VisualStudio",
+  "testTotal": 126,
+  "testPassed": 126,
+  "testFailed": 0,
+  "testSkipped": 0,
+  "groups": [
+    {
+      "group": "phase00",
+      "total": 56,
+      "passed": 56
+    },
+    {
+      "group": "phase01",
+      "total": 22,
+      "passed": 22
+    },
+    {
+      "group": "phase02Original",
+      "total": 33,
+      "passed": 33
+    },
+    {
+      "group": "reviewFixes",
+      "total": 15,
+      "passed": 15
+    }
+  ],
+  "sourceTreeSha256": "06F338805E811A56C3531EDC55798905A2FE7BC58427BAD5EA1734C6E91C6C32",
+  "binaries": [
+    {
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.exe",
+      "sha256": "494E7F0B0C781ADF0E6450CB7A1FF4A9DDA5D80F098D9F9FA222644DD6BE494B"
+    },
+    {
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.dll",
+      "sha256": "D5061C90B033BB94937BA718277D99869A8578C2223CD977415A36BCD1739071"
+    },
+    {
+      "path": "apps/DtoB.Desktop/bin/Release/net8.0-windows/DtoB.Project.dll",
+      "sha256": "53E3F41A345E87A860BAA32EB238E12719117B3B8BF2693FB8B64F84D3B06D11"
+    },
+    {
+      "path": "tests/DtoB.Tests/bin/Release/net8.0/DtoB.Tests.dll",
+      "sha256": "2ACBA5DBF2A881ACDDDD8DB2FAEAAB43F300A2C07AF99A56A452955BFF0B625F"
+    }
+  ],
+  "historicalTestTotal": 111,
+  "historicalEvidence": "docs/status/evidence/phase02",
+  "manualVerification": "PASS for M-02/M-03 visible Open/Refresh/selection/Check Source/Verify/normal-close workflow; additional restart attempt blocked by Computer Use helper. See manual-observations.json and desktop-log.txt."
+}

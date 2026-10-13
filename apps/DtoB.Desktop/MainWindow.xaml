@@ -1,23 +1,31 @@
-<Window x:Class="DtoB.Desktop.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="{Binding WindowTitle}" Width="920" Height="620" MinWidth="720" MinHeight="500">
- <DockPanel Margin="24">
+<Window x:Class="DtoB.Desktop.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="{Binding WindowTitle}" Width="1120" Height="800" MinWidth="900" MinHeight="680" AllowDrop="True" Drop="Drawing_Drop" DragOver="Drawing_DragOver">
+ <DockPanel Margin="20">
   <StackPanel DockPanel.Dock="Top">
-   <TextBlock Text="DtoB · Drawing to BIM" FontSize="26" Margin="0,0,0,18"/>
-   <WrapPanel>
-    <Button Content="New Project" Click="New_Click" Padding="14,8" Margin="0,0,8,0"/>
-    <Button Content="Open Project" Click="Open_Click" Padding="14,8" Margin="0,0,8,0"/>
-    <Button Content="Save" Click="Save_Click" IsEnabled="{Binding HasProject}" Padding="14,8" Margin="0,0,8,0"/>
-    <Button Content="Save As" Click="SaveAs_Click" IsEnabled="{Binding HasProject}" Padding="14,8" Margin="0,0,8,0"/>
-    <Button Content="Close Project" Click="Close_Click" IsEnabled="{Binding HasProject}" Padding="14,8" Margin="0,0,8,0"/>
-    <Button Content="Settings" Click="Settings_Click" Padding="14,8" Margin="0,0,8,0"/>
-    <Button Content="Connection Verification" Click="Connection_Click" Padding="14,8"/>
+   <TextBlock Text="DtoB · Drawing to BIM" FontSize="26" Margin="0,0,0,14"/>
+   <WrapPanel x:Name="Commands">
+    <Button Content="New Project" Click="New_Click" Padding="10,7" Margin="0,0,6,0"/>
+    <Button Content="Open Project" Click="Open_Click" Padding="10,7" Margin="0,0,6,0"/>
+    <Button Content="Save" Click="Save_Click" IsEnabled="{Binding HasProject}" Padding="10,7" Margin="0,0,6,0"/>
+    <Button Content="Save As" Click="SaveAs_Click" IsEnabled="{Binding HasProject}" Padding="10,7" Margin="0,0,6,0"/>
+    <Button Content="Close Project" Click="Close_Click" IsEnabled="{Binding HasProject}" Padding="10,7" Margin="0,0,6,0"/>
+    <Button Content="Settings" Click="Settings_Click" Padding="10,7" Margin="0,0,6,0"/>
+    <Button Content="Connection Verification" Click="Connection_Click" Padding="10,7"/>
    </WrapPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,14,0,8"><TextBlock Text="Project name" VerticalAlignment="Center" Margin="0,0,12,0"/><TextBox x:Name="NameInput" Width="350" IsEnabled="{Binding HasProject}" Text="{Binding ProjectName,UpdateSourceTrigger=LostFocus,ValidatesOnExceptions=True}" AutomationProperties.AutomationId="ProjectName"/></StackPanel>
+   <TextBlock Text="{Binding Metadata}" TextWrapping="Wrap" AutomationProperties.AutomationId="ProjectMetadata"/>
   </StackPanel>
-  <TextBlock x:Name="Status" DockPanel.Dock="Bottom" Text="Ready" TextWrapping="Wrap" Margin="0,18,0,0"/>
-  <Grid Margin="0,24,0,0"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-   <StackPanel Orientation="Horizontal"><TextBlock Text="Project name" VerticalAlignment="Center" Margin="0,0,12,0"/><TextBox x:Name="NameInput" Width="350" IsEnabled="{Binding HasProject}" Text="{Binding ProjectName,UpdateSourceTrigger=LostFocus,ValidatesOnExceptions=True}" AutomationProperties.AutomationId="ProjectName"/></StackPanel>
-   <TextBlock Grid.Row="1" Text="{Binding Metadata}" Margin="0,16,0,24" TextWrapping="Wrap" AutomationProperties.AutomationId="ProjectMetadata"/>
-   <TextBlock Grid.Row="2" Text="Recent Projects" FontSize="18" Margin="0,0,0,10"/>
-   <ListBox Grid.Row="3" x:Name="RecentList" DisplayMemberPath="Display" MouseDoubleClick="Recent_DoubleClick" KeyDown="Recent_KeyDown" AutomationProperties.AutomationId="RecentProjects"/>
+  <StackPanel DockPanel.Dock="Bottom" Margin="0,10,0,0"><TextBlock x:Name="Status" Text="Ready" TextWrapping="Wrap"/><Button x:Name="CancelOperation" Content="Cancel operation" Click="Cancel_Click" Visibility="Collapsed" HorizontalAlignment="Left" Padding="10,5"/></StackPanel>
+  <Grid Margin="0,16,0,0"><Grid.ColumnDefinitions><ColumnDefinition Width="320"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+   <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="2*"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+    <TextBlock Text="Project › Drawings" FontSize="18"/>
+    <WrapPanel x:Name="DrawingCommands" Grid.Row="1" Margin="0,8"><Button Content="Add Drawing" Click="Add_Click" Padding="8,5"/><Button Content="Replace Drawing" Click="Replace_Click" Padding="8,5"/><Button Content="Remove Drawing" Click="Remove_Click" Padding="8,5"/></WrapPanel>
+    <ListBox Grid.Row="2" ItemsSource="{Binding DrawingRows}" SelectedValuePath="Drawing" SelectedValue="{Binding SelectedDrawing,Mode=TwoWay}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutomationProperties.AutomationId="Drawings">
+     <ListBox.ItemTemplate><DataTemplate><StackPanel Margin="2,4"><TextBlock Text="{Binding OriginalFileName}" TextWrapping="Wrap"/><TextBlock Text="{Binding StatusText}" TextWrapping="Wrap" FontSize="11" Margin="0,3,0,0" AutomationProperties.AutomationId="DrawingRowStatus"/></StackPanel></DataTemplate></ListBox.ItemTemplate>
+    </ListBox>
+    <TextBlock Grid.Row="3" Text="Recent Projects" FontSize="18" Margin="0,16,0,8"/>
+    <ListBox Grid.Row="4" x:Name="RecentList" DisplayMemberPath="Display" MouseDoubleClick="Recent_DoubleClick" KeyDown="Recent_KeyDown" AutomationProperties.AutomationId="RecentProjects"/>
+   </Grid>
+   <DockPanel Grid.Column="1" Margin="20,0,0,0"><WrapPanel DockPanel.Dock="Top" x:Name="AssetCommands" Margin="0,0,0,12"><Button Content="Verify Integrity" Click="Verify_Click" Padding="10,7"/><Button Content="Refresh Status" Click="Refresh_Click" Padding="10,7"/><Button Content="Check Source" ToolTip="Explicitly checks the selected original path, including network paths" Click="CheckSource_Click" Padding="10,7"/><Button Content="Reveal Source" IsEnabled="{Binding CanRevealSource}" ToolTip="Check Source first; original file must be present" Click="RevealSource_Click" Padding="10,7"/><Button Content="Reveal Managed" IsEnabled="{Binding CanRevealManaged}" ToolTip="Managed file must be available" Click="RevealManaged_Click" Padding="10,7"/></WrapPanel><ScrollViewer VerticalScrollBarVisibility="Auto"><TextBlock Text="{Binding DrawingMetadata}" TextWrapping="Wrap" AutomationProperties.AutomationId="DrawingMetadata"/></ScrollViewer></DockPanel>
   </Grid>
  </DockPanel>
 </Window>
