@@ -10,6 +10,7 @@
     <Button Content="Close Project" Click="Close_Click" IsEnabled="{Binding HasProject}" Padding="10,7" Margin="0,0,6,0"/>
     <Button Content="Settings" Click="Settings_Click" Padding="10,7" Margin="0,0,6,0"/>
     <Button Content="Connection Verification" Click="Connection_Click" Padding="10,7"/>
+    <Button Content="Diagnostic Viewer" Click="Viewer_Click" Padding="10,7" Margin="6,0,0,0" ToolTip="Selected managed Text DXF only; DWG requires external export"/>
    </WrapPanel>
    <StackPanel Orientation="Horizontal" Margin="0,14,0,8"><TextBlock Text="Project name" VerticalAlignment="Center" Margin="0,0,12,0"/><TextBox x:Name="NameInput" Width="350" IsEnabled="{Binding HasProject}" Text="{Binding ProjectName,UpdateSourceTrigger=LostFocus,ValidatesOnExceptions=True}" AutomationProperties.AutomationId="ProjectName"/></StackPanel>
    <TextBlock Text="{Binding Metadata}" TextWrapping="Wrap" AutomationProperties.AutomationId="ProjectMetadata"/>

@@ -1,0 +1,2 @@
+datasets/controlled/**/*.dxf -text
+datasets/controlled/**/*.bin -text

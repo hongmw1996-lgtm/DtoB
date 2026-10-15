@@ -1,0 +1,974 @@
+[
+  {
+    "FixtureId": "phase02/DtoB_TEST_2STORY_R2018",
+    "Path": "datasets/controlled/phase02/DtoB_TEST_2STORY_R2018.dxf",
+    "Purpose": "Reviewed phase02 source case DtoB_TEST_2STORY_R2018",
+    "ExpectedStage": "03F",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "2676958463BB8BA183A6E255B0032495C4AD2958E3AF43BEB809015B71DB30BC"
+  },
+  {
+    "FixtureId": "phase03b/content-after-eof",
+    "Path": "datasets/controlled/phase03b/content-after-eof.dxf",
+    "Purpose": "Code1 extra after EOF; ContentAfterEof",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "ContentAfterEof"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B4E511CEB4FA8E7DB68DDBE77E839D22A19A172B0A06D4CFCFDD43F6CEBCF891"
+  },
+  {
+    "FixtureId": "phase03b/dimstyle-distinct-70-roles",
+    "Path": "datasets/controlled/phase03b/dimstyle-distinct-70-roles.dxf",
+    "Purpose": "Flags16; code69 mode2 then TextFillColor7; Supported, both70 pairs accounted exactly once",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "4879EFD242D3FB5A3D1AB7504DD8BA4AFD976F184EB63A6C2951924C32F01077"
+  },
+  {
+    "FixtureId": "phase03b/dimstyle-duplicate-standard-flags",
+    "Path": "datasets/controlled/phase03b/dimstyle-duplicate-standard-flags.dxf",
+    "Purpose": "Two symbol-header70 values16/32 before40; Flags Invalid, color7 Valid, InvalidTableValue/Invalid entry",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "InvalidTableValue"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "49ACDF4FA78B336EB00143AC172A0DE9EC68208C057067B92B76FA3EC867B551"
+  },
+  {
+    "FixtureId": "phase03b/dimstyle-duplicate-text-fill-color",
+    "Path": "datasets/controlled/phase03b/dimstyle-duplicate-text-fill-color.dxf",
+    "Purpose": "Flags16 Valid; code69 followed by70 values7/8 before71; TextFillColor Invalid, InvalidTableValue/Invalid entry",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "InvalidTableValue"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "64D4D2962670944187BC897A156F0F11CE68CB8977D26BF41275BB4F9BAB865B"
+  },
+  {
+    "FixtureId": "phase03b/dimstyle-identity",
+    "Path": "datasets/controlled/phase03b/dimstyle-identity.dxf",
+    "Purpose": "HEADER HANDSEED FF is metadata; DIMSTYLE105=00AB identity,5=LEGACY setting",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B7AD3E6B46E1564943940C1819C6339A3D3C6F98CCB98A71956F89B23BEA81AB"
+  },
+  {
+    "FixtureId": "phase03b/duplicate-header",
+    "Path": "datasets/controlled/phase03b/duplicate-header.dxf",
+    "Purpose": "Two singleton HEADER sections; DuplicateHeaderSection",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateHeaderSection"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "43224F630090F527E965ACAFE9EE63BD93B59EFB783B99DCEAF0CB8EE0823E26"
+  },
+  {
+    "FixtureId": "phase03b/duplicate-version",
+    "Path": "datasets/controlled/phase03b/duplicate-version.dxf",
+    "Purpose": "AC1032 then AC1024; both retained, DuplicateAcadVersion",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateAcadVersion"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "1A86CEF41E6052CF7B1311BCED6657AC8C7806F840A7A2470896AF428274C350"
+  },
+  {
+    "FixtureId": "phase03b/korean-layer-style",
+    "Path": "datasets/controlled/phase03b/korean-layer-style.dxf",
+    "Purpose": "LAYER name 벽체, STYLE name 한글스타일 preserved UTF-8; no font loading",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "D4112C95F23D3720757447C1B139CA2D856D09091BFF379F726C6F84522390F5"
+  },
+  {
+    "FixtureId": "phase03b/malformed-header",
+    "Path": "datasets/controlled/phase03b/malformed-header.dxf",
+    "Purpose": "Code70 before any code9 variable; MalformedHeaderVariable",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MalformedHeaderVariable"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "C2971A5733000452FE0FF62A48344B9089489F5ACD54EF46813C52D6AB8310FD"
+  },
+  {
+    "FixtureId": "phase03b/missing-endsec",
+    "Path": "datasets/controlled/phase03b/missing-endsec.dxf",
+    "Purpose": "HEADER reaches EOF; MissingEndSec",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MissingEndSec"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "8B62C2DB4451170E4F023E4EFFD02A69C288509B28AEF033E33F70D3A04E6420"
+  },
+  {
+    "FixtureId": "phase03b/missing-endtab",
+    "Path": "datasets/controlled/phase03b/missing-endtab.dxf",
+    "Purpose": "LAYER table reaches ENDSEC; MissingEndTab",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MissingEndTab"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "FBB09E5A79D22C7E5C9A6BB29B92962A35F2BFF59745571F5B647CC4A92E028E"
+  },
+  {
+    "FixtureId": "phase03b/missing-eof",
+    "Path": "datasets/controlled/phase03b/missing-eof.dxf",
+    "Purpose": "Complete HEADER with no EOF; MissingEof",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MissingEof"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E533EA7912E761E2E17734ECC0894963ACD2C0E819DF24FB189432C8C30EE490"
+  },
+  {
+    "FixtureId": "phase03b/missing-version",
+    "Path": "datasets/controlled/phase03b/missing-version.dxf",
+    "Purpose": "Empty HEADER; MissingAcadVersion",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MissingAcadVersion"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "FAEB24A3AA371BE00D0376B00C26769820DD564C25D36E5E1CB5A9FFE9D13522"
+  },
+  {
+    "FixtureId": "phase03b/nested-section",
+    "Path": "datasets/controlled/phase03b/nested-section.dxf",
+    "Purpose": "SECTION inside HEADER; NestedSection",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "NestedSection"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "1C0045BD5DDC98F027F47448DC82BEE6A20B35405638898A10C67FDE98402F8F"
+  },
+  {
+    "FixtureId": "phase03b/nested-table",
+    "Path": "datasets/controlled/phase03b/nested-table.dxf",
+    "Purpose": "TABLE before prior ENDTAB; NestedTable",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "NestedTable"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "4BCD977AF12913FFB3DFF2D9724B925FCC229C43658294C0DFC08DA3A1A3BB2B"
+  },
+  {
+    "FixtureId": "phase03b/reactor-owner",
+    "Path": "datasets/controlled/phase03b/reactor-owner.dxf",
+    "Purpose": "LAYER330=B inside reactors;330=C outside is owner",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "132CE41F11D827A3F5A6C336A31F008BB38176F52EC1D22943A399BA68CF175D"
+  },
+  {
+    "FixtureId": "phase03b/table-missing-name",
+    "Path": "datasets/controlled/phase03b/table-missing-name.dxf",
+    "Purpose": "TABLE followed by ENDTAB; MissingTableName",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MissingTableName"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "A3E0DE1854300F3784F7E97B3EFF5B66513DF672FFD5FDEC708BFAA8412A2B9B"
+  },
+  {
+    "FixtureId": "phase03b/unknown-section",
+    "Path": "datasets/controlled/phase03b/unknown-section.dxf",
+    "Purpose": "UNKNOWN/CUSTOM raw range retained; Partial",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "UnknownSection"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E8379D1D0B091CC3E9BAC9A15645139E0741A8760192AF164828709D40D78773"
+  },
+  {
+    "FixtureId": "phase03b/unknown-table-count",
+    "Path": "datasets/controlled/phase03b/unknown-table-count.dxf",
+    "Purpose": "CUSTOM declares2, contains1 entry; retained/Partial/count diagnostic",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DeclaredTableCountMismatch"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "37B940C7212F06A49104F1090475480A35A5BD8126A8BFA890E6C994544AB44A"
+  },
+  {
+    "FixtureId": "phase03b/unsupported-version",
+    "Path": "datasets/controlled/phase03b/unsupported-version.dxf",
+    "Purpose": "Explicit AC1024; UnsupportedVersion",
+    "ExpectedStage": "03B",
+    "ExpectedStatus": "UnsupportedVersion",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedAcadVersion"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "19A9604332471E938ACCEE5259157AB5D13A863BFD17E1BABF067F7AEFBF9FA8"
+  },
+  {
+    "FixtureId": "phase03c/arc-native-degrees",
+    "Path": "datasets/controlled/phase03c/arc-native-degrees.dxf",
+    "Purpose": "Center(1,2), radius3, angles720/-90 degrees unchanged; no wrap/radians.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E3671CCB215D373354DE91FC88BA198ADBAC6782BE1FFDEDC179437B84F26D87"
+  },
+  {
+    "FixtureId": "phase03c/circle-reviewed",
+    "Path": "datasets/controlled/phase03c/circle-reviewed.dxf",
+    "Purpose": "Explicit AcDbCircle subclass. Center(-1.5,2.25,-3.5), radius2.5, thickness0.125, normal(0.1,0.2,1.0). Center X pair12/value line26; radius pair15/line32. Separate CIRCLE acceptance gate.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "EDC47200C17088DC682A946DD39310A0655527E68F8EE651B5C11B7191D2FE71"
+  },
+  {
+    "FixtureId": "phase03c/legacy-gated",
+    "Path": "datasets/controlled/phase03c/legacy-gated.dxf",
+    "Purpose": "POLYLINE flags64 + VERTEX + SEQEND; typed legacy mapping not implemented; sequence/subtype gate explicit.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "LegacyPolylineGated"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "9EFD2027856E16DBCFE10639047AF9009814F1295D2D1EA72ABE8DE93D8F921B"
+  },
+  {
+    "FixtureId": "phase03c/line-duplicate-x",
+    "Path": "datasets/controlled/phase03c/line-duplicate-x.dxf",
+    "Purpose": "Two singleton X values1/2, both source indices retained/Invalid, no winner.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateField"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "40D8DB9BA472EC491490A6D5BC595860E1B4565A4CACF6D02E5EDEC41BD8AE8D"
+  },
+  {
+    "FixtureId": "phase03c/line-missing-y",
+    "Path": "datasets/controlled/phase03c/line-missing-y.dxf",
+    "Purpose": "Missing required Start.Y; absent/invalid, never zero.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "MissingRequiredField"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "6E54482BCCDA620D7B377F33BA1EE94A2F446D86D72A5D6F430A203E9917E3AC"
+  },
+  {
+    "FixtureId": "phase03c/line-native-3d",
+    "Path": "datasets/controlled/phase03c/line-native-3d.dxf",
+    "Purpose": "HEADER INSUNITS1; coordinates(1,2,3)->(4,5,6), thickness7, normal(0.2,0.3,0.4); no source scaling.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "A43AFE2F2AC131C3802DA68EBD105AA76301D07CC60FF68840E2D5E829038858"
+  },
+  {
+    "FixtureId": "phase03c/line-nonfinite",
+    "Path": "datasets/controlled/phase03c/line-nonfinite.dxf",
+    "Purpose": "NaN X, raw retained/numeric invalid, no typed zero.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "InvalidNumericValue"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "C09CAD9C1F23EDFD1A6FC8D5A7A7984AAD7B10CB844F39EE3C354AFF323BFFCC"
+  },
+  {
+    "FixtureId": "phase03c/line-optional-z",
+    "Path": "datasets/controlled/phase03c/line-optional-z.dxf",
+    "Purpose": "Raw-0.0/1e+20 spelling, Z/thickness/normal absent; no defaults.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "0CF92A121143D4596AB9AE630ED83DCA05AB7C48E8AC2C28DDDB7B071B50BEC8"
+  },
+  {
+    "FixtureId": "phase03c/line-zero-length",
+    "Path": "datasets/controlled/phase03c/line-zero-length.dxf",
+    "Purpose": "Both endpoints(1,2), retained as Supported raw LINE; no cleanup.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B9D03D443B97710482557011BD83FC50C11F351E849738270480AF8C17B0E8F2"
+  },
+  {
+    "FixtureId": "phase03c/lwpolyline-count-mismatch",
+    "Path": "datasets/controlled/phase03c/lwpolyline-count-mismatch.dxf",
+    "Purpose": "Declares2 but one source X/Y vertex; Invalid/VertexCountMismatch, no repair.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "VertexCountMismatch"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "0B6E7F12C59CE9F62345FDC35ACED8D1D5076D030540B98437ADC65A5E16C71E"
+  },
+  {
+    "FixtureId": "phase03c/lwpolyline-full",
+    "Path": "datasets/controlled/phase03c/lwpolyline-full.dxf",
+    "Purpose": "Two vertices(-1,2),(5,6); flags1 without closing point; elevation3.5; constant width12.5 retained with vertex widths3/4, bulge-0.5, identifier17; second optional vertex fields absent; thickness0 and normal(1,2,3) unnormalized.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "ACBB26A04ADE413B631730A34DD52A3D135D9A26408D4BAB51785DE6C40F4280"
+  },
+  {
+    "FixtureId": "phase03c/lwpolyline-invalid-order",
+    "Path": "datasets/controlled/phase03c/lwpolyline-invalid-order.dxf",
+    "Purpose": "Width before Y in X-delimited vertex; InvalidVertexOrder, evidence retained.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "InvalidVertexOrder"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "813F6781644262A306033636845C5A660E939E3F271C0E2036C9930612FDDB8C"
+  },
+  {
+    "FixtureId": "phase03c/lwpolyline-missing-y",
+    "Path": "datasets/controlled/phase03c/lwpolyline-missing-y.dxf",
+    "Purpose": "One X without Y; located missing fact/Invalid.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "MissingRequiredField"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "5CA19ED831A8807647C11985886ED421C036C6E1C4B0BC482EFBE98FD192AC6F"
+  },
+  {
+    "FixtureId": "phase03c/point-angle",
+    "Path": "datasets/controlled/phase03c/point-angle.dxf",
+    "Purpose": "Position(4,5), angle450 source degrees, Z absent; no rendering.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "4FED334FA43B8377E4CDEDD7FEE5FD31139C93A7009F8492BB1A2F5370EBF47B"
+  },
+  {
+    "FixtureId": "phase03c/solid-degenerate",
+    "Path": "datasets/controlled/phase03c/solid-degenerate.dxf",
+    "Purpose": "All four corner slots(1,2), retained separately; no collapse/reorder/mesh.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "65EBE28123010A308EAA3926B8BE7D1C773AF06E68AB2231EB9988D16974FDBD"
+  },
+  {
+    "FixtureId": "phase03c/unsupported-ellipse",
+    "Path": "datasets/controlled/phase03c/unsupported-ellipse.dxf",
+    "Purpose": "All pairs retained Unsupported; no approximation.",
+    "ExpectedStage": "03C",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedGeometry"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "9F1D45AE051DCC54CDE1726A9C3E8A58F88C64D9AD984D006963C24E7F145F2B"
+  },
+  {
+    "FixtureId": "phase03d/attributes-malformed",
+    "Path": "datasets/controlled/phase03d/attributes-malformed.dxf",
+    "Purpose": "Missing SEQEND before TEXT; sequence invalid, following TEXT survives.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "MissingAttributeSequenceEnd"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "601C5EDF46EFC7A98462C44443660529AC1C16939E7CB19A3E4B6F94CC5D3A6C"
+  },
+  {
+    "FixtureId": "phase03d/attributes",
+    "Path": "datasets/controlled/phase03d/attributes.dxf",
+    "Purpose": "Explicit66=1 INSERT → ATTRIB → SEQEND; independent ATTDEF in NONZERO. Value “explicit value” differs from “default only”; prompt/tag/flags retained.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "A1F0C10DE6ACA5426782E0AFFE7C857B5CF1CB2F04F1E25496A6691F4981A813"
+  },
+  {
+    "FixtureId": "phase03d/block-malformed",
+    "Path": "datasets/controlled/phase03d/block-malformed.dxf",
+    "Purpose": "Nested BLOCK and unmatched ENDBLK; located invalid sequence evidence, following TEXT survives.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "NestedBlock"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "ADCF3CCC6FFD36C3881CE42AD05B15C0FE4E4D96EBCC45CB0A0EEC67E0DC18BC"
+  },
+  {
+    "FixtureId": "phase03d/blocks-nested",
+    "Path": "datasets/controlled/phase03d/blocks-nested.dxf",
+    "Purpose": "NONZERO base (12.5,-30,7), empty xref, nested and standalone INSERT (100,200,300), XYZ scale (2,3,4), rotation45 degrees, normal (0,1,0), one unchanged POINT child, anonymous *D99. No placement/expansion.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "1ABC2F45F26A9E39B314C7D5B200BD5D379A8A38E90C141EB3C98BAD3E0DD02A"
+  },
+  {
+    "FixtureId": "phase03d/dimension-aligned",
+    "Path": "datasets/controlled/phase03d/dimension-aligned.dxf",
+    "Purpose": "Flags33/aligned subclass, anonymous block name, empty override, native extension points, encoded42=123.456 (not calculated), rotation22.5.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F6E2CD915567286ED950FEB83729FAB2AB02D76C95FA480E0AF1288F22400038"
+  },
+  {
+    "FixtureId": "phase03d/dimension-unsupported",
+    "Path": "datasets/controlled/phase03d/dimension-unsupported.dxf",
+    "Purpose": "Flags34/angular subclass; common facts retained, subtype-specific13/14/50 remain unmapped, unsupported disposition.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedDimensionSubtype"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "EF4EA74FE173FCA45A6B76B12F9E8A57B15F25E005989DEC7781400972DA58ED"
+  },
+  {
+    "FixtureId": "phase03d/duplicate-nonfinite",
+    "Path": "datasets/controlled/phase03d/duplicate-nonfinite.dxf",
+    "Purpose": "Two code1 values and NaN/Infinity/overflow numeric values; invalid facts, all source occurrences retained.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateField"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F7B8F4ED8867D6094305074EFC005E05AF2EEAE4E64E505732A4BF035EDCF4B6"
+  },
+  {
+    "FixtureId": "phase03d/foreign-contexts",
+    "Path": "datasets/controlled/phase03d/foreign-contexts.dxf",
+    "Purpose": "Foreign target/X must not populate facts; correct target RIGHT/X1; controlled41 and XDATA42 remain unmapped, no defaults.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "5A5AEE7D14238928C00AEBEA635CD1EF5E7F7F1AA1F1CFAB0CC2C5A705F8445F"
+  },
+  {
+    "FixtureId": "phase03d/insert-array",
+    "Path": "datasets/controlled/phase03d/insert-array.dxf",
+    "Purpose": "INSERT I1, columns2/rows3/spacings10/20, unsupported expansion; following TEXT survives.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedOccurrenceExpansion"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "1CE60A9528D6ACEAC569EA2C19BC7270DF6D77104A4AA50C28C9E2243DBC07D4"
+  },
+  {
+    "FixtureId": "phase03d/legacy-seqend",
+    "Path": "datasets/controlled/phase03d/legacy-seqend.dxf",
+    "Purpose": "POLYLINE/VERTEX/SEQEND stays gated; second unassigned SEQEND unsupported, never an attribute terminator.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "LegacySequenceGated"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E90972CE2770C16E7C6CBC05730455831C49E3014A68CD674C5A6673C4303F3E"
+  },
+  {
+    "FixtureId": "phase03d/mtext-chunks",
+    "Path": "datasets/controlled/phase03d/mtext-chunks.dxf",
+    "Purpose": "Ordered code3,3,1; literal formatting and Korean text. Second chunk intentionally ends with a space. Direction, rectangle, attachment and spacing facts only.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "4D615B7FD4B4B062A1D8869F45B43FB2AECF0ABB7F56165127597233A1E23176"
+  },
+  {
+    "FixtureId": "phase03d/text-alignment",
+    "Path": "datasets/controlled/phase03d/text-alignment.dxf",
+    "Purpose": "Korean/%%d/literal DXF escape, insertion/alignment, style, height, justification2/3, rotation90 and thickness.5.",
+    "ExpectedStage": "03D",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "0E834131631C7D755E8F6E64C4CA2D9D8012550B62620BC50881C2FDB14EFC44"
+  },
+  {
+    "FixtureId": "phase03e/ambiguous-target",
+    "Path": "datasets/controlled/phase03e/ambiguous-target.dxf",
+    "Purpose": "A/000a conflict and B Owner A; ambiguous target, no selected owner.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "774D726EAD25FD25A3329DB490E691AEE0992F5244AA0F8CA58ADA475B904C88"
+  },
+  {
+    "FixtureId": "phase03e/contextual-references",
+    "Path": "datasets/controlled/phase03e/contextual-references.dxf",
+    "Purpose": "A has reactor330 B, XDictionary330/360 B, XDATA1005/330 B; all resolved, zero ownership edges.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "FA892AAC3C32B0D65B3F8F70DBB1ABC7E4241B1A4638CDE2BAB272246EA1654B"
+  },
+  {
+    "FixtureId": "phase03e/duplicate-case",
+    "Path": "datasets/controlled/phase03e/duplicate-case.dxf",
+    "Purpose": "A and a: different original spellings, canonical A conflict.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "1B88C8D4FAC2D0981EAD4552597C0BC646DBC03A8094DD771D0D88C6C34D24A4"
+  },
+  {
+    "FixtureId": "phase03e/duplicate-cross",
+    "Path": "datasets/controlled/phase03e/duplicate-cross.dxf",
+    "Purpose": "POINT A in ENTITIES and DICTIONARY A in OBJECTS; same-document duplicate.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F1E6087B71F39E5412E4384CFB5EB3D4C8BB0BD42C5CB55ADE84D78CDB135313"
+  },
+  {
+    "FixtureId": "phase03e/duplicate-same",
+    "Path": "datasets/controlled/phase03e/duplicate-same.dxf",
+    "Purpose": "Two DICTIONARY A records in OBJECTS; both ambiguous, no winner.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "EDACCCD27BF7F7FF2CACECE443660D545CD6053FB311B75A73A9E9F8FF6788DE"
+  },
+  {
+    "FixtureId": "phase03e/duplicate-zero",
+    "Path": "datasets/controlled/phase03e/duplicate-zero.dxf",
+    "Purpose": "A and000A: original spellings retained, canonical A conflict.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "DuplicateHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "239D79C75AB03902440A673D4D562010A2782291D0F60BC8C292A0C52507FB57"
+  },
+  {
+    "FixtureId": "phase03e/identity-context",
+    "Path": "datasets/controlled/phase03e/identity-context.dxf",
+    "Purpose": "DIMSTYLE105 B identity versus5 LEGACY-NOT-HANDLE; TABLE header D, normal object A distinct.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E35B73874322DBC0637D381943C4CD1902560F428BE5E7F9122E7A17B6F04CC5"
+  },
+  {
+    "FixtureId": "phase03e/malformed",
+    "Path": "datasets/controlled/phase03e/malformed.dxf",
+    "Purpose": "G, empty and0 object handles; no valid canonical keys.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "MalformedHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "A570F679B3FC796A7E68A0D36835F75E90CA8EEA90FD270191C0E8916C1183E0"
+  },
+  {
+    "FixtureId": "phase03e/missing-required",
+    "Path": "datasets/controlled/phase03e/missing-required.dxf",
+    "Purpose": "AcDbEntity POINT with Owner A but no handle; MissingRequired.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "MissingRequiredHandle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E5B6A94429721DF65DA1E4B92D723458012A2D25AAE389DD19518B346C0DD53B"
+  },
+  {
+    "FixtureId": "phase03e/multiple-owners",
+    "Path": "datasets/controlled/phase03e/multiple-owners.dxf",
+    "Purpose": "A330 B and330 C; both factual edges retained, no parent chosen, error.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "MultipleOwners"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "2CBF91C37D082A3AC1341AD11DD6B9E7C3833A656A9F6B5DC4C2F1998DA6EF3D"
+  },
+  {
+    "FixtureId": "phase03e/null-reference",
+    "Path": "datasets/controlled/phase03e/null-reference.dxf",
+    "Purpose": "3400000 retained raw, canonical0/Null, no false missing target.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E392C1E793AADF92A0F8984A585B9C4028FF3DAE95A5949DEF75784700CEBDFA"
+  },
+  {
+    "FixtureId": "phase03e/owner-cycle",
+    "Path": "datasets/controlled/phase03e/owner-cycle.dxf",
+    "Purpose": "A Owner B and B Owner A; two-node witness, both edges retained.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "OwnerCycle"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "10168AC80FA931A6040BEE0AD5FB6671A742178AE4124D390AE8EBAF9B23C96E"
+  },
+  {
+    "FixtureId": "phase03e/pointer-cycle",
+    "Path": "datasets/controlled/phase03e/pointer-cycle.dxf",
+    "Purpose": "A340 B/B340 A, both Owner0; no ownership cycle.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "0A5067AC0DCBADABCAE62E99F25707265C6250AD2B42427C75527489B3E1564D"
+  },
+  {
+    "FixtureId": "phase03e/root",
+    "Path": "datasets/controlled/phase03e/root.dxf",
+    "Purpose": "DICTIONARY A with Owner0; null parent, root, no false unresolved error.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "929EA208213A526799759B5D0DC8A91C780B1ADDD5A3685F6CA64B8B40ADD7C5"
+  },
+  {
+    "FixtureId": "phase03e/self-owner",
+    "Path": "datasets/controlled/phase03e/self-owner.dxf",
+    "Purpose": "A Owner A; one-node witness, edge retained, graph invalid.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "SelfOwner"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "3D934EE768E447B345E99EB1199167E99DE12FF9DD870ACA685C8CC2D52B4828"
+  },
+  {
+    "FixtureId": "phase03e/unresolved-owner",
+    "Path": "datasets/controlled/phase03e/unresolved-owner.dxf",
+    "Purpose": "A has Owner FF; located error, incomplete graph, not a root.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "UnresolvedOwner"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "C473CAD72D895119D13C60A589FFAB7659D5554278E71D36E774E21AA4C23FDE"
+  },
+  {
+    "FixtureId": "phase03e/unresolved-pointer",
+    "Path": "datasets/controlled/phase03e/unresolved-pointer.dxf",
+    "Purpose": "A has340 FF; warning and incomplete resolution, no ownership edge.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Partial",
+    "ExpectedDiagnosticCodes": [
+      "UnresolvedPointer"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "EA97DCDF928867C3AE253FDA22462699D483D4141AD28F02888E4BF3808225C5"
+  },
+  {
+    "FixtureId": "phase03e/unsupported-target",
+    "Path": "datasets/controlled/phase03e/unsupported-target.dxf",
+    "Purpose": "DICTIONARY A Owner VISUALSTYLE B; source target resolves without semantic promotion.",
+    "ExpectedStage": "03E",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "669066B087D6573197E75336A3B9D74567B226FBE33AB6C63C3DDACD0318291D"
+  },
+  {
+    "FixtureId": "phase03f/blocks-native",
+    "Path": "datasets/controlled/phase03f/blocks-native.dxf",
+    "Purpose": "Reviewed phase03f source case blocks-native",
+    "ExpectedStage": "03F",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B49EF01E8318C6EF2FB067C7F370C6126B2BAD6EF6E5686F0B9A0AC94EE44CC4"
+  },
+  {
+    "FixtureId": "phase03f/circle-native",
+    "Path": "datasets/controlled/phase03f/circle-native.dxf",
+    "Purpose": "Reviewed phase03f source case circle-native",
+    "ExpectedStage": "03F",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "C7E89E62C428940FA0406CBBDD616D6D7BC55A4D50BE017C6FD78CAA4061C5CB"
+  },
+  {
+    "FixtureId": "phase03g/bare-cr",
+    "Path": "datasets/controlled/phase03g/bare-cr.bin",
+    "Purpose": "Byte-level profile: bare-cr",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "InvalidLineEnding"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "802BDF9F84CE06C19FA2901BE42712D043FD893AED1F0567C86BAFC05924BD95"
+  },
+  {
+    "FixtureId": "phase03g/binary-dxf",
+    "Path": "datasets/controlled/phase03g/binary-dxf.bin",
+    "Purpose": "Byte-level profile: binary-dxf",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedInput",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedInputFormat"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F24935F392575AD3A07B7D1732CA062C7AF1BD306EEA67040F090B893E5012E3"
+  },
+  {
+    "FixtureId": "phase03g/dwg-signature",
+    "Path": "datasets/controlled/phase03g/dwg-signature.bin",
+    "Purpose": "Byte-level profile: dwg-signature",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedInput",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedInputFormat"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "81BDF675CB31BE6E7F12AA2A9B7ED806BCBFFAB19CF22F85CEE854E205D59D1D"
+  },
+  {
+    "FixtureId": "phase03g/embedded-nul",
+    "Path": "datasets/controlled/phase03g/embedded-nul.bin",
+    "Purpose": "Byte-level profile: embedded-nul",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "EmbeddedNul"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B7EE92D70EF9354394ECD1838F7C84A8DFCFDE47BDE48093ADBE816D73E5E4F3"
+  },
+  {
+    "FixtureId": "phase03g/invalid-code",
+    "Path": "datasets/controlled/phase03g/invalid-code.bin",
+    "Purpose": "Byte-level profile: invalid-code",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "InvalidGroupCode"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "8C8130A3DABD9BADDAA7D00A0D3E5C8689B4267BFC1F8A720F85960D70A52220"
+  },
+  {
+    "FixtureId": "phase03g/invalid-utf8",
+    "Path": "datasets/controlled/phase03g/invalid-utf8.bin",
+    "Purpose": "Byte-level profile: invalid-utf8",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "InvalidUtf8"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E0D598A1F6E83A9495F151E003847F748A5D5A5608338B5CC7B48090423A9BAC"
+  },
+  {
+    "FixtureId": "phase03g/missing-value",
+    "Path": "datasets/controlled/phase03g/missing-value.bin",
+    "Purpose": "Byte-level profile: missing-value",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "OddPhysicalLineCount"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B33ABDF66B67EAF103AF56470E2BCC12AB8F2867B285BF495244EEB471050102"
+  },
+  {
+    "FixtureId": "phase03g/mixed-endings",
+    "Path": "datasets/controlled/phase03g/mixed-endings.bin",
+    "Purpose": "Byte-level profile: mixed-endings",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F5785446E12E2B72658F8B87C20F46FEE89036CC320A88DA2B35D39EE96E206B"
+  },
+  {
+    "FixtureId": "phase03g/negative-code",
+    "Path": "datasets/controlled/phase03g/negative-code.bin",
+    "Purpose": "Byte-level profile: negative-code",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "GroupCodeOutOfRange"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E0FA9E984A0FFAB74E5600A55072B24BD24EA7A07FBA7DCBB73D5662B060313E"
+  },
+  {
+    "FixtureId": "phase03g/noninitial-bom",
+    "Path": "datasets/controlled/phase03g/noninitial-bom.bin",
+    "Purpose": "Byte-level profile: noninitial-bom",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "UnexpectedBom"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F538C5AC89AF9C0BC2CADF6A16ECBE3595F77306DD85549153E141ECB76F00C7"
+  },
+  {
+    "FixtureId": "phase03g/out-of-range",
+    "Path": "datasets/controlled/phase03g/out-of-range.bin",
+    "Purpose": "Byte-level profile: out-of-range",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "InvalidInput",
+    "ExpectedDiagnosticCodes": [
+      "GroupCodeOutOfRange"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "16B366BBF6CA6EA85620BD8165B6CCD533E46309AB5B30ED522E73B5CCD52CF7"
+  },
+  {
+    "FixtureId": "phase03g/positive-signed-code",
+    "Path": "datasets/controlled/phase03g/positive-signed-code.bin",
+    "Purpose": "Byte-level profile: positive-signed-code",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "4F986C411AAB067F1FF394A283A49BB2BB379304E23661B5A66A89036AF0E182"
+  },
+  {
+    "FixtureId": "phase03g/repeated-bom",
+    "Path": "datasets/controlled/phase03g/repeated-bom.bin",
+    "Purpose": "Byte-level profile: repeated-bom",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "UnexpectedBom"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "B6B916665F3C38652FD71D4B6FAB05845F6DE65D66B30FD3062EFB5110770F6E"
+  },
+  {
+    "FixtureId": "phase03g/truncated-utf8",
+    "Path": "datasets/controlled/phase03g/truncated-utf8.bin",
+    "Purpose": "Byte-level profile: truncated-utf8",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "InvalidUtf8"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "3F1F674D847AE7DDFEC7D9D9D2765C52A919AFB01B1F9E2DDEA5F0E646E1EA88"
+  },
+  {
+    "FixtureId": "phase03g/utf16",
+    "Path": "datasets/controlled/phase03g/utf16.bin",
+    "Purpose": "Byte-level profile: utf16",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedBom"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "D334C9A63A7A3064EBE11635E69035A80FA7449E92843C328A42E4BE7BBA96E9"
+  },
+  {
+    "FixtureId": "phase03g/utf32",
+    "Path": "datasets/controlled/phase03g/utf32.bin",
+    "Purpose": "Byte-level profile: utf32",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "UnsupportedEncoding",
+    "ExpectedDiagnosticCodes": [
+      "UnsupportedBom"
+    ],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "F7142D8B9CBDE2F1E4AD516B62351F2F7066307E94E945BD36312CA59AD1F4E2"
+  },
+  {
+    "FixtureId": "phase03g/valid-bom",
+    "Path": "datasets/controlled/phase03g/valid-bom.bin",
+    "Purpose": "Byte-level profile: valid-bom",
+    "ExpectedStage": "03A",
+    "ExpectedStatus": "Succeeded",
+    "ExpectedDiagnosticCodes": [],
+    "ExpectedPreservationBehavior": "Read-only source; exact lexical code/value spellings and physical lines on lexical acceptance; explicit refusal/diagnostics at owning stage. Narrow-stage fixture is not a promise of snapshot acceptance.",
+    "OriginalSHA256": "E6FA9BE9D5C6A8E4559355925803FB1594FA646B67108A4800A7766CD17CE194"
+  }
+]

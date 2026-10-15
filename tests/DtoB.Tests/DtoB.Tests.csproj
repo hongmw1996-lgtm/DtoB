@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="../../packages/DtoB.Cad.Raw/DtoB.Cad.Raw.csproj" />
+    <ProjectReference Include="../../packages/DtoB.Cad.Dxf/DtoB.Cad.Dxf.csproj" />
     <Compile Include="../../apps/DtoB.Desktop/ShellViewModel.cs" Link="Desktop/ShellViewModel.cs" />
+    <Compile Include="../../apps/DtoB.Desktop/Diagnostics/DiagnosticExtraction.cs" Link="Desktop/DiagnosticExtraction.cs" />
+    <Compile Include="../../apps/DtoB.Desktop/Diagnostics/RawDiagnosticScene.cs" Link="Desktop/RawDiagnosticScene.cs" />
     <None Include="../../datasets/controlled/phase02/*.dwg" Link="fixtures/phase02/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../datasets/controlled/phase02/*.dxf" Link="fixtures/phase02/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <ProjectReference Include="../../packages/DtoB.Project/DtoB.Project.csproj" />
