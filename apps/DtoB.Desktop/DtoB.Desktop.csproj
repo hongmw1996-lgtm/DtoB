@@ -6,5 +6,5 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-  <ItemGroup><ProjectReference Include="../../packages/DtoB.Ipc/DtoB.Ipc.csproj" /><ProjectReference Include="../../packages/DtoB.Project/DtoB.Project.csproj" /></ItemGroup>
+  <ItemGroup><ProjectReference Include="../../packages/DtoB.Ipc/DtoB.Ipc.csproj" /><ProjectReference Include="../../packages/DtoB.Project/DtoB.Project.csproj" /><ProjectReference Include="../../packages/DtoB.Cad.Dxf/DtoB.Cad.Dxf.csproj" /><ProjectReference Include="../../packages/DtoB.Cad.Raw/DtoB.Cad.Raw.csproj" /></ItemGroup>
 </Project>

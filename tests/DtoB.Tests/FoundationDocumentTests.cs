@@ -13,10 +13,19 @@ public class FoundationDocumentTests
     {
         ["DtoB.Core"]=[],["DtoB.Geometry"]=["DtoB.Core"],["DtoB.Cad"]=["DtoB.Core","DtoB.Geometry"],
         ["DtoB.Bim"]=["DtoB.Core","DtoB.Geometry"],["DtoB.Ipc"]=[],["DtoB.Analysis"]=["DtoB.Cad","DtoB.Bim"],
-        ["DtoB.Revit.Core"]=["DtoB.Core"],["DtoB.Revit2025"]=["DtoB.Ipc"],["DtoB.Project"]=[],["DtoB.Desktop"]=["DtoB.Ipc","DtoB.Project"]
+        ["DtoB.Revit.Core"]=["DtoB.Core"],["DtoB.Revit2025"]=["DtoB.Ipc"],["DtoB.Project"]=[],["DtoB.Desktop"]=["DtoB.Ipc","DtoB.Project","DtoB.Cad.Dxf","DtoB.Cad.Raw"],
+        ["DtoB.Cad.Raw"]=[],["DtoB.Cad.Dxf"]=["DtoB.Cad.Raw"]
     };
     private static void Check(string name,XDocument xml)
     {
+        if(name is "DtoB.Cad.Raw" or "DtoB.Cad.Dxf")
+        {
+            Assert.Empty(xml.Descendants("PackageReference"));
+            Assert.Empty(xml.Descendants("FrameworkReference"));
+            Assert.DoesNotContain(xml.Descendants("TargetFramework"),element=>element.Value.Contains("windows",StringComparison.OrdinalIgnoreCase));
+            Assert.DoesNotContain(xml.Descendants("UseWPF"),element=>element.Value.Equals("true",StringComparison.OrdinalIgnoreCase));
+            Assert.DoesNotContain(xml.Descendants("UseWindowsForms"),element=>element.Value.Equals("true",StringComparison.OrdinalIgnoreCase));
+        }
         foreach(var reference in xml.Descendants("ProjectReference"))
             Assert.Contains(Path.GetFileNameWithoutExtension((string)reference.Attribute("Include")!),Allowed[name]);
         foreach(var reference in xml.Descendants("Reference"))
@@ -37,6 +46,25 @@ public class FoundationDocumentTests
     }
     [Fact] public void ForbiddenDependencyMutationIsRejected()
     { Assert.ThrowsAny<Exception>(()=>Check("DtoB.Desktop",XDocument.Parse("<Project><ItemGroup><ProjectReference Include='DtoB.Revit2025.csproj'/></ItemGroup></Project>"))); }
+    [Theory]
+    [InlineData("DtoB.Cad.Raw","<Project><ItemGroup><ProjectReference Include='DtoB.Core.csproj'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Dxf","<Project><ItemGroup><ProjectReference Include='DtoB.Cad.csproj'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Dxf","<Project><ItemGroup><PackageReference Include='ACadSharp'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Raw","<Project><ItemGroup><PackageReference Include='RealDWG'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Dxf","<Project><ItemGroup><Reference Include='Teigha'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Raw","<Project><ItemGroup><FrameworkReference Include='Microsoft.WindowsDesktop.App'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Dxf","<Project><PropertyGroup><UseWPF>true</UseWPF></PropertyGroup></Project>")]
+    [InlineData("DtoB.Cad.Dxf","<Project><PropertyGroup><TargetFramework>net8.0-windows</TargetFramework></PropertyGroup></Project>")]
+    public void NativeRawParserForbiddenDependenciesAreRejected(string name,string xml)
+    { Assert.ThrowsAny<Exception>(()=>Check(name,XDocument.Parse(xml))); }
+
+    [Fact] public void NativeRawParserAssembliesReferenceOnlyAllowedRuntimeAndRawLibrary()
+    {
+        foreach(var assembly in new[]{typeof(DtoB.Cad.Raw.DxfRawPair).Assembly,typeof(DtoB.Cad.Dxf.TextDxfLexicalReader).Assembly})
+            Assert.All(assembly.GetReferencedAssemblies(),reference=>
+                Assert.True(reference.Name=="System.Runtime" || reference.Name!.StartsWith("System.",StringComparison.Ordinal) ||
+                    (assembly.GetName().Name=="DtoB.Cad.Dxf" && reference.Name=="DtoB.Cad.Raw"),$"Unexpected dependency {reference.Name}"));
+    }
     [Fact] public void AdrsContainEvaluatedAlternativesAndValidUtf8()
     {
         var utf8=new System.Text.UTF8Encoding(false,true);

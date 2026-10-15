@@ -4,13 +4,25 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
 using DtoB.Project;
+using DtoB.Desktop.Diagnostics;
 namespace DtoB.Desktop;
 public partial class MainWindow:Window
 {
     private readonly ShellViewModel vm;private readonly RecentStore recent;private readonly SettingsStore settingsStore;private AppSettings settings;private readonly FileLogger logger;
     private CancellationTokenSource? operation;private bool closingAllowed;
+    private DiagnosticViewerWindow? viewer;
     public MainWindow(ShellViewModel vm,RecentStore recent,SettingsStore settingsStore,AppSettings settings,FileLogger logger)
-    {InitializeComponent();this.vm=vm;this.recent=recent;this.settingsStore=settingsStore;this.settings=settings;this.logger=logger;DataContext=vm;Refresh();Closing+=OnClosing;}
+    {InitializeComponent();this.vm=vm;this.recent=recent;this.settingsStore=settingsStore;this.settings=settings;this.logger=logger;DataContext=vm;Refresh();Closing+=OnClosing;
+        vm.PropertyChanged+=(_,_)=>{if(viewer!=null)_=Dispatcher.BeginInvoke(new Action(()=>{if(viewer!=null&&!ViewerContextCurrent())viewer.InvalidateRequest();}));};}
+    private DiagnosticRequest? viewerRequest;
+    private bool ViewerContextCurrent()=>viewerRequest?.Matches(vm.Session,vm.SelectedDrawing)==true;
+    private void Viewer_Click(object sender,RoutedEventArgs e)
+    {
+        if(vm.SelectedDrawing is not { } d || vm.Session.Project is not { } p || vm.Session.CurrentFilePath is not { } path){Status.Text="Select a drawing in a saved project first.";return;}
+        if(d.FileExtension!=".dxf"){Status.Text=DiagnosticExtraction.DwgGuidance;MessageBox.Show(this,Status.Text,"Text DXF required");return;}
+        viewer?.Close();viewerRequest=new(p.ProjectId,path,d);var window=new DiagnosticViewerWindow(viewerRequest,ViewerContextCurrent){Owner=this};viewer=window;
+        window.Closed+=(_,_)=>{if(ReferenceEquals(viewer,window)){viewer=null;viewerRequest=null;}};window.Show();
+    }
     private void Refresh(){vm.Refresh();RecentList.ItemsSource=recent.Entries.ToArray();}
     private void Error(string action,Exception ex){logger.Write(LogLevel.Error,action,ex);Status.Text=action+": "+ex.Message;MessageBox.Show(this,Status.Text,"DtoB error",MessageBoxButton.OK,MessageBoxImage.Error);}
     private async Task<bool> RunAsync(string action,Func<CancellationToken,Task> work)
