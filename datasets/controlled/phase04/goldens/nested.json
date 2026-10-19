@@ -1,0 +1,2464 @@
+{
+  "schemaVersion": 2,
+  "algorithmVersion": "dtob-normalize-04g-v1",
+  "completeness": {
+    "accountedRecordCount": 9,
+    "sourceRecordCount": 9,
+    "state": "normalized"
+  },
+  "conventions": {
+    "angle": "radians",
+    "coordinates": "rightHandedXyz",
+    "length": "millimeters",
+    "rotation": "counterClockwise",
+    "up": "positiveZ"
+  },
+  "definitions": [
+    {
+      "basePointMm": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "blockRecordSource": null,
+      "blockSource": {
+        "index": 2
+      },
+      "childEntityIds": [
+        {
+          "value": "cad2:f8fb2ddaa48be24a61ee35be6907853622cef3c6f42b41b745c2467535320875"
+        }
+      ],
+      "id": {
+        "value": "cad2:f9f43cf67e3dc1d529e0016493d17f3abd1a7a8a6451e399d1503a012bd4e8a0"
+      },
+      "name": "B"
+    },
+    {
+      "basePointMm": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "blockRecordSource": null,
+      "blockSource": {
+        "index": 5
+      },
+      "childEntityIds": [
+        {
+          "value": "cad2:4676095cdf94f0ccbac576467ae1caf4158a546843a9d936ff233a2b2d692aca"
+        }
+      ],
+      "id": {
+        "value": "cad2:960380915dc9e7d9d94c43d561954be8d0a24f69c136c01b024775f346ce1eff"
+      },
+      "name": "C"
+    }
+  ],
+  "diagnostics": [],
+  "entities": [
+    {
+      "annotation": null,
+      "disposition": "normalized",
+      "evidence": [
+        {
+          "index": 63
+        }
+      ],
+      "geometryId": null,
+      "id": {
+        "value": "cad2:f8fb2ddaa48be24a61ee35be6907853622cef3c6f42b41b745c2467535320875"
+      },
+      "kind": "insert",
+      "source": {
+        "index": 3
+      },
+      "styleId": {
+        "value": "cad2:6f970c8b02b90b06a0fb2295825e300f40f66af6e404a334385753c5abf7ba3f"
+      }
+    },
+    {
+      "annotation": null,
+      "disposition": "normalized",
+      "evidence": [
+        {
+          "index": 95
+        }
+      ],
+      "geometryId": {
+        "value": "cad2:899ad12c2ea91094081bcf6cb33497162485dffd0f76ed12bbba1348af433a03"
+      },
+      "id": {
+        "value": "cad2:4676095cdf94f0ccbac576467ae1caf4158a546843a9d936ff233a2b2d692aca"
+      },
+      "kind": "primitive",
+      "source": {
+        "index": 6
+      },
+      "styleId": {
+        "value": "cad2:0bfe019004ac6ef8551dd8e0e66b5a0fea7daccddde5a0ebf66584687c8fb103"
+      }
+    },
+    {
+      "annotation": null,
+      "disposition": "normalized",
+      "evidence": [
+        {
+          "index": 123
+        }
+      ],
+      "geometryId": null,
+      "id": {
+        "value": "cad2:ba04be744282741a5913fd425bc911f29f4ee39e8bead4e926efcc6e68490c0f"
+      },
+      "kind": "insert",
+      "source": {
+        "index": 8
+      },
+      "styleId": {
+        "value": "cad2:bc020eb3f61f2e7a708f783b29e3460a5503073294bc241faece13aa27bbfa6b"
+      }
+    },
+    {
+      "annotation": null,
+      "disposition": "normalized",
+      "evidence": [
+        {
+          "index": 95
+        }
+      ],
+      "geometryId": {
+        "value": "cad2:899ad12c2ea91094081bcf6cb33497162485dffd0f76ed12bbba1348af433a03"
+      },
+      "id": {
+        "value": "cad2:d80189d6743c4953087a8f5d321246f60caadb2c5813f1ac8ed1d767526d8399"
+      },
+      "kind": "primitive",
+      "source": {
+        "index": 6
+      },
+      "styleId": {
+        "value": "cad2:9621eb792ba3d02c7c96e6594bf8a262faca321965516e784f1d0b35143003d3"
+      }
+    }
+  ],
+  "geometry": [
+    {
+      "$kind": "line",
+      "endMm": {
+        "x": 2,
+        "y": 0,
+        "z": 0
+      },
+      "evidence": [
+        {
+          "index": 95
+        }
+      ],
+      "id": {
+        "value": "cad2:899ad12c2ea91094081bcf6cb33497162485dffd0f76ed12bbba1348af433a03"
+      },
+      "source": {
+        "index": 6
+      },
+      "startMm": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ],
+  "layers": [
+    {
+      "isFrozen": false,
+      "isOff": false,
+      "name": "0",
+      "source": {
+        "index": 1
+      },
+      "styleId": null
+    }
+  ],
+  "ledger": [
+    {
+      "objectIds": [],
+      "source": {
+        "index": 0
+      },
+      "state": "notApplicable"
+    },
+    {
+      "objectIds": [],
+      "source": {
+        "index": 1
+      },
+      "state": "notApplicable"
+    },
+    {
+      "objectIds": [
+        {
+          "value": "cad2:f9f43cf67e3dc1d529e0016493d17f3abd1a7a8a6451e399d1503a012bd4e8a0"
+        }
+      ],
+      "source": {
+        "index": 2
+      },
+      "state": "normalized"
+    },
+    {
+      "objectIds": [
+        {
+          "value": "cad2:6f970c8b02b90b06a0fb2295825e300f40f66af6e404a334385753c5abf7ba3f"
+        },
+        {
+          "value": "cad2:f8fb2ddaa48be24a61ee35be6907853622cef3c6f42b41b745c2467535320875"
+        },
+        {
+          "value": "cad2:af6dbea0dfb4e8186d0e7a8d33159eaf9e0164824b43807cf368103e53af379e"
+        },
+        {
+          "value": "cad2:73d94e222359020f2c50b2c8b1dc43a8c6024d3cb3b035258732732cf2baad9d"
+        }
+      ],
+      "source": {
+        "index": 3
+      },
+      "state": "normalized"
+    },
+    {
+      "objectIds": [],
+      "source": {
+        "index": 4
+      },
+      "state": "notApplicable"
+    },
+    {
+      "objectIds": [
+        {
+          "value": "cad2:960380915dc9e7d9d94c43d561954be8d0a24f69c136c01b024775f346ce1eff"
+        }
+      ],
+      "source": {
+        "index": 5
+      },
+      "state": "normalized"
+    },
+    {
+      "objectIds": [
+        {
+          "value": "cad2:0bfe019004ac6ef8551dd8e0e66b5a0fea7daccddde5a0ebf66584687c8fb103"
+        },
+        {
+          "value": "cad2:899ad12c2ea91094081bcf6cb33497162485dffd0f76ed12bbba1348af433a03"
+        },
+        {
+          "value": "cad2:4676095cdf94f0ccbac576467ae1caf4158a546843a9d936ff233a2b2d692aca"
+        },
+        {
+          "value": "cad2:9621eb792ba3d02c7c96e6594bf8a262faca321965516e784f1d0b35143003d3"
+        },
+        {
+          "value": "cad2:d80189d6743c4953087a8f5d321246f60caadb2c5813f1ac8ed1d767526d8399"
+        }
+      ],
+      "source": {
+        "index": 6
+      },
+      "state": "normalized"
+    },
+    {
+      "objectIds": [],
+      "source": {
+        "index": 7
+      },
+      "state": "notApplicable"
+    },
+    {
+      "objectIds": [
+        {
+          "value": "cad2:bc020eb3f61f2e7a708f783b29e3460a5503073294bc241faece13aa27bbfa6b"
+        },
+        {
+          "value": "cad2:ba04be744282741a5913fd425bc911f29f4ee39e8bead4e926efcc6e68490c0f"
+        },
+        {
+          "value": "cad2:870b0f715e0cec43a89e9a8c5da52096786c5974e09d4780a406f25bf080b4f0"
+        },
+        {
+          "value": "cad2:c8c0f21e569977ad432d8aadee536e063cd1f682bb3019774320c4e9ee4912ad"
+        }
+      ],
+      "source": {
+        "index": 8
+      },
+      "state": "normalized"
+    }
+  ],
+  "modelSpace": [
+    {
+      "entityId": {
+        "value": "cad2:d80189d6743c4953087a8f5d321246f60caadb2c5813f1ac8ed1d767526d8399"
+      },
+      "occurrenceId": {
+        "value": "cad2:73d94e222359020f2c50b2c8b1dc43a8c6024d3cb3b035258732732cf2baad9d"
+      }
+    }
+  ],
+  "occurrences": [
+    {
+      "accumulatedTransform": {
+        "values": [
+          6.123233995736766E-17,
+          -1,
+          0,
+          0,
+          1,
+          6.123233995736766E-17,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "definitionId": {
+        "value": "cad2:f9f43cf67e3dc1d529e0016493d17f3abd1a7a8a6451e399d1503a012bd4e8a0"
+      },
+      "id": {
+        "value": "cad2:c8c0f21e569977ad432d8aadee536e063cd1f682bb3019774320c4e9ee4912ad"
+      },
+      "insertSource": {
+        "index": 8
+      },
+      "localTransform": {
+        "values": [
+          6.123233995736766E-17,
+          -1,
+          0,
+          0,
+          1,
+          6.123233995736766E-17,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "parentOccurrenceId": null,
+      "path": {
+        "steps": [
+          {
+            "column": null,
+            "definitionSource": {
+              "index": 2
+            },
+            "insertSource": {
+              "index": 8
+            },
+            "row": null
+          }
+        ]
+      },
+      "styleId": {
+        "value": "cad2:870b0f715e0cec43a89e9a8c5da52096786c5974e09d4780a406f25bf080b4f0"
+      }
+    },
+    {
+      "accumulatedTransform": {
+        "values": [
+          1.2246467991473532E-16,
+          -1,
+          0,
+          0,
+          2,
+          6.123233995736766E-17,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "definitionId": {
+        "value": "cad2:960380915dc9e7d9d94c43d561954be8d0a24f69c136c01b024775f346ce1eff"
+      },
+      "id": {
+        "value": "cad2:73d94e222359020f2c50b2c8b1dc43a8c6024d3cb3b035258732732cf2baad9d"
+      },
+      "insertSource": {
+        "index": 3
+      },
+      "localTransform": {
+        "values": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "parentOccurrenceId": {
+        "value": "cad2:c8c0f21e569977ad432d8aadee536e063cd1f682bb3019774320c4e9ee4912ad"
+      },
+      "path": {
+        "steps": [
+          {
+            "column": null,
+            "definitionSource": {
+              "index": 2
+            },
+            "insertSource": {
+              "index": 8
+            },
+            "row": null
+          },
+          {
+            "column": null,
+            "definitionSource": {
+              "index": 5
+            },
+            "insertSource": {
+              "index": 3
+            },
+            "row": null
+          }
+        ]
+      },
+      "styleId": {
+        "value": "cad2:af6dbea0dfb4e8186d0e7a8d33159eaf9e0164824b43807cf368103e53af379e"
+      }
+    }
+  ],
+  "profileId": "04C-analytic-mm-rad-coefficient",
+  "provenance": {
+    "facts": [
+      {
+        "firstPhysicalLine": 25,
+        "lastPhysicalLine": 40,
+        "pairIndices": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": 35,
+        "lastPhysicalLine": 36,
+        "pairIndices": [
+          17
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.Alignment.000005"
+      },
+      {
+        "firstPhysicalLine": 37,
+        "lastPhysicalLine": 38,
+        "pairIndices": [
+          18
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.DeclaredElementCount.000006"
+      },
+      {
+        "firstPhysicalLine": 33,
+        "lastPhysicalLine": 34,
+        "pairIndices": [
+          16
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.Description.000004"
+      },
+      {
+        "firstPhysicalLine": 31,
+        "lastPhysicalLine": 32,
+        "pairIndices": [
+          15
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.Flags.000003"
+      },
+      {
+        "firstPhysicalLine": 29,
+        "lastPhysicalLine": 30,
+        "pairIndices": [
+          14
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.Name.000000"
+      },
+      {
+        "firstPhysicalLine": 39,
+        "lastPhysicalLine": 40,
+        "pairIndices": [
+          19
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.PatternLength.000007"
+      },
+      {
+        "firstPhysicalLine": 27,
+        "lastPhysicalLine": 28,
+        "pairIndices": [
+          13
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.RawHandle.000001"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "structural.RawOwner.000002"
+      },
+      {
+        "firstPhysicalLine": 29,
+        "lastPhysicalLine": 30,
+        "pairIndices": [
+          14
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "style.002"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "style.006"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "style.062"
+      },
+      {
+        "firstPhysicalLine": 31,
+        "lastPhysicalLine": 32,
+        "pairIndices": [
+          15
+        ],
+        "presence": "present",
+        "record": {
+          "index": 0
+        },
+        "role": "style.070"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "style.370"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "style.420"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "style.430"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 0
+        },
+        "role": "style.440"
+      },
+      {
+        "firstPhysicalLine": 49,
+        "lastPhysicalLine": 60,
+        "pairIndices": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": 57,
+        "lastPhysicalLine": 58,
+        "pairIndices": [
+          28
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.AciColor.000004"
+      },
+      {
+        "firstPhysicalLine": 55,
+        "lastPhysicalLine": 56,
+        "pairIndices": [
+          27
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.Flags.000003"
+      },
+      {
+        "firstPhysicalLine": 59,
+        "lastPhysicalLine": 60,
+        "pairIndices": [
+          29
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.LinetypeName.000006"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.Lineweight.000008"
+      },
+      {
+        "firstPhysicalLine": 53,
+        "lastPhysicalLine": 54,
+        "pairIndices": [
+          26
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.Name.000000"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.PlotFlag.000007"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.PlotStyleReference.000009"
+      },
+      {
+        "firstPhysicalLine": 51,
+        "lastPhysicalLine": 52,
+        "pairIndices": [
+          25
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.RawHandle.000001"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.RawOwner.000002"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "structural.TrueColor.000005"
+      },
+      {
+        "firstPhysicalLine": 53,
+        "lastPhysicalLine": 54,
+        "pairIndices": [
+          26
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "style.002"
+      },
+      {
+        "firstPhysicalLine": 59,
+        "lastPhysicalLine": 60,
+        "pairIndices": [
+          29
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "style.006"
+      },
+      {
+        "firstPhysicalLine": 57,
+        "lastPhysicalLine": 58,
+        "pairIndices": [
+          28
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "style.062"
+      },
+      {
+        "firstPhysicalLine": 55,
+        "lastPhysicalLine": 56,
+        "pairIndices": [
+          27
+        ],
+        "presence": "present",
+        "record": {
+          "index": 1
+        },
+        "role": "style.070"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "style.370"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "style.420"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "style.430"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 1
+        },
+        "role": "style.440"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.AlternateName.000002"
+      },
+      {
+        "firstPhysicalLine": 79,
+        "lastPhysicalLine": 80,
+        "pairIndices": [
+          39
+        ],
+        "presence": "present",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.BasePoint.X.000003"
+      },
+      {
+        "firstPhysicalLine": 81,
+        "lastPhysicalLine": 82,
+        "pairIndices": [
+          40
+        ],
+        "presence": "present",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.BasePoint.Y.000004"
+      },
+      {
+        "firstPhysicalLine": 83,
+        "lastPhysicalLine": 84,
+        "pairIndices": [
+          41
+        ],
+        "presence": "present",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.BasePoint.Z.000005"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.Description.000008"
+      },
+      {
+        "firstPhysicalLine": 77,
+        "lastPhysicalLine": 78,
+        "pairIndices": [
+          38
+        ],
+        "presence": "present",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.Flags.000006"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": 75,
+        "lastPhysicalLine": 76,
+        "pairIndices": [
+          37
+        ],
+        "presence": "present",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.Name.000001"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 2
+        },
+        "role": "annotation.XrefPath.000007"
+      },
+      {
+        "firstPhysicalLine": 69,
+        "lastPhysicalLine": 84,
+        "pairIndices": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "presence": "present",
+        "record": {
+          "index": 2
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.AttributesFollow.000013"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.ColumnSpacing.000011"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Columns.000009"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Extrusion.X.000014"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Extrusion.Y.000015"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Extrusion.Z.000016"
+      },
+      {
+        "firstPhysicalLine": 97,
+        "lastPhysicalLine": 98,
+        "pairIndices": [
+          48
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Insertion.X.000002"
+      },
+      {
+        "firstPhysicalLine": 99,
+        "lastPhysicalLine": 100,
+        "pairIndices": [
+          49
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Insertion.Y.000003"
+      },
+      {
+        "firstPhysicalLine": 101,
+        "lastPhysicalLine": 102,
+        "pairIndices": [
+          50
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Insertion.Z.000004"
+      },
+      {
+        "firstPhysicalLine": 91,
+        "lastPhysicalLine": 92,
+        "pairIndices": [
+          45
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.RotationDegrees.000008"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.RowSpacing.000012"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Rows.000010"
+      },
+      {
+        "firstPhysicalLine": 103,
+        "lastPhysicalLine": 104,
+        "pairIndices": [
+          51
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Scale.X.000005"
+      },
+      {
+        "firstPhysicalLine": 105,
+        "lastPhysicalLine": 106,
+        "pairIndices": [
+          52
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Scale.Y.000006"
+      },
+      {
+        "firstPhysicalLine": 107,
+        "lastPhysicalLine": 108,
+        "pairIndices": [
+          53
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.Scale.Z.000007"
+      },
+      {
+        "firstPhysicalLine": 95,
+        "lastPhysicalLine": 96,
+        "pairIndices": [
+          47
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "annotation.TargetName.000001"
+      },
+      {
+        "firstPhysicalLine": 85,
+        "lastPhysicalLine": 108,
+        "pairIndices": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "style.006"
+      },
+      {
+        "firstPhysicalLine": 91,
+        "lastPhysicalLine": 92,
+        "pairIndices": [
+          45
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "style.008"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "style.060"
+      },
+      {
+        "firstPhysicalLine": 93,
+        "lastPhysicalLine": 94,
+        "pairIndices": [
+          46
+        ],
+        "presence": "present",
+        "record": {
+          "index": 3
+        },
+        "role": "style.062"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "style.370"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "style.420"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "style.430"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 3
+        },
+        "role": "style.440"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 4
+        },
+        "role": "annotation.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": 109,
+        "lastPhysicalLine": 114,
+        "pairIndices": [
+          54,
+          55,
+          56
+        ],
+        "presence": "present",
+        "record": {
+          "index": 4
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.AlternateName.000002"
+      },
+      {
+        "firstPhysicalLine": 125,
+        "lastPhysicalLine": 126,
+        "pairIndices": [
+          62
+        ],
+        "presence": "present",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.BasePoint.X.000003"
+      },
+      {
+        "firstPhysicalLine": 127,
+        "lastPhysicalLine": 128,
+        "pairIndices": [
+          63
+        ],
+        "presence": "present",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.BasePoint.Y.000004"
+      },
+      {
+        "firstPhysicalLine": 129,
+        "lastPhysicalLine": 130,
+        "pairIndices": [
+          64
+        ],
+        "presence": "present",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.BasePoint.Z.000005"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.Description.000008"
+      },
+      {
+        "firstPhysicalLine": 123,
+        "lastPhysicalLine": 124,
+        "pairIndices": [
+          61
+        ],
+        "presence": "present",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.Flags.000006"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": 121,
+        "lastPhysicalLine": 122,
+        "pairIndices": [
+          60
+        ],
+        "presence": "present",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.Name.000001"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 5
+        },
+        "role": "annotation.XrefPath.000007"
+      },
+      {
+        "firstPhysicalLine": 115,
+        "lastPhysicalLine": 130,
+        "pairIndices": [
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64
+        ],
+        "presence": "present",
+        "record": {
+          "index": 5
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": 149,
+        "lastPhysicalLine": 150,
+        "pairIndices": [
+          74
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.End.X.000008"
+      },
+      {
+        "firstPhysicalLine": 151,
+        "lastPhysicalLine": 152,
+        "pairIndices": [
+          75
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.End.Y.000009"
+      },
+      {
+        "firstPhysicalLine": 153,
+        "lastPhysicalLine": 154,
+        "pairIndices": [
+          76
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.End.Z.000010"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Extrusion.X.000002"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Extrusion.Y.000003"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Extrusion.Z.000004"
+      },
+      {
+        "firstPhysicalLine": 137,
+        "lastPhysicalLine": 138,
+        "pairIndices": [
+          68
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": 143,
+        "lastPhysicalLine": 144,
+        "pairIndices": [
+          71
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Start.X.000005"
+      },
+      {
+        "firstPhysicalLine": 145,
+        "lastPhysicalLine": 146,
+        "pairIndices": [
+          72
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Start.Y.000006"
+      },
+      {
+        "firstPhysicalLine": 147,
+        "lastPhysicalLine": 148,
+        "pairIndices": [
+          73
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Start.Z.000007"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "geometry.Thickness.000001"
+      },
+      {
+        "firstPhysicalLine": 131,
+        "lastPhysicalLine": 154,
+        "pairIndices": [
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": 141,
+        "lastPhysicalLine": 142,
+        "pairIndices": [
+          70
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "style.006"
+      },
+      {
+        "firstPhysicalLine": 137,
+        "lastPhysicalLine": 138,
+        "pairIndices": [
+          68
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "style.008"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "style.060"
+      },
+      {
+        "firstPhysicalLine": 139,
+        "lastPhysicalLine": 140,
+        "pairIndices": [
+          69
+        ],
+        "presence": "present",
+        "record": {
+          "index": 6
+        },
+        "role": "style.062"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "style.370"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "style.420"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "style.430"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 6
+        },
+        "role": "style.440"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 7
+        },
+        "role": "annotation.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": 155,
+        "lastPhysicalLine": 160,
+        "pairIndices": [
+          77,
+          78,
+          79
+        ],
+        "presence": "present",
+        "record": {
+          "index": 7
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.AttributesFollow.000013"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.ColumnSpacing.000011"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Columns.000009"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Extrusion.X.000014"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Extrusion.Y.000015"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Extrusion.Z.000016"
+      },
+      {
+        "firstPhysicalLine": 179,
+        "lastPhysicalLine": 180,
+        "pairIndices": [
+          89
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Insertion.X.000002"
+      },
+      {
+        "firstPhysicalLine": 181,
+        "lastPhysicalLine": 182,
+        "pairIndices": [
+          90
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Insertion.Y.000003"
+      },
+      {
+        "firstPhysicalLine": 183,
+        "lastPhysicalLine": 184,
+        "pairIndices": [
+          91
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Insertion.Z.000004"
+      },
+      {
+        "firstPhysicalLine": 173,
+        "lastPhysicalLine": 174,
+        "pairIndices": [
+          86
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Layer.000000"
+      },
+      {
+        "firstPhysicalLine": 185,
+        "lastPhysicalLine": 186,
+        "pairIndices": [
+          92
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.RotationDegrees.000008"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.RowSpacing.000012"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Rows.000010"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Scale.X.000005"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Scale.Y.000006"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.Scale.Z.000007"
+      },
+      {
+        "firstPhysicalLine": 177,
+        "lastPhysicalLine": 178,
+        "pairIndices": [
+          88
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "annotation.TargetName.000001"
+      },
+      {
+        "firstPhysicalLine": 167,
+        "lastPhysicalLine": 186,
+        "pairIndices": [
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "record"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "style.006"
+      },
+      {
+        "firstPhysicalLine": 173,
+        "lastPhysicalLine": 174,
+        "pairIndices": [
+          86
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "style.008"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "style.060"
+      },
+      {
+        "firstPhysicalLine": 175,
+        "lastPhysicalLine": 176,
+        "pairIndices": [
+          87
+        ],
+        "presence": "present",
+        "record": {
+          "index": 8
+        },
+        "role": "style.062"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "style.370"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "style.420"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "style.430"
+      },
+      {
+        "firstPhysicalLine": null,
+        "lastPhysicalLine": null,
+        "pairIndices": [],
+        "presence": "absent",
+        "record": {
+          "index": 8
+        },
+        "role": "style.440"
+      }
+    ],
+    "records": [
+      {
+        "canonicalHandle": "200",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 12,
+          "firstPhysicalLine": 25,
+          "lastPair": 19,
+          "lastPhysicalLine": 40,
+          "recordIndex": 0
+        },
+        "originalHandle": "200"
+      },
+      {
+        "canonicalHandle": "100",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 24,
+          "firstPhysicalLine": 49,
+          "lastPair": 29,
+          "lastPhysicalLine": 60,
+          "recordIndex": 1
+        },
+        "originalHandle": "100"
+      },
+      {
+        "canonicalHandle": "B",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 34,
+          "firstPhysicalLine": 69,
+          "lastPair": 41,
+          "lastPhysicalLine": 84,
+          "recordIndex": 2
+        },
+        "originalHandle": "B"
+      },
+      {
+        "canonicalHandle": "D",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 42,
+          "firstPhysicalLine": 85,
+          "lastPair": 53,
+          "lastPhysicalLine": 108,
+          "recordIndex": 3
+        },
+        "originalHandle": "D"
+      },
+      {
+        "canonicalHandle": "B0",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 54,
+          "firstPhysicalLine": 109,
+          "lastPair": 56,
+          "lastPhysicalLine": 114,
+          "recordIndex": 4
+        },
+        "originalHandle": "B0"
+      },
+      {
+        "canonicalHandle": "C",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 57,
+          "firstPhysicalLine": 115,
+          "lastPair": 64,
+          "lastPhysicalLine": 130,
+          "recordIndex": 5
+        },
+        "originalHandle": "C"
+      },
+      {
+        "canonicalHandle": "E",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 65,
+          "firstPhysicalLine": 131,
+          "lastPair": 76,
+          "lastPhysicalLine": 154,
+          "recordIndex": 6
+        },
+        "originalHandle": "E"
+      },
+      {
+        "canonicalHandle": "C0",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 77,
+          "firstPhysicalLine": 155,
+          "lastPair": 79,
+          "lastPhysicalLine": 160,
+          "recordIndex": 7
+        },
+        "originalHandle": "C0"
+      },
+      {
+        "canonicalHandle": "A",
+        "locator": {
+          "domain": "structuralRecord",
+          "firstPair": 83,
+          "firstPhysicalLine": 167,
+          "lastPair": 92,
+          "lastPhysicalLine": 186,
+          "recordIndex": 8
+        },
+        "originalHandle": "A"
+      }
+    ],
+    "source": {
+      "drawingId": "11111111-1111-1111-1111-111111111111",
+      "fileHash": "5DF15D3EE7A1F9E85C2BF0469CB40E92778B9023DAAA8C1C3AACA182290E7CED",
+      "revisionId": "22222222-2222-2222-2222-222222222222"
+    }
+  },
+  "rawDiagnostics": [
+    {
+      "arguments": [
+        "Structural03B",
+        "0"
+      ],
+      "code": "RAW_DeferredRecords",
+      "fact": null,
+      "path": null,
+      "severity": "information",
+      "source": null,
+      "stage": "contract"
+    }
+  ],
+  "sourceToModel": {
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "styles": [
+    {
+      "color": {
+        "evidence": [
+          {
+            "index": 67
+          },
+          {
+            "index": 69
+          },
+          {
+            "index": 70
+          }
+        ],
+        "ruleId": "CAD.Template.Unresolved",
+        "sourceMode": "byBlock",
+        "state": "unsupported",
+        "value": null
+      },
+      "id": {
+        "value": "cad2:6f970c8b02b90b06a0fb2295825e300f40f66af6e404a334385753c5abf7ba3f"
+      },
+      "layer": {
+        "evidence": [
+          {
+            "index": 65
+          }
+        ],
+        "ruleId": "CAD.Template.Declared",
+        "sourceMode": "explicit",
+        "state": "known",
+        "value": "0"
+      },
+      "linetype": {
+        "evidence": [
+          {
+            "index": 64
+          }
+        ],
+        "ruleId": "CAD.Template.Unresolved",
+        "sourceMode": "absent",
+        "state": "absent",
+        "value": null
+      }
+    },
+    {
+      "color": {
+        "evidence": [
+          {
+            "index": 99
+          },
+          {
+            "index": 101
+          },
+          {
+            "index": 102
+          }
+        ],
+        "ruleId": "CAD.Template.Unresolved",
+        "sourceMode": "byBlock",
+        "state": "unsupported",
+        "value": null
+      },
+      "id": {
+        "value": "cad2:0bfe019004ac6ef8551dd8e0e66b5a0fea7daccddde5a0ebf66584687c8fb103"
+      },
+      "layer": {
+        "evidence": [
+          {
+            "index": 97
+          }
+        ],
+        "ruleId": "CAD.Template.Declared",
+        "sourceMode": "explicit",
+        "state": "known",
+        "value": "0"
+      },
+      "linetype": {
+        "evidence": [
+          {
+            "index": 96
+          }
+        ],
+        "ruleId": "CAD.Template.Unresolved",
+        "sourceMode": "byBlock",
+        "state": "unsupported",
+        "value": null
+      }
+    },
+    {
+      "color": {
+        "evidence": [
+          {
+            "index": 127
+          },
+          {
+            "index": 129
+          },
+          {
+            "index": 130
+          }
+        ],
+        "ruleId": "CAD.Template.Unresolved",
+        "sourceMode": "explicit",
+        "state": "known",
+        "value": {
+          "kind": "aci",
+          "value": 1
+        }
+      },
+      "id": {
+        "value": "cad2:bc020eb3f61f2e7a708f783b29e3460a5503073294bc241faece13aa27bbfa6b"
+      },
+      "layer": {
+        "evidence": [
+          {
+            "index": 125
+          }
+        ],
+        "ruleId": "CAD.Template.Declared",
+        "sourceMode": "explicit",
+        "state": "known",
+        "value": "0"
+      },
+      "linetype": {
+        "evidence": [
+          {
+            "index": 124
+          }
+        ],
+        "ruleId": "CAD.Template.Unresolved",
+        "sourceMode": "absent",
+        "state": "absent",
+        "value": null
+      }
+    },
+    {
+      "color": {
+        "evidence": [
+          {
+            "index": 127
+          },
+          {
+            "index": 129
+          },
+          {
+            "index": 130
+          }
+        ],
+        "ruleId": "DXF.Color.Aci",
+        "sourceMode": "explicit",
+        "state": "known",
+        "value": {
+          "kind": "aci",
+          "value": 1
+        }
+      },
+      "id": {
+        "value": "cad2:870b0f715e0cec43a89e9a8c5da52096786c5974e09d4780a406f25bf080b4f0"
+      },
+      "layer": {
+        "evidence": [
+          {
+            "index": 28
+          },
+          {
+            "index": 125
+          }
+        ],
+        "ruleId": "DXF.Layer.Explicit",
+        "sourceMode": "explicit",
+        "state": "known",
+        "value": "0"
+      },
+      "linetype": {
+        "evidence": [
+          {
+            "index": 9
+          },
+          {
+            "index": 29
+          },
+          {
+            "index": 124
+          }
+        ],
+        "ruleId": "DXF.Linetype.AbsentByLayer",
+        "sourceMode": "absent",
+        "state": "defaulted",
+        "value": "CONTINUOUS"
+      }
+    },
+    {
+      "color": {
+        "evidence": [
+          {
+            "index": 67
+          },
+          {
+            "index": 127
+          },
+          {
+            "index": 129
+          },
+          {
+            "index": 130
+          }
+        ],
+        "ruleId": "DXF.Color.ByBlock",
+        "sourceMode": "byBlock",
+        "state": "inherited",
+        "value": {
+          "kind": "aci",
+          "value": 1
+        }
+      },
+      "id": {
+        "value": "cad2:af6dbea0dfb4e8186d0e7a8d33159eaf9e0164824b43807cf368103e53af379e"
+      },
+      "layer": {
+        "evidence": [
+          {
+            "index": 28
+          },
+          {
+            "index": 65
+          },
+          {
+            "index": 125
+          }
+        ],
+        "ruleId": "DXF.Layer.ZeroFromInsert",
+        "sourceMode": "explicit",
+        "state": "inherited",
+        "value": "0"
+      },
+      "linetype": {
+        "evidence": [
+          {
+            "index": 9
+          },
+          {
+            "index": 29
+          },
+          {
+            "index": 64
+          },
+          {
+            "index": 124
+          }
+        ],
+        "ruleId": "DXF.Linetype.AbsentByLayer",
+        "sourceMode": "absent",
+        "state": "defaulted",
+        "value": "CONTINUOUS"
+      }
+    },
+    {
+      "color": {
+        "evidence": [
+          {
+            "index": 67
+          },
+          {
+            "index": 99
+          },
+          {
+            "index": 127
+          },
+          {
+            "index": 129
+          },
+          {
+            "index": 130
+          }
+        ],
+        "ruleId": "DXF.Color.ByBlock",
+        "sourceMode": "byBlock",
+        "state": "inherited",
+        "value": {
+          "kind": "aci",
+          "value": 1
+        }
+      },
+      "id": {
+        "value": "cad2:9621eb792ba3d02c7c96e6594bf8a262faca321965516e784f1d0b35143003d3"
+      },
+      "layer": {
+        "evidence": [
+          {
+            "index": 28
+          },
+          {
+            "index": 65
+          },
+          {
+            "index": 97
+          },
+          {
+            "index": 125
+          }
+        ],
+        "ruleId": "DXF.Layer.ZeroFromInsert",
+        "sourceMode": "explicit",
+        "state": "inherited",
+        "value": "0"
+      },
+      "linetype": {
+        "evidence": [
+          {
+            "index": 9
+          },
+          {
+            "index": 29
+          },
+          {
+            "index": 64
+          },
+          {
+            "index": 96
+          },
+          {
+            "index": 124
+          }
+        ],
+        "ruleId": "DXF.Linetype.ByBlock",
+        "sourceMode": "byBlock",
+        "state": "inherited",
+        "value": "CONTINUOUS"
+      }
+    }
+  ],
+  "units": {
+    "decisionId": null,
+    "evidence": null,
+    "kind": "declared",
+    "reason": null,
+    "sourceToMillimeters": 1,
+    "sourceUnitCode": 4
+  }
+}

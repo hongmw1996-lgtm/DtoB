@@ -14,11 +14,11 @@ public class FoundationDocumentTests
         ["DtoB.Core"]=[],["DtoB.Geometry"]=["DtoB.Core"],["DtoB.Cad"]=["DtoB.Core","DtoB.Geometry"],
         ["DtoB.Bim"]=["DtoB.Core","DtoB.Geometry"],["DtoB.Ipc"]=[],["DtoB.Analysis"]=["DtoB.Cad","DtoB.Bim"],
         ["DtoB.Revit.Core"]=["DtoB.Core"],["DtoB.Revit2025"]=["DtoB.Ipc"],["DtoB.Project"]=[],["DtoB.Desktop"]=["DtoB.Ipc","DtoB.Project","DtoB.Cad.Dxf","DtoB.Cad.Raw"],
-        ["DtoB.Cad.Raw"]=[],["DtoB.Cad.Dxf"]=["DtoB.Cad.Raw"]
+        ["DtoB.Cad.Raw"]=[],["DtoB.Cad.Dxf"]=["DtoB.Cad.Raw"],["DtoB.Cad.Normalize"]=["DtoB.Cad.Raw","DtoB.Cad"]
     };
     private static void Check(string name,XDocument xml)
     {
-        if(name is "DtoB.Cad.Raw" or "DtoB.Cad.Dxf")
+        if(name is "DtoB.Cad.Raw" or "DtoB.Cad.Dxf" or "DtoB.Cad.Normalize")
         {
             Assert.Empty(xml.Descendants("PackageReference"));
             Assert.Empty(xml.Descendants("FrameworkReference"));
@@ -55,6 +55,9 @@ public class FoundationDocumentTests
     [InlineData("DtoB.Cad.Raw","<Project><ItemGroup><FrameworkReference Include='Microsoft.WindowsDesktop.App'/></ItemGroup></Project>")]
     [InlineData("DtoB.Cad.Dxf","<Project><PropertyGroup><UseWPF>true</UseWPF></PropertyGroup></Project>")]
     [InlineData("DtoB.Cad.Dxf","<Project><PropertyGroup><TargetFramework>net8.0-windows</TargetFramework></PropertyGroup></Project>")]
+    [InlineData("DtoB.Cad.Normalize","<Project><ItemGroup><ProjectReference Include='DtoB.Project.csproj'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Normalize","<Project><ItemGroup><PackageReference Include='ACadSharp'/></ItemGroup></Project>")]
+    [InlineData("DtoB.Cad.Normalize","<Project><PropertyGroup><UseWPF>true</UseWPF></PropertyGroup></Project>")]
     public void NativeRawParserForbiddenDependenciesAreRejected(string name,string xml)
     { Assert.ThrowsAny<Exception>(()=>Check(name,XDocument.Parse(xml))); }
 
@@ -71,7 +74,20 @@ public class FoundationDocumentTests
         foreach(var path in Directory.EnumerateFiles(Path.Combine(Root(),"docs","adr"),"ADR-*.md"))
         {
             var text=utf8.GetString(File.ReadAllBytes(path));Assert.DoesNotContain("\uFFFD",text);
-            Assert.DoesNotContain("Accepted ?",text);Assert.Contains("| Option | Evaluation",text);
+            Assert.DoesNotContain("Accepted ?",text);
+            // The owner-approved 018–020 use evaluated prose/bullets, not the older table template.
+            // Preserve their accepted content and retain the exact older checks for ADR001–017.
+            if(Path.GetFileName(path) is "ADR-018-CAD-IR-Normalization-Boundary.md" or
+                "ADR-019-Coordinate-Normalization-Transforms.md" or "ADR-020-Occurrence-Identity-and-Expansion.md")
+            {
+                Assert.Contains("Status: Accepted",text);
+                var section=text.Split("## Alternatives")[1].Split("\n## ")[0];
+                Assert.True(section.Length>100,"Evaluated prose needs reasons.");
+                Assert.Matches("(?i)selected",section);
+                Assert.True(System.Text.RegularExpressions.Regex.Matches(section,"(?i)rejected").Count>=2,"At least two rejected alternatives with reasons required.");
+                continue;
+            }
+            Assert.Contains("| Option | Evaluation",text);
             var alternatives=text.Split("## Alternatives")[1].Split("## Decision")[0].Split('\n').Where(line=>line.StartsWith("| ")&&!line.Contains("Option |")).ToArray();
             Assert.True(alternatives.Length>=2);
             Assert.All(alternatives,row=>Assert.True(row.Length>55 && (row.Contains("Selected:")||row.Contains("Rejected")||row.Contains("Deferred:")||row.Contains("Candidate only:")),"Alternatives need evaluated reasons."));

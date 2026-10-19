@@ -1,0 +1,1167 @@
+[
+  {
+    "Path": ".gitattributes",
+    "Category": "04 release transport metadata",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/affine-mirror.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/affine-positive.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/block-base.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-0.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-0p5.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-1.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-2.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-closed-tilted.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-degenerate.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-minus0p5.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-minus1.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/bulge-minus2.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/cycle.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/affine-mirror.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/affine-mirror.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/affine-positive.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/affine-positive.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/block-base.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/block-base.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-0.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-0.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-0p5.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-0p5.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-1.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-1.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-2.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-2.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-closed-tilted.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-closed-tilted.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-degenerate.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-degenerate.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-minus0p5.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-minus0p5.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-minus1.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-minus1.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-minus2.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/bulge-minus2.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/cycle.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/cycle.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/legacy-phase02-DtoB_TEST_2STORY_R2018.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/manifest.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/minsert.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/minsert.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/missing-catalog.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/missing-catalog.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/nested.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/nested.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-0.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-0.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-1.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-1.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-2.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-2.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-3.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-3.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-4.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-4.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-5.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-5.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-6.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-6.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-7.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/ocs-7.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/shared-style.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/shared-style.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-1.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-1.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-2.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-2.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-4.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-4.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-5.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-5.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-6.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/goldens/unit-6.summary.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/manifest.json",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/minsert.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/missing-catalog.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/nested.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-0.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-1.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-2.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-3.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-4.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-5.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-6.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/ocs-7.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/README.md",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/shared-style.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-1.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-2.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-4.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-5.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-6.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-absent.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-refuse-0.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "datasets/controlled/phase04/unit-refuse-3.dxf",
+    "Category": "fixtures",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/adr/ADR-018-CAD-IR-Normalization-Boundary.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/adr/ADR-019-Coordinate-Normalization-Transforms.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/adr/ADR-020-Occurrence-Identity-and-Expansion.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/plans/PHASE_04_IMPLEMENTATION_PLAN.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/plans/PHASE_04F_SCOPE.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/plans/PHASE_04G_IMPLEMENTATION_MATRIX.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/plans/PHASE_04H_QA_CHECKLIST.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_03_GIT_RELEASE_REPORT.md",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "docs/status/PHASE_03_PR_REPORT.md",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "docs/status/PHASE_03_RELEASE_REPORT.md",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "docs/status/PHASE_04_ADR_GATE_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04_FINAL_GATE.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04_LIMITATIONS.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04_PLANNING_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04_QA_MATRIX.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04_RELEASE_CLOSEOUT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04A_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04B_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04C_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04D_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04E_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04F_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04G_IMPLEMENTATION_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04G_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/PHASE_04H_REPORT.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/phase04/baseline-test-inventory.json",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/phase04/candidate-release-payload.json",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/phase04/new-test-inventory.json",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/phase04/release-manifest.json",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "docs/status/phase04/whole-phase-path-inventory.json",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "DtoB.sln",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Assembly/AssemblySupport.cs",
+    "Category": "04G",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Assembly/CadBoundsQuery.cs",
+    "Category": "04G",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Assembly/CadNormalizer.cs",
+    "Category": "04G",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Assembly/CadNormalizer.Geometry.cs",
+    "Category": "04G",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Assembly/CadNormalizer.Styles.cs",
+    "Category": "04G",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Coordinates/CadArbitraryAxis.cs",
+    "Category": "04C",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Coordinates/CadCoordinateNormalizer.cs",
+    "Category": "04C",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Coordinates/CoordinateContracts.cs",
+    "Category": "04C",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Coordinates/RawCoordinateAccess.cs",
+    "Category": "04C",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/DtoB.Cad.Normalize.csproj",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/NormalizationBoundary.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Occurrences/CadOccurrenceExpander.cs",
+    "Category": "04E",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Occurrences/OccurrenceContracts.cs",
+    "Category": "04E",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Occurrences/OccurrenceIdentity.cs",
+    "Category": "04E",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Placement/CadBlockBaseNormalizer.cs",
+    "Category": "04D",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Placement/CadInsertLocalTransform.cs",
+    "Category": "04D",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Placement/CadInsertScaleNormalizer.cs",
+    "Category": "04D",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Placement/LocalPlacementContracts.cs",
+    "Category": "04D",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Scalars/CadAngleNormalizer.cs",
+    "Category": "04B",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Scalars/CadScalarLengthNormalizer.cs",
+    "Category": "04B",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Scalars/CadUnitNormalizer.cs",
+    "Category": "04B",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Scalars/RawScalarAccess.cs",
+    "Category": "04B",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Scalars/ScalarContracts.cs",
+    "Category": "04B",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Styles/CadStyleResolver.cs",
+    "Category": "04F",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Styles/RawStyleAccess.cs",
+    "Category": "04F",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad.Normalize/Styles/StyleContracts.cs",
+    "Category": "04F",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadContract.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadDocument.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadGeometryContracts.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadIdentity.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadIrJson.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadNumericPolicy.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadProvenance.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadStyleContracts.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/CadTransform.cs",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "packages/DtoB.Cad/V2/README.md",
+    "Category": "04A",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04_ADR_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04_FINAL_REVIEW_V2.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04_FINAL_REVIEW.md",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "reviews/PHASE_04_PLAN_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04A_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04B_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04C_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04D_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04E_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04F_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04G_ARCHITECTURE_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "reviews/PHASE_04G_IMPLEMENTATION_REVIEW.md",
+    "Category": "reviews",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "scripts/qa/Invoke-Phase04ReleaseAudit.ps1",
+    "Category": "04H",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Audit-Reference.ps1",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/DtoB.Cad.ACadSharp.Spike.csproj",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Fixtures/README.md",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Fixtures/supplemental-basepoint.dxf",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Fixtures/supplemental-minsert.dxf",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Make-Supplemental.ps1",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Program.cs",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/README.md",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "spikes/DtoB.Cad.ACadSharp.Spike/Verify-Evidence.ps1",
+    "Category": "historical excluded artifacts",
+    "CandidateReleasePayload": false
+  },
+  {
+    "Path": "tasks/PHASE_04.md",
+    "Category": "04 architecture/docs",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04BPolicyAndProvenanceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04BScalarFixture.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04CArchitectureAndDeterminismTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04CCoordinateFixture.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04DArchitectureAndDeterminismTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04DPlacementFixture.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04EDeterminismTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04EOccurrenceFixture.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04FDeterminismTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04FStyleFixture.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04GAssemblyTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04GEvidenceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04GGeometryAndBoundsTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04GGeometryBudgetBoundaryTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04GIntegrationEdgeTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04HCorpusTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/Cad04HReleaseTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadAngleNormalizationTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadBlockBaseAndScaleTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadCoordinateNormalizationTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadEffectiveStyleChannelTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadEntityCoordinateTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadExtrusionAndAxisTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadInsertLocalTransformTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadInsertResolutionAndProvenanceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadIrJsonV2Tests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadLayerResolutionTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadMInsertExpansionTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadNestedOccurrenceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadNormalizationBoundaryTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadOccurrenceIdentityTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadOccurrenceProvenanceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadOccurrenceResourceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadScalarLengthNormalizationTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadStyleCancellationTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadStyleProvenanceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadUnitNormalizationTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadV2ArchitectureTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadV2ContractFixture.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadV2IdentityTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadV2ImmutabilityTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/CadV2ProvenanceTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/DtoB.Tests.csproj",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/ExtractionQaCampaignTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  },
+  {
+    "Path": "tests/DtoB.Tests/FoundationDocumentTests.cs",
+    "Category": "tests",
+    "CandidateReleasePayload": true
+  }
+]

@@ -103,7 +103,10 @@ public partial class ExtractionQaCampaignTests
         var actual = Directory.GetFiles(Path.Combine(Root(), "datasets/controlled"), "*", SearchOption.AllDirectories)
             .Where(p => p.EndsWith(".dxf", StringComparison.OrdinalIgnoreCase) || p.EndsWith(".bin", StringComparison.OrdinalIgnoreCase))
             .Select(p => Path.GetRelativePath(Root(), p).Replace('\\', '/')).Order().ToArray();
-        Assert.Equal(actual, manifest.Select(f => f.Path).Order().ToArray());
+        Assert.Equal(86, manifest.Length);
+        Assert.Equal("A3C7CBD16E94498A0CDE094664DFEFA520DC3182DA4899DB92EAE6C1649B7B36", Hash(File.ReadAllBytes(Path.Combine(Root(), "datasets/controlled/phase03g/manifest.json"))));
+        Cad04HReleaseTests.ValidateCoverage(actual, Cad04HCorpus.Manifest().Select(f => f.Path));
+        Assert.Equal(manifest.Select(f => f.Path).Order(), Cad04HCorpus.Manifest().Where(f => f.Key.StartsWith("legacy-", StringComparison.Ordinal)).Select(f => f.Path).Order());
         Assert.All(manifest, f => { Assert.NotEmpty(f.Purpose); Assert.NotEmpty(f.ExpectedPreservationBehavior); Assert.Equal(64, f.OriginalSHA256.Length); });
     }
 

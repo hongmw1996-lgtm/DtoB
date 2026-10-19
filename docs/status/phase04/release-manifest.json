@@ -1,0 +1,216 @@
+{
+  "Kind": "DtoB-PHASE04-local-release-evidence",
+  "Branch": "phase/04-cad-normalization",
+  "BaseRelease": "v0.4-phase03",
+  "BaseAndPreparationHEAD": "76ff6e0d8ccac797ba60d8c5657922c796a0e8c9",
+  "CadSchemaVersion": 2,
+  "ADRs": [
+    "docs/adr/ADR-015-Raw-CAD-Extraction-Boundary.md",
+    "docs/adr/ADR-016-Native-DXF-Reader.md",
+    "docs/adr/ADR-017-Reader-Lifecycle.md",
+    "docs/adr/ADR-018-CAD-IR-Normalization-Boundary.md",
+    "docs/adr/ADR-019-Coordinate-Normalization-Transforms.md",
+    "docs/adr/ADR-020-Occurrence-Identity-and-Expansion.md"
+  ],
+  "FixtureManifest": {
+    "Inputs": 119,
+    "Path": "datasets/controlled/phase04/manifest.json",
+    "LegacyUnchanged": 86,
+    "New": 33,
+    "SHA256": "DEF3DCA17EF99F2C6CEE42FB5AE6A1830DFFA8F2ABFD328466B1A9100AC23ED7"
+  },
+  "GoldenManifest": {
+    "Path": "datasets/controlled/phase04/goldens/manifest.json",
+    "ExactSyntheticJsonFiles": 30,
+    "OfficialFormat": "hash+summary; exact JSON regenerated in ignored evidence",
+    "SHA256": "08AD8DCA5035D0B4BD732F066784B3F6C6A895E85393B386EEE8774F65CEC000",
+    "Documents": 31
+  },
+  "ControlledInput": {
+    "Path": "datasets/controlled/phase02/DtoB_TEST_2STORY_R2018.dxf",
+    "Lines": 17474,
+    "Pairs": 8737,
+    "SHA256": "2676958463BB8BA183A6E255B0032495C4AD2958E3AF43BEB809015B71DB30BC",
+    "Bytes": 96621
+  },
+  "ControlledNormalized": {
+    "Definitions": 12,
+    "Layers": 12,
+    "Occurrences": 17,
+    "Ledger": {
+      "NotApplicable": 99,
+      "UnsupportedNormalization": 52,
+      "Normalized": 117,
+      "PartiallyNormalized": 65
+    },
+    "ModelSpace": 123,
+    "Diagnostics": 117,
+    "Sources": 333,
+    "BoundsState": "Partial",
+    "Styles": 201,
+    "Max": [
+      20700,
+      8500,
+      0
+    ],
+    "RawDiagnostics": 59,
+    "Min": [
+      -1300.225,
+      -10100,
+      0
+    ],
+    "SHA256": "8A5E078ADB9990C7127B7E626DEC1333071F481FA4A4B7F91CD17D23505F4F24",
+    "Bytes": 2233701,
+    "Annotations": 44,
+    "State": "PartiallyNormalized",
+    "Entities": 184,
+    "Facts": 5535,
+    "Geometry": 149
+  },
+  "FixedDigests": {
+    "contract-invariant.json": "3E49A200C8AD688F6F53842F17556D849979B1C8F3F6A083438721CA02F58EBC",
+    "scalar-contract-evidence.json": "568D2A7C28863360A4839FF0CA59DF09C1E7C9066EC3A487701872506A68D4C3",
+    "coordinate-evidence.json": "81CA2010F120BD65888EF57AABE5A2F55E230DDC291276E1CBA8BAC9584F0342",
+    "local-transform-evidence.json": "02045C202CACF9DA66406827E297435CCCB7448D1D0A38C7B52E7FCAAA3A0EE5",
+    "occurrence-expansion-evidence.json": "143684A78B37AA4962345A28FC8C268E24CB4ECDCDF2EBD410B66EC99A1B626B",
+    "effective-style-evidence.json": "7A448C95EC2F67DCA6C65C3D60B4982E79312814C8C1FD8E5A62C55C611FFC01",
+    "normalized-invariant.json": "8A5E078ADB9990C7127B7E626DEC1333071F481FA4A4B7F91CD17D23505F4F24",
+    "controlled-snapshot.json": "4B91C83791F89DEC9BDC633C832001F2D1E537E7F0330BEE0666067CAE9A310C"
+  },
+  "SceneSHA256": "9D179A0EFAC5EE803E8AEC2AC3C48E1AB0986F1C6159BCB1764E8071933963A7",
+  "Tests": {
+    "Skipped": 0,
+    "Baseline": 1315,
+    "Failed": 0,
+    "Filtered": false,
+    "BaselineInventory": "docs/status/phase04/baseline-test-inventory.json",
+    "New": 87,
+    "RetainedBaselineIdsAndNames": 1315,
+    "Passed": 1402,
+    "NewInventory": "docs/status/phase04/new-test-inventory.json",
+    "Total": 1402
+  },
+  "Build": {
+    "CoreErrors": 0,
+    "Solution": "PASS",
+    "ExactWarningAllowlist": [
+      "Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a|Microsoft.VisualBasic, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a|System.Drawing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35|WindowsBase, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    ],
+    "WarningCode": "MSB3277",
+    "CoreWarnings": 0,
+    "Sdk": "8.0.416",
+    "Operation": "Rebuild",
+    "Configuration": "Release",
+    "Toolchain": "VisualStudio2022-MSBuild",
+    "SolutionErrors": 0,
+    "Core": "PASS"
+  },
+  "Determinism": {
+    "EqualArtifactsPerContext": 186,
+    "InitialFreshTesthosts": 2,
+    "Cultures": [
+      "Invariant",
+      "fr-FR",
+      "ko-KR"
+    ],
+    "FinalUnfilteredTesthostReproduction": true,
+    "NonsemanticContextIndexOrder": "exact byte equality",
+    "TripleRoundtrip": "A=B=C",
+    "RawBeforeAfter": "byte-identical",
+    "DistinctCWDs": 2
+  },
+  "Coverage": {
+    "Scope": "Managed imported Text DXF to normalized semantic-neutral CAD2; no upstream DWG equivalence",
+    "UnitRefusalsNoDocument": 3,
+    "GoldenPartial": 6,
+    "Unsupported52": {
+      "OBJECTS": 48,
+      "APPID": 3,
+      "VPORT": 1
+    },
+    "GoldenNormalized": 25
+  },
+  "Immutability": {
+    "RawDxfProductionMutation": 0,
+    "CoreGeometryAnalysisDesktopBimRevitMutation": 0,
+    "Original86FixtureBytes": "unchanged",
+    "ReportsReviewsAcceptedADRTechnicalBodies": "unchanged",
+    "PriorProductionBytes": "unchanged",
+    "Pre04HFiles": 475,
+    "AdditiveCheckpointFiles": [
+      "docs/plans/PHASE_04_IMPLEMENTATION_PLAN.md",
+      "tasks/PHASE_04.md"
+    ]
+  },
+  "KnownLimitations": "docs/status/PHASE_04_LIMITATIONS.md",
+  "FailureAndResourceMatrix": "docs/status/PHASE_04_QA_MATRIX.md",
+  "WholePhasePathInventory": "docs/status/phase04/whole-phase-path-inventory.json",
+  "CandidatePayloadInventory": "docs/status/phase04/candidate-release-payload.json",
+  "ArtifactInventory": "artifacts/phase04/04h-20261019/ignored-evidence-inventory.json",
+  "FinalEvidence": [
+    "artifacts/phase04/04h-20261019/final/core-build.log",
+    "artifacts/phase04/04h-20261019/final/build.log",
+    "artifacts/phase04/04h-20261019/final/tests.trx",
+    "artifacts/phase04/04h-20261019/final-audit.json",
+    "artifacts/phase04/04h-20261019/source-authority-final.json",
+    "artifacts/phase04/04h-20261019/process-comparison-final.json",
+    "artifacts/phase04/release-closeout-20261019/final/tests.trx",
+    "artifacts/phase04/release-closeout-20261019/final/core-build.log",
+    "artifacts/phase04/release-closeout-20261019/final/build.log",
+    "artifacts/phase04/release-closeout-20261019/final-audit.json"
+  ],
+  "InventoryPolicy": "Path-only payload inventory includes itself and this manifest; avoids recursive content hashes. Fixtures and goldens have exact separate content hashes. Generated evidence ignored, historical failed development artifacts excluded from final evidence.",
+  "GitState": {
+    "StagedFiles": 0,
+    "TagCreated": false,
+    "BranchSwitched": false,
+    "PRCreated": false,
+    "Phase04ChangesPushed": false,
+    "Phase04ChangesCommitted": false
+  },
+  "LocalVerdict": "PHASE_04_FINAL_PASS_WITH_KNOWN_LIMITATIONS",
+  "IndependentWholePhaseReview": "PHASE_04_FINAL_PASS_WITH_KNOWN_LIMITATIONS",
+  "NextGate": "One authorized narrow CI portability commit and normal push;require green PR CI before independent PR review;STOP before merge/tag/PHASE05.",
+  "AuthoritativeIndependentReview": {
+    "Path": "reviews/PHASE_04_FINAL_REVIEW_V2.md",
+    "SHA256": "061B6E622A179B7434484D43E455B2D3526A983BD9EC36CCF829D4E2F75903F6",
+    "ProductionFindings": 0,
+    "ReleaseEvidenceFindings": 0,
+    "SupersedesV1": "REVIEW_V1_ERROR",
+    "V1": "Preserved unchanged locally, not in original candidate payload; excluded from release."
+  },
+  "ReleaseCloseout": "docs/status/PHASE_04_RELEASE_CLOSEOUT.md",
+  "ReleasePreparationState": "Original release preparation snapshot retained; additive owner-authorized PR #7 portability correction follows original candidate. Actual correction identifiers and CI state are in the local uncommitted PR gate/evidence.",
+  "ReleaseMetadataInventoryHashes": {
+    "Meaning": "Release-metadata UTF8 LF projection/Git-blob SHA256; working copies may use platform EOL. Accepted semantic and physical fixture/golden/review byte hashes are unchanged.",
+    "WholePhasePathInventory": "5CECC3548F8D78AE6375F6BEEB3301434D19EBFB5146F0C6B8E7315A139B8761",
+    "CandidateReleasePayload": "AC06113C710D798BF6E56FC7EDCF3A1C075E5F24A1FB5D78BC7773CE206DD13D",
+    "CandidatePaths": 220
+  },
+  "ApprovedReleaseTransportAmendment": {
+    "Path": ".gitattributes",
+    "Rules": [
+      "datasets/controlled/phase04/**/*.json -text",
+      "reviews/PHASE_04_FINAL_REVIEW_V2.md -text"
+    ],
+    "OwnerApproved": true,
+    "Meaning": "Preserve exact manifest/golden/review bytes across Git clean/checkout filters; no semantic or fixture-content change."
+  },
+  "DiffWhitespacePolicy": "Command-scoped core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol; recognizes frozen manifest CRLF without suppressing ordinary whitespace checks; no persistent Git config change.",
+  "LegacyPhase03ManifestTransport": {
+    "Path": "datasets/controlled/phase03g/manifest.json",
+    "CanonicalGitBlobSHA256": "A3C7CBD16E94498A0CDE094664DFEFA520DC3182DA4899DB92EAE6C1649B7B36",
+    "Bytes": 56355,
+    "CR": 0,
+    "LF": 974,
+    "HistoricalLocalPhysicalSHA256": "1B3D1798CD1137C8F4933E44AB3CD8A2717DA3B3F9E7AAADC08A1E49E60B0C4B",
+    "Rule": "datasets/controlled/phase03g/manifest.json -text",
+    "Classification": "Tracked-text checkout portability correction only;86 entries,fixture paths/hashes/dispositions unchanged",
+    "OwnerAuthorized": true,
+    "OriginalReleaseCandidate": "e053fb4d70f7e19d2d954d85468f3edc7217bade",
+    "CorrectionPolicy": "One new narrow commit;no amend or force push;PR #7 remains220 paths,two commits after correction",
+    "SemanticEvidence": "03G Raw,03H scene,04A–G,controlled input/normalized and golden hashes unchanged"
+  }
+}
