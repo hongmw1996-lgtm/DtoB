@@ -2,3 +2,4 @@ datasets/controlled/**/*.dxf -text
 datasets/controlled/**/*.bin -text
 datasets/controlled/phase04/**/*.json -text
 reviews/PHASE_04_FINAL_REVIEW_V2.md -text
+datasets/controlled/phase03g/manifest.json -text

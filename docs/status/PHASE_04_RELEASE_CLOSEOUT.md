@@ -58,3 +58,31 @@ embedding a commit's own SHA inside its committed content would be circular.
 
 Recommended next action after successful commit/push: **CREATE PHASE04 PR**,
 under a separate owner instruction. No PR/merge/tag/PHASE05 action performed.
+
+## Additive PR #7 CI portability correction
+
+PR CI exposed a checkout-dependent physical-byte assertion for the tracked
+`datasets/controlled/phase03g/manifest.json`. Its logical JSON and all86 entries,
+paths, fixture hashes and expected dispositions are unchanged. The prior
+`1B3D1798CD1137C8F4933E44AB3CD8A2717DA3B3F9E7AAADC08A1E49E60B0C4B`
+remains historical accepted LOCAL physical-byte evidence (mixed CRLF/LF).
+
+The repository release transport authority is the existing committed LF blob:
+56355 bytes, CR0/LF974, SHA256
+`A3C7CBD16E94498A0CDE094664DFEFA520DC3182DA4899DB92EAE6C1649B7B36`.
+An exact-path `datasets/controlled/phase03g/manifest.json -text` rule now prevents
+checkout conversion. The existing assertion protects this single canonical hash;
+it is neither removed nor replaced by OS-dependent/multiple accepted hashes.
+The local target is materialized from the existing Git blob without JSON rewriting.
+
+Owner authorized one new narrow corrective commit after `e053fb4...`, normal push
+to update PR #7, fresh targeted/related/full verification and CI observation.
+No normalization production behavior, PHASE03 DXF/bin, manifest semantic content,
+golden or accepted03G/03H/04A–G semantic evidence changes. Prior independent reviews
+and historical reports remain unchanged. Release path inventory stays220 because
+all corrected release files were already candidate paths.
+
+Fresh correction evidence is under `artifacts/phase04/ci-portability-20261019/`.
+The original blocker and subsequent commit/CI result are recorded in the local,
+uncommitted `docs/status/PHASE_04_PR_GATE.md`. This correction does not authorize
+merge, squash/rebase, amend, force push, tag, main checkout or PHASE05.

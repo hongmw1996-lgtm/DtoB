@@ -172,7 +172,7 @@
   },
   "LocalVerdict": "PHASE_04_FINAL_PASS_WITH_KNOWN_LIMITATIONS",
   "IndependentWholePhaseReview": "PHASE_04_FINAL_PASS_WITH_KNOWN_LIMITATIONS",
-  "NextGate": "Commit/push after exact index verification; then CREATE PHASE04 PR under separate owner direction. No merge/tag/PHASE05.",
+  "NextGate": "One authorized narrow CI portability commit and normal push;require green PR CI before independent PR review;STOP before merge/tag/PHASE05.",
   "AuthoritativeIndependentReview": {
     "Path": "reviews/PHASE_04_FINAL_REVIEW_V2.md",
     "SHA256": "061B6E622A179B7434484D43E455B2D3526A983BD9EC36CCF829D4E2F75903F6",
@@ -182,7 +182,7 @@
     "V1": "Preserved unchanged locally, not in original candidate payload; excluded from release."
   },
   "ReleaseCloseout": "docs/status/PHASE_04_RELEASE_CLOSEOUT.md",
-  "ReleasePreparationState": "Verified pre-commit snapshot; owner authorized one commit and normal push. GitState records preparation, post-action identifiers are recorded in the external execution receipt.",
+  "ReleasePreparationState": "Original release preparation snapshot retained; additive owner-authorized PR #7 portability correction follows original candidate. Actual correction identifiers and CI state are in the local uncommitted PR gate/evidence.",
   "ReleaseMetadataInventoryHashes": {
     "Meaning": "Release-metadata UTF8 LF projection/Git-blob SHA256; working copies may use platform EOL. Accepted semantic and physical fixture/golden/review byte hashes are unchanged.",
     "WholePhasePathInventory": "5CECC3548F8D78AE6375F6BEEB3301434D19EBFB5146F0C6B8E7315A139B8761",
@@ -198,5 +198,19 @@
     "OwnerApproved": true,
     "Meaning": "Preserve exact manifest/golden/review bytes across Git clean/checkout filters; no semantic or fixture-content change."
   },
-  "DiffWhitespacePolicy": "Command-scoped core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol; recognizes frozen manifest CRLF without suppressing ordinary whitespace checks; no persistent Git config change."
+  "DiffWhitespacePolicy": "Command-scoped core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol; recognizes frozen manifest CRLF without suppressing ordinary whitespace checks; no persistent Git config change.",
+  "LegacyPhase03ManifestTransport": {
+    "Path": "datasets/controlled/phase03g/manifest.json",
+    "CanonicalGitBlobSHA256": "A3C7CBD16E94498A0CDE094664DFEFA520DC3182DA4899DB92EAE6C1649B7B36",
+    "Bytes": 56355,
+    "CR": 0,
+    "LF": 974,
+    "HistoricalLocalPhysicalSHA256": "1B3D1798CD1137C8F4933E44AB3CD8A2717DA3B3F9E7AAADC08A1E49E60B0C4B",
+    "Rule": "datasets/controlled/phase03g/manifest.json -text",
+    "Classification": "Tracked-text checkout portability correction only;86 entries,fixture paths/hashes/dispositions unchanged",
+    "OwnerAuthorized": true,
+    "OriginalReleaseCandidate": "e053fb4d70f7e19d2d954d85468f3edc7217bade",
+    "CorrectionPolicy": "One new narrow commit;no amend or force push;PR #7 remains220 paths,two commits after correction",
+    "SemanticEvidence": "03G Raw,03H scene,04A–G,controlled input/normalized and golden hashes unchanged"
+  }
 }
