@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../DtoB.Cad.Raw/DtoB.Cad.Raw.csproj" />
+    <ProjectReference Include="../DtoB.Cad/DtoB.Cad.csproj" />
+  </ItemGroup>
+</Project>

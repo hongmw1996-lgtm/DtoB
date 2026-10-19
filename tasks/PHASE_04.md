@@ -1,3 +1,17 @@
+> **Current owner checkpoint — 2026-10-16 / PHASE 04G implementation:** PHASE_04G_ARCHITECTURE_PASS authorizes the existing-shape template/leaf, transform-as-truth, query-only bounds and nullable HEADER evidence policy. Local implementation now has canonical geometry, strict CAD2 assembly and analytic queries; see [new implementation report](../docs/status/PHASE_04G_IMPLEMENTATION_REPORT.md). The historical PHASE_04G_REPORT.md remains unchanged. Core/full Release/Rebuild and1,315 tests pass. **Stop for independent04G implementation review; no04H/PHASE05, commit or push.** Earlier checkpoints remain history.
+
+> **Current owner checkpoint — 2026-10-16 / PHASE 04G contract gate:** after PHASE_04F_PASS, 04G was authorized subject to STOP if the frozen contract cannot carry required results. Required orientation-sign retention has no serialized occurrence field; occurrence-specific style binding also needs a reviewed assembly-policy choice. [04G report](../docs/status/PHASE_04G_REPORT.md) records the gap and 1,258/1,258 passing unchanged baseline tests. **No 04G product implementation or schema change; resolve architecture before proceeding. No 04H/PHASE05, commit or push.** Earlier notices below are historical.
+
+> **Current owner checkpoint — 2026-10-16 / PHASE 04F:** after PHASE_04E_PASS (zero findings), owner authorized occurrence style/layer inheritance only. See [scope discovery](../docs/plans/PHASE_04F_SCOPE.md) and [04F report](../docs/status/PHASE_04F_REPORT.md): 1,258/1,258 tests, all 1,188 baseline IDs retained, Core/full Release/Rebuild passed. Root depth remains1; geometry transformation/materialization and CadDocument assembly belong to04G. No Raw/Dxf or 04A–E source changes. **Stop for independent 04F review; no 04G+, commit or push.** Earlier notices below are historical.
+
+> **Current owner checkpoint — 2026-10-16 / PHASE 04E:** after PHASE_04D_PASS (zero findings), owner authorized nested INSERT / MINSERT occurrence expansion only. See [04E report](../docs/status/PHASE_04E_REPORT.md): 1,188/1,188 tests, all 1,128 baseline stable IDs retained, Core/full Release/Rebuild passed. No style resolution, geometry flattening, CadDocument assembly or Revit changes. **Stop for independent 04E review; no 04F+, commit or push.** Earlier notices below are historical.
+
+> **Current owner checkpoint — 2026-10-16 / PHASE 04D:** after PHASE_04C_PASS, owner authorized single INSERT local placement only. See [04D report](../docs/status/PHASE_04D_REPORT.md). Stop for independent 04D review; no 04E+, commit or push. Earlier notices below are historical.
+
+> **Current owner checkpoint — 2026-10-16 / PHASE 04C:** after PHASE_04B_PASS, owner authorized coordinate-frame normalization only. See [04C report](../docs/status/PHASE_04C_REPORT.md). Independent 04C review is next; no 04D+, commit or push. Earlier notices below are historical.
+
+> **Current owner checkpoint — 2026-10-16 / PHASE 04B:** following PHASE_04A_PASS, owner authorized only scalar unit/angle normalization and the central numerical policy. See [04B report](../docs/status/PHASE_04B_REPORT.md) and [implementation plan](../docs/plans/PHASE_04_IMPLEMENTATION_PLAN.md). Independent 04B review is next; no 04C+, commit or push. Earlier notices below are retained history.
+
 > **Current status — 2026-10-15 whole-PHASE03 final gate.** Native Text DXF
 > extraction 03A–03F, deterministic QA 03G and the diagnostic-only Viewer 03H
 > are implemented; each has its final independent `PHASE_03A_PASS` through
@@ -125,3 +139,50 @@ Official profile: **Text DXF, AC1032, strict UTF-8**, ASCII subset naturally sup
 Authoritative source identity begins at **imported managed Text DXF**: **DrawingId + RevisionId + FileHash + Original DXF Handle**. OriginalHandle is the handle written in imported DXF, not an upstream DWG handle unless independently proven. DtoB guarantees no semantic/structural/identity equivalence and assumes no responsibility for third-party export changes to handles, anonymous blocks, dimensions, proxy/custom objects, unsupported records or database structure. DtoB remains responsible for extracting that managed DXF faithfully. No DWG/DXF reconciliation in PHASE03 or PHASE04.
 
 Initial configurable/injectable development limits: physical source line **64 KiB (65,536 UTF-8 bytes)**, combined control nesting **16**, stored diagnostics **5,000** (reserve terminal slot), raw pairs **250,000**, input **16 MiB (16,777,216 bytes)**. Enforce before allocation; exceed -> **ResourceLimitExceeded**, never truncated-success. Smaller deterministic test profiles and later measured revisions permitted; no performance claim. Full semantics: ADR016 and checklist§20. Status: docs/status/PHASE_03_NATIVE_DXF_HOUSEKEEPING_REPORT.md.
+
+## PHASE 04 planning gate — 2026-10-15
+
+PHASE 03 is released and closed at `v0.4-phase03`. Owner authorization now covers **planning only** for **CAD Normalization Engine / CAD IR Foundation**.
+
+Review [PHASE_04_IMPLEMENTATION_PLAN.md](../docs/plans/PHASE_04_IMPLEMENTATION_PLAN.md) before implementation. It proposes 04A–04H, additive CAD IR v2, a pure Raw-to-normalized boundary, tested OCS/INSERT/MINSERT placement, effective style and compact source provenance, and ADR-018/019/020.
+
+Earlier subdivision, OCS/array deferrals and dormant v1 restrictions above are historical context. The latest owner scope explicitly permits planning these normalization capabilities; this notice does not change accepted contracts or accept the proposed ADRs. Keep Raw/Dxf production, LOW-01, existing fixtures, accepted ADRs and the 03H Raw viewer unchanged.
+
+**STOP before 04A.** Obtain owner/Antigravity architecture review of the proposal; no production changes, new phase branch, commit or push are authorized by this planning gate. Planning evidence: [PHASE_04_PLANNING_REPORT.md](../docs/status/PHASE_04_PLANNING_REPORT.md).
+
+## Architecture freeze / ADR review gate — 2026-10-15
+
+The preceding planning checkpoint is historical. Independent [plan review](../reviews/PHASE_04_PLAN_REVIEW.md) returned **PHASE_04_PLAN_PASS**. Subsequent owner direction authorized documentation amendments, Proposed ADR-018/019/020 and branch `phase/04-cad-normalization` from `v0.4-phase03`; branch creation has now occurred with local evidence preserved.
+
+Current evidence: [ADR gate report](../docs/status/PHASE_04_ADR_GATE_REPORT.md). The updated implementation plan integrates H-01/M-01/M-02/M-03/L-01. All three ADRs remain **Proposed**. Accepted prerequisites: 04A requires018; 04B requires018+019; 04C/D require019; 04E requires019+020; 04F requires018+020 for occurrence inheritance; 04G all relevant ADRs; 04H verifies the entire accepted architecture. No implementation may use a still-Proposed decision.
+
+**ADR_REVIEW_REQUIRED. STOP before04A.** No production/tests/project/package creation, commit or push in this gate; no Raw/Dxf/LOW-01/03H changes. The owner must authorize subsequent implementation after independent ADR review.
+
+## PHASE04A implemented / independent review gate — 2026-10-16
+
+Owner accepted ADR-018/019/020 after independent **PHASE_04_ADR_PASS** and authorized 04A only. ADR technical content is unchanged; status alone is Accepted. Earlier planning/freeze checkpoints above remain historical.
+
+Implemented additive `DtoB.Cad.V2` immutable contracts, independent `CadContract`/`CadIrJson`, provenance registry, typed cad2 framing primitive and matrix value storage. New pure `DtoB.Cad.Normalize` project exposes `ICadNormalizer` and structured results/options/limits with **no engine implementation**.
+
+Core Release and full Solution Release/Rebuild passed using the established Visual Studio fallback. Final suite: **844 passed / 0 failed / 0 skipped**; released 773 cases all retained/passing; 71 new cases. Contract JSON/source ID matched across Invariant/fr-FR/ko-KR in two CWDs/fresh processes. All86 legacy fixture hashes and Raw/Dxf/Core/Geometry/Analysis/Desktop/Revit protected source hashes retained.
+
+See [PHASE_04A_REPORT.md](../docs/status/PHASE_04A_REPORT.md) for evidence, limitations, changed files and initial failure/final-result distinction. No actual units/angles/OCS/INSERT/MINSERT/style/bulge/bounds/spatial assembly or recognition is implemented. **STOP before04B; independent 04A Antigravity review required. No commit/push.**
+
+## PHASE04H local whole-phase QA checkpoint — 2026-10-19
+
+The earlier planning/ADR/subphase stop checkpoints above are preserved as history.
+Owner subsequently authorized each accepted04A–G implementation and now04H only.
+Independent04A–G reviews pass;04H adds QA/data/docs only, with no production change.
+
+119 physical inputs (unchanged86 +33 minimal new),31 normalized goldens,
+independent numerical/source oracles, strict triple roundtrip, three cultures,
+two fresh processes/distinct CWDs and final unfiltered reproduction pass.
+All accepted04A–G digests remain exact. Fresh Core/full Solution Release Rebuild
+and1402/1402 tests pass;all1315 baseline IDs/names remain,87 new QA cases.
+Raw/Dxf and protected application/domain boundaries unchanged. Official document
+remains Partial;Unsupported52 and LOW01 remain explicit.
+
+See docs/status/PHASE_04H_REPORT.md, docs/status/PHASE_04_FINAL_GATE.md and
+machine-readable release/payload inventories under docs/status/phase04/.
+Local verdict PHASE_04_FINAL_PASS_WITH_KNOWN_LIMITATIONS; independent whole-phase
+review PENDING. No PHASE05, staging, commit, push, PR or tag. STOP for Antigravity.

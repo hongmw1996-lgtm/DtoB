@@ -1,0 +1,437 @@
+[
+  {
+    "testId": "c9f35235-604e-8c40-dee8-06b61149b6d3",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"cycle\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "c218f988-65b8-5771-9784-a5459037f9fa",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "271bfad1-cfcf-2acc-681d-e21cb6235c53",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-0\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "d4445431-29f4-236e-71de-efe5b64e0401",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"unit-2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "c6efc24c-3500-3c9c-7742-bea3229e438c",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "180649ea-0f84-6c09-4dae-b2a5cd00232d",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-4\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "3c02b9c8-f112-cda2-7b97-1fa6e4c177b0",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-refuse-0\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "7cb20c6b-2f78-1e25-7e9c-c8ac3eb32131",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-7\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "4854cbd4-f450-92e5-186e-960d5901479b",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"unknown\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "61591b0b-f998-083d-3449-0f5f500ded09",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"block-base\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "1af0788d-c669-e30b-4a6f-dabcd4af6e1f",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"affine-mirror\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "db38d66f-e488-5b30-e490-56d135ed2580",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "331a51a4-df7d-dc36-accc-977221193152",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "9dce2d58-b1b0-fa0a-f768-b04a1b89c606",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-minus1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "d8bccfb4-fa14-36cb-97b7-782907f9fe3f",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"missing\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "ee58eb84-6a1f-ebb8-1807-ffa0eb846851",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"id\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "60e20f57-9e00-77ec-b109-a5f5133ca510",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"affine-mirror\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "f438c473-1c29-3e17-e124-8dde3daa4ec4",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-degenerate\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "7230aa8f-aaab-03ab-a2f7-89f6c33aa0df",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"nested\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "b907d511-9608-1cd9-83d6-970332cd220e",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"schema\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "dda5bc5f-fa06-7ce9-1a0e-3aa803fa4bcb",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "0d5787d4-bbf2-bbaf-fd93-79b73d75d6c2",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"minsert\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "1a34f696-ad91-a923-73ac-95540a1a10a7",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-closed-tilted\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "cf8201dd-39ed-d043-0db9-4e4a719785eb",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-0\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "48d5b38a-425f-eb93-8b08-4b49288c16c1",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-7\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "8ec8d4c0-84c5-cfe6-6797-82ba96230cd9",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "11661f86-74ce-5a53-c10b-25a14eab4077",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.CorpusManifestProtectsEveryInputAndExplainsEveryExclusion",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "2c564377-1996-88db-78ba-6aa3637fcb56",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "cf9d741e-28f9-f0d9-f160-d1590351b40f",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"unit-5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "3eb26482-6684-8218-595a-e69bd520536f",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"enum\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "019b7fed-f2cc-973a-5162-e92bbae90fed",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"legacy-phase02-DtoB_TEST_2STORY_R2018\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "e2cb2de6-a006-da3b-dce1-beae6da8b865",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.WholePipelineRefusalPublishesNoDocument(condition: \"cancel\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "c86bb1ff-173c-4148-e717-3a560c08aa7e",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "22dfad27-25e0-f756-e56b-60c4e5d08156",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"unit-4\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "843aabc7-1424-9583-3ea6-db75d9f7bbf0",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-minus2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "990e0a03-aa42-fef1-d36b-ff2430dec74b",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ExactMinsertCellLimitAndLimitPlusOneReachFinalNormalizer(cells: 10001, allowed: False)",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "613d4667-aa44-b26f-fded-afc24e56c232",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-refuse-3\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "b23c09e7-e920-265d-77fc-cee8b29eb683",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"missing-catalog\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "e7da6937-0205-13b9-12a4-337763e1ef60",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-4\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "85e2e29f-fd73-3193-48dd-188ef165c960",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.CaptureCandidatesOnlyAfterOraclesRoundtripAndCultureEquality",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "1174d563-e4fd-d67e-74f1-c57fe59c6c89",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-6\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "c979f78d-335f-bb7b-35fd-9472af080be7",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"reference\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "9ff5e476-13b7-652b-1ed6-9133b881a2b9",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.WholePipelineRefusalPublishesNoDocument(condition: \"geometry-budget\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "edd47a47-cdb9-01f6-36e3-194b6f11fb3a",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-minus0p5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "1a42b641-893c-4247-75ec-fdf682bf8c38",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ManifestCoverageRejectsSilentLossAndDuplicatePaths(mutation: \"omission\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "4fb1af63-486e-770c-b669-2f66ba1b4314",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.WholePipelineRefusalPublishesNoDocument(condition: \"authority\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "87b98bbe-76bf-fb27-0a4a-23b14195c5ec",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "dcca496a-24a5-6519-9cdd-79eb8ae6fe05",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-absent\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "d8bf4c1c-df35-dca4-b105-b8773841c010",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-0p5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "fa79482c-b658-25c5-c21a-9df24448ee86",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-0\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "f98fb611-5b1f-b906-4c42-e8146120e4ad",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-3\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "2824c6e6-c1d5-bb21-bac4-b390e353519c",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "8ec98de0-476d-49ad-f88b-6454b4a54016",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"block-base\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "ee7142bf-f953-d335-d636-0638a0b53a1f",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"list\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "755ab241-920b-8292-5c83-62870f133630",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.WholePipelineRefusalPublishesNoDocument(condition: \"diagnostics\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "f98279fa-200a-2fbd-c99a-a997e7767ab3",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-6\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "fd10193d-a9de-fe98-89f3-7b85ce6f2204",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"missing-catalog\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "03271d6b-0067-a6c7-6ae9-97806f496d2a",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-0p5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "1b602b0d-4985-1a6c-00ee-9b7466d60703",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"shared-style\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "c5fb25a7-44e8-c9dd-2720-344d0d6063ff",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"nested\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "128816e4-51d0-820c-1d66-20ad146989ff",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-3\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "78915346-6126-ba92-6a6c-fc64ae634460",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"unit-6\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "a0dca00a-4b04-d342-0730-5e93e4aefdba",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"unit-1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "0f2b1498-200b-b038-a5ec-61d8aec181ec",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"matrix\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "eabdf9b5-b931-4030-63f3-d941bd1b4e48",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-minus2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "4a276445-f6f4-fac8-19b4-dfb0fd09266d",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-closed-tilted\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "0b476ee0-2973-b7fc-a11f-a037871205a8",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"legacy-phase02-DtoB_TEST_2STORY_R2018\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "fbbe4a89-b192-75a4-8e86-a511782a05ea",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"unit-6\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "20f5801c-bd56-4f88-66ff-26848c851af4",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-4\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "837bc0ef-bcfe-d23e-cdba-11781df00184",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"ocs-2\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "66e7694a-f645-ca65-3963-725cea6bf1b3",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "9db262e0-a39e-e8c9-b9dc-c2196211eb0f",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ManifestCoverageRejectsSilentLossAndDuplicatePaths(mutation: \"duplicate\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "3bbbac71-4cd8-4d8d-4e44-04dbd774a845",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.NonsemanticContextIndexConstructionOrderCannotChangeCanonicalOutput",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "6866e940-d29e-20fb-a7f7-2540ab812b63",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-minus1\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "46025438-74ee-dfbe-de07-0bbafe8fb186",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"shared-style\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "2cb6c72d-d982-cc68-9d77-2d227e3e5fd0",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ManifestCoverageRejectsSilentLossAndDuplicatePaths(mutation: \"case-duplicate\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "1e240bab-5e27-84de-6565-a196b27be2ba",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"affine-positive\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "bd682798-e220-b9dc-a346-a5064b1e66d8",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"minsert\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "85cda456-b9a8-eb1a-3316-659536d6c7b7",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ExactMinsertCellLimitAndLimitPlusOneReachFinalNormalizer(cells: 10000, allowed: True)",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "40c4b7be-92c4-e926-7cf7-bc0f058b971e",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"cycle\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "ba24b619-5a0b-1522-d702-ac5c76efdfe4",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"ocs-5\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "8341db2f-ff01-aeee-10c6-1cfab92145db",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"bulge-degenerate\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "39377ed9-e5cf-f161-1a27-a94ec02f909d",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-0\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "a36e7121-d372-d0f1-4fb6-e5e4a9615351",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.StrictCodecRejectsMutationsOfActualNormalizedDocument(mutation: \"duplicate\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "32114e2a-7682-1295-3f1d-b52aba1ae3e0",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.WholePipelineRefusalPublishesNoDocument(condition: \"profile\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "87de437d-659c-fbbf-dc1e-c67e7dfd9719",
+    "testName": "DtoB.Tests.Cad04HCorpusTests.PhysicalCorpusHasReviewedMathImmutableRawAndTripleRoundtrip(key: \"affine-positive\")",
+    "outcome": "Passed"
+  },
+  {
+    "testId": "a1f863c6-fc9d-594b-6b11-56cfa3fc81eb",
+    "testName": "DtoB.Tests.Cad04HReleaseTests.ReleaseGoldensAreStrictAndCannotBeRegeneratedByTheAssertion(key: \"bulge-minus0p5\")",
+    "outcome": "Passed"
+  }
+]

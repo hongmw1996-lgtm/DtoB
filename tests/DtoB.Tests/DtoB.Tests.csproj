@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="../../packages/DtoB.Cad.Normalize/DtoB.Cad.Normalize.csproj" />
     <ProjectReference Include="../../packages/DtoB.Cad.Raw/DtoB.Cad.Raw.csproj" />
     <ProjectReference Include="../../packages/DtoB.Cad.Dxf/DtoB.Cad.Dxf.csproj" />
     <Compile Include="../../apps/DtoB.Desktop/ShellViewModel.cs" Link="Desktop/ShellViewModel.cs" />
